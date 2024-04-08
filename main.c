@@ -1,8 +1,9 @@
+#include "main.h"
 #include <stdio.h>
-//#include "mylib/mylib.h"
+
 
 int main()
 {
-
-
+    stdio_init_all();
+    return 0;
 }

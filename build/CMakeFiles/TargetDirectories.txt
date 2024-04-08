@@ -1,4 +1,4 @@
-C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/build/CMakeFiles/NAZWA_PROJEKTU.dir
+C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/build/CMakeFiles/MPU6050_MotionAnalyzer.dir
 C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/build/CMakeFiles/edit_cache.dir
 C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/build/CMakeFiles/rebuild_cache.dir
 C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/build/pico-sdk/CMakeFiles/edit_cache.dir
