@@ -5,7 +5,6 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "${env:PICO_SDK_PATH}/**",
-                "C:/VSARM/PI_PICO_PROJECTS/bike_computer/LCD_lib",
                 "C:/VSARM/sdk/pico/pico-sdk/src/common/pico_stdlib/include"
             ],
             "defines": [

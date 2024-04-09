@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "mpu6050.h": "c"
+        "mpu6050.h": "c",
+        "main.h": "c",
+        "random": "c"
     }
 }

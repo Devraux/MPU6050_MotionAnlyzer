@@ -1,11 +1,10 @@
 #include "mpu6050.h"
 
-
-
+static int address = 0x68;
 void mpu_reset()
 {
-    uint8_t buf[] = {reset, 0x80}; //0x80 => 1000 0000
-    i2c_write_blocking(i2c1, address, buf, sizeof(buf), false);
+    uint8_t buf[] = {0x6B, 0x80}; //0x80 => 1000 0000
+    i2c_write_blocking(i2c1, address, buf, 2, false);
 }
 
 void mpu_init()
@@ -21,32 +20,28 @@ void mpu_init()
 
 void mpu_read(int16_t accel[3], int16_t gyro[3], int16_t *temp)
 {
+
     uint8_t buffer[6];
+    uint8_t val = 0x3B;
+    i2c_write_blocking(i2c1, address, &val, 1, true); 
+    i2c_read_blocking(i2c1, address, buffer, 6, false);
 
-    mpu_cal(); //calibration
-
-    i2c_write_blocking(i2c0, address, (uint8_t*)accel_add, 1, true); // true to keep master control of bus
-    i2c_read_blocking(i2c0, address, buffer, 6, false);
-
-    for (int i = 0; i < 3; i++)
-    {
+    for (int i = 0; i < 3; i++) {
         accel[i] = (buffer[i * 2] << 8 | buffer[(i * 2) + 1]);
     }
+    //printf("%d", buffer[0], buffer[1], buffer[2], buffer[3], buffer[4], buffer[5]);
 
+    val = 0x43;
+    i2c_write_blocking(i2c1, address, &val, 1, true);
+    i2c_read_blocking(i2c1, address, buffer, 6, false);  // False - finished with bus
 
-    i2c_write_blocking(i2c_default, address, (uint8_t*)gyro_add, 1, true);
-    i2c_read_blocking(i2c_default, address, buffer, 6, false);  
-
-    for (int i = 0; i < 3; i++)
-    {
-        gyro[i] = (buffer[i * 2] << 8 | buffer[(i * 2) + 1]);;
+    for (int i = 0; i < 3; i++) {
+        gyro[i] = (buffer[i * 2] << 8 | buffer[(i * 2) + 1]);
     }
-    
 
-    i2c_write_blocking(i2c_default, address,(uint8_t*)temp_add, 1, true);
-    i2c_read_blocking(i2c_default, address, buffer, 2, false);  
+    val = 0x41;
+    i2c_write_blocking(i2c1, address, &val, 1, true);
+    i2c_read_blocking(i2c1, address, buffer, 2, false);  // False - finished with bus
 
     *temp = buffer[0] << 8 | buffer[1];
-
-    
 }

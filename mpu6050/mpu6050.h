@@ -1,13 +1,15 @@
 #ifndef _mpu6050_
 #define _mpu6050_
 
-#include<stdlib.h>
-#include<stdbool.h>
-#include"hardware/i2c.h"
+//#include <stdlib.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include "hardware/uart.h"
+#include "hardware/i2c.h"
 #include "hardware/gpio.h"
 
 
-#define address 0x68 //I2C address
+//#define address 0x68 //I2C address
 #define reset 0x6B //reset address
 #define accel_add 0x3B //accelerator data address register
 #define gyro_add 0x43 //gryoscope data address register

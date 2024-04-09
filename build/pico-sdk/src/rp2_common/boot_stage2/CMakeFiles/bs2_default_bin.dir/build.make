@@ -69,7 +69,7 @@ pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin: pico-sdk/src/rp2
 
 pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin: pico-sdk/src/rp2_common/boot_stage2/bs2_default.elf
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=C:\VSARM\PI_PICO_PROJECTS\MPU6050_MotionAnlyzer\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating bs2_default.bin"
-	cd /d C:\VSARM\PI_PICO_PROJECTS\MPU6050_MotionAnlyzer\build\pico-sdk\src\rp2_common\boot_stage2 && "C:\VSARM\armcc\10 2021.10\bin\arm-none-eabi-objcopy.exe" -Obinary C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default.elf C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin
+	cd /d C:\VSARM\PI_PICO_PROJECTS\MPU6050_MotionAnlyzer\build\pico-sdk\src\rp2_common\boot_stage2 && "C:\Program Files (x86)\Arm GNU Toolchain arm-none-eabi\12.3 rel1\bin\arm-none-eabi-objcopy.exe" -Obinary C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default.elf C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin
 
 bs2_default_bin: pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin
 bs2_default_bin: pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin

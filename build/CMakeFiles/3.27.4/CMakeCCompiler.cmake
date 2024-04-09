@@ -1,7 +1,7 @@
-set(CMAKE_C_COMPILER "C:/VSARM/armcc/10 2021.10/bin/arm-none-eabi-gcc.exe")
+set(CMAKE_C_COMPILER "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/12.3 rel1/bin/arm-none-eabi-gcc.exe")
 set(CMAKE_C_COMPILER_ARG1 "")
 set(CMAKE_C_COMPILER_ID "GNU")
-set(CMAKE_C_COMPILER_VERSION "10.3.1")
+set(CMAKE_C_COMPILER_VERSION "12.3.1")
 set(CMAKE_C_COMPILER_VERSION_INTERNAL "")
 set(CMAKE_C_COMPILER_WRAPPER "")
 set(CMAKE_C_STANDARD_COMPUTED_DEFAULT "17")
@@ -21,11 +21,11 @@ set(CMAKE_C_SIMULATE_VERSION "")
 
 
 
-set(CMAKE_AR "C:/VSARM/armcc/10 2021.10/bin/arm-none-eabi-ar.exe")
-set(CMAKE_C_COMPILER_AR "C:/VSARM/armcc/10 2021.10/bin/arm-none-eabi-gcc-ar.exe")
-set(CMAKE_RANLIB "C:/VSARM/armcc/10 2021.10/bin/arm-none-eabi-ranlib.exe")
-set(CMAKE_C_COMPILER_RANLIB "C:/VSARM/armcc/10 2021.10/bin/arm-none-eabi-gcc-ranlib.exe")
-set(CMAKE_LINKER "C:/VSARM/armcc/10 2021.10/bin/arm-none-eabi-ld.exe")
+set(CMAKE_AR "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/12.3 rel1/bin/arm-none-eabi-ar.exe")
+set(CMAKE_C_COMPILER_AR "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/12.3 rel1/bin/arm-none-eabi-gcc-ar.exe")
+set(CMAKE_RANLIB "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/12.3 rel1/bin/arm-none-eabi-ranlib.exe")
+set(CMAKE_C_COMPILER_RANLIB "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/12.3 rel1/bin/arm-none-eabi-gcc-ranlib.exe")
+set(CMAKE_LINKER "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/12.3 rel1/bin/arm-none-eabi-ld.exe")
 set(CMAKE_MT "")
 set(CMAKE_TAPI "CMAKE_TAPI-NOTFOUND")
 set(CMAKE_COMPILER_IS_GNUCC 1)
@@ -68,7 +68,7 @@ endif()
 
 
 
-set(CMAKE_C_IMPLICIT_INCLUDE_DIRECTORIES "C:/VSARM/armcc/10 2021.10/lib/gcc/arm-none-eabi/10.3.1/include;C:/VSARM/armcc/10 2021.10/lib/gcc/arm-none-eabi/10.3.1/include-fixed;C:/VSARM/armcc/10 2021.10/arm-none-eabi/include")
+set(CMAKE_C_IMPLICIT_INCLUDE_DIRECTORIES "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/12.3 rel1/lib/gcc/arm-none-eabi/12.3.1/include;C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/12.3 rel1/lib/gcc/arm-none-eabi/12.3.1/include-fixed;C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/12.3 rel1/arm-none-eabi/include")
 set(CMAKE_C_IMPLICIT_LINK_LIBRARIES "")
-set(CMAKE_C_IMPLICIT_LINK_DIRECTORIES "C:/VSARM/armcc/10 2021.10/lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp;C:/VSARM/armcc/10 2021.10/arm-none-eabi/lib/thumb/v6-m/nofp;C:/VSARM/armcc/10 2021.10/lib/gcc/arm-none-eabi/10.3.1;C:/VSARM/armcc/10 2021.10/lib/gcc;C:/VSARM/armcc/10 2021.10/arm-none-eabi/lib")
+set(CMAKE_C_IMPLICIT_LINK_DIRECTORIES "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/12.3 rel1/lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp;C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/12.3 rel1/arm-none-eabi/lib/thumb/v6-m/nofp;C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/12.3 rel1/lib/gcc/arm-none-eabi/12.3.1;C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/12.3 rel1/lib/gcc;C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/12.3 rel1/arm-none-eabi/lib")
 set(CMAKE_C_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")
