@@ -1,10 +1,27 @@
 #include "mpu6050.h"
 
-static int address = 0x68;
+
+void who_i_am(uint8_t* mpu_address)
+{
+    uint8_t who_am_i;
+    uint8_t val = 0x75; // who i am register value
+    i2c_write_blocking(i2c1, address, &val, 1, true); 
+    i2c_read_blocking(i2c1, address, &who_am_i, 1, false); 
+    *mpu_address = who_am_i;
+
+    if (who_am_i != 0x68) 
+        printf("Address is not 0x68:, addres is: %d", who_am_i);
+    
+    else 
+        printf("Address is 0x68, adress is : %d", who_am_i);
+}
+
 void mpu_reset()
 {
-    uint8_t buf[] = {0x6B, 0x80}; //0x80 => 1000 0000
-    i2c_write_blocking(i2c1, address, buf, 2, false);
+    uint8_t buf[] = {0x6B, 0x08}; //0x80 => 1000 0000
+    
+    i2c_write_blocking(i2c1, address, &buf[0], 2, true);
+    i2c_write_blocking(i2c1, address, &buf[1], 2, false);   
 }
 
 void mpu_init()
@@ -20,7 +37,6 @@ void mpu_init()
 
 void mpu_read(int16_t accel[3], int16_t gyro[3], int16_t *temp)
 {
-
     uint8_t buffer[6];
     uint8_t val = 0x3B;
     i2c_write_blocking(i2c1, address, &val, 1, true); 
@@ -29,7 +45,7 @@ void mpu_read(int16_t accel[3], int16_t gyro[3], int16_t *temp)
     for (int i = 0; i < 3; i++) {
         accel[i] = (buffer[i * 2] << 8 | buffer[(i * 2) + 1]);
     }
-    //printf("%d", buffer[0], buffer[1], buffer[2], buffer[3], buffer[4], buffer[5]);
+
 
     val = 0x43;
     i2c_write_blocking(i2c1, address, &val, 1, true);
