@@ -18,10 +18,19 @@ void who_i_am(uint8_t* mpu_address)
 
 void mpu_reset()
 {
-    uint8_t buf[] = {0x6B, 0x08}; //0x80 => 1000 0000
+    uint8_t buf[] = {0x6B, 0x80}; //0x80 => 1000 0000
+
+    i2c_write_blocking(i2c1, address, &buf[0], 1, true);
+    i2c_write_blocking(i2c1, address, &buf[1], 1, false);
+
+    sleep_ms(50);
+
+    buf[0] = 0x6B;
+    buf[1] = 0x00;
+    i2c_write_blocking(i2c1, address, &buf[0], 1, true);
+    i2c_write_blocking(i2c1, address, &buf[2], 1, false);
     
-    i2c_write_blocking(i2c1, address, &buf[0], 2, true);
-    i2c_write_blocking(i2c1, address, &buf[1], 2, false);   
+
 }
 
 void mpu_init()
