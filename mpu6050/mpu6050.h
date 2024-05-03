@@ -8,16 +8,6 @@
 #include "hardware/i2c.h"
 #include "hardware/gpio.h"
 
-#define ptr_cast(x) ((const uint8_t *)(uintptr_t)(x))
-
-/*
-#define address UINT8_C(0x68) //device address
-#define who_i_am_add UINT8_C(0x75)
-#define reset_add UINT8_C(0x6B) //reset address
-#define accel_add UINT8_C(0x3B) //accelerator data address register
-#define gyro_add UINT8_C(0x43) //gryoscope data address register
-#define temp_add UINT8_C(0x41) //temperature data address register
-*/
 
 //I2C INTERFACE//
 #define SDA_Pin 26
