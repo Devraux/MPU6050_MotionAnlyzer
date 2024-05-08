@@ -11,7 +11,7 @@ MPU6050_REG mpu6050_reg = {
     .gyro_config = 0x1B // gyroscope resolution config register and calibration
 };
 
-void write_i2c(uint8_t i2c_address, uint8_t reg, uint8_t data)
+void i2c_write_reg(uint8_t i2c_address, uint8_t reg, uint8_t data)
 {
     uint8_t tab[] = {reg, data};
     i2c_write_blocking(i2c1, i2c_address, tab, sizeof(tab), false);
@@ -38,9 +38,10 @@ void mpu_reset()
     uint8_t buf2[] = {0x6B, 0x80}; //0x80 => 1000 0000
     i2c_write_blocking(i2c1, mpu6050_reg.address, &buf2[0], 1, true);
     i2c_write_blocking(i2c1, mpu6050_reg.address, &buf2[1], 1, false);
+    sleep_ms(50);
  }
 
-void mpu_init()
+void mpu_init(MPU6050* mpu6050)
 {
     i2c_init(i2c1, 400000);
     gpio_set_function(SDA_Pin, GPIO_FUNC_I2C); //27 and 26
@@ -50,7 +51,7 @@ void mpu_init()
 
     mpu_reset();
 
-    mpu_setresolution(1, 3); // set +-16 g and +- resolution
+    mpu_setresolution(0, 0, mpu6050);
 }
 
 void mpu_read(MPU6050* mpu6050)
@@ -58,24 +59,25 @@ void mpu_read(MPU6050* mpu6050)
     uint8_t buffer[6];
     int16_t temperature = 0;
 
+    //ACCELERATION
     i2c_write_blocking(i2c1, mpu6050_reg.address, &mpu6050_reg.accel_add, 1, true); 
     i2c_read_blocking(i2c1, mpu6050_reg.address, buffer, 6, false);
 
-    for (int i = 0; i < 3; i++)
-    {
-        mpu6050->acceleration[i] = (buffer[i * 2] << 8 | buffer[(i * 2) + 1]);
-    }
-
+    mpu6050->acceleration[0] = (buffer[0] << 8) | buffer[1];// mpu6050->acceleration[0] = mpu6050->acceleration[0] / mpu6050->accel_config;
+    mpu6050->acceleration[1] = (buffer[2] << 8) | buffer[3];// mpu6050->acceleration[1] = mpu6050->acceleration[1] / mpu6050->accel_config;
+    mpu6050->acceleration[2] = (buffer[4] << 8) | buffer[5];// mpu6050->acceleration[2] = mpu6050->acceleration[2] / mpu6050->accel_config;
    
+
+    //GYROSCOPE
     i2c_write_blocking(i2c1,mpu6050_reg.address, &mpu6050_reg.gyro_add, 1, true);
     i2c_read_blocking(i2c1, mpu6050_reg.address, buffer, 6, false);  
 
-    for (int i = 0; i < 3; i++)
-    {
-        mpu6050->gyro[i] = (buffer[i * 2] << 8 | buffer[(i * 2) + 1]);
-    }
+    mpu6050->gyro[0] = (buffer[0] << 8) | buffer[1];
+    mpu6050->gyro[1] = (buffer[2] << 8) | buffer[3];
+    mpu6050->gyro[2] = (buffer[4] << 8) | buffer[5];
 
 
+    //TEMPERATURE
     i2c_write_blocking(i2c1,mpu6050_reg.address, &mpu6050_reg.temp_add, 1, true);
     i2c_read_blocking(i2c1, mpu6050_reg.address, buffer, 2, false);  
 
@@ -86,60 +88,73 @@ void mpu_read(MPU6050* mpu6050)
 bool mpu_self_test()
 {
     MPU6050_SELFTEST mpu6050_selftest;
-
+    //mpu_setresolution(1, 2);// gyro => +-250, acc => +- 8
 
 
     return true;
 }
 
-void mpu_setresolution(uint8_t gyro_res, uint8_t acc_res)
+void mpu_setresolution(uint8_t gyro_res, uint8_t acc_res, MPU6050* mpu6050)
 {
     uint8_t check, resolution = 0;
+    uint16_t res_value = 0;
 
+    //GYROSCOPE RESOLUTION
     switch(gyro_res)
     {
         case 0: //+- 250
             resolution = 0b00000000;
+            res_value = 131;
             break;
 
         case 1: //+- 500
             resolution = 0b00001000;
+            res_value = 65.5;
             break;
 
         case 2: //+- 1000
             resolution = 0b00010000;
+            res_value = 32.8;
             break;
 
         case 3: //+- 2000
             resolution = 0b00011000;
+            res_value = 16.4;
             break;
     }
 
-    // SET GYRO RESOLUTION
-    write_i2c(mpu6050_reg.address, mpu6050_reg.gyro_config, resolution);
+    i2c_write_reg(mpu6050_reg.address, mpu6050_reg.gyro_config, resolution);
+    mpu6050->gyro_config = res_value;
 
 
+    //ACCELEROMETER RESOLUTION
     switch(acc_res)
     {
         case 0: //+- 2
             resolution = 0b00000000;
+            res_value = 16384;
             break;
 
         case 1: //+- 4
             resolution = 0b00001000;
+            res_value = 8192;
             break;
 
         case 2: //+- 8
             resolution = 0b00010000;
+            res_value = 4096;
             break;
 
         case 3: //+- 16
             resolution = 0b00011000;
+            res_value = 2048;
             break;
     }
     
-    // SET ACCEL RESOLUTION
-    write_i2c(mpu6050_reg.address,mpu6050_reg.acc_config ,resolution);
+    i2c_write_reg(mpu6050_reg.address,mpu6050_reg.acc_config ,resolution);
+    mpu6050->accel_config = res_value; 
+
+
 
     //CHECK GYRO RESOLUTION
     i2c_write_blocking(i2c1, mpu6050_reg.address, &mpu6050_reg.gyro_config, 1, true);
@@ -153,5 +168,4 @@ void mpu_setresolution(uint8_t gyro_res, uint8_t acc_res)
     i2c_read_blocking(i2c1, mpu6050_reg.address, &check ,1 , false); 
     if(check != resolution)
         printf("\ncheck:%d\n", check);
-
 }

@@ -4,8 +4,8 @@
 int main()
 {
     stdio_init_all();
-    mpu_init();
     MPU6050 mpu6050;
+    mpu_init(&mpu6050);
 
     
     while(1)

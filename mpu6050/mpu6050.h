@@ -24,12 +24,14 @@ typedef struct MPU6050_REG
     const uint8_t acc_config; // accelerometer resolution config and calibration
 }MPU6050_REG;
 
-
 typedef struct MPU6050
 {
-    int16_t acceleration[3];
-    int16_t gyro[3];
-    float temp;
+    int16_t acceleration[3]; // X - Y - Z Acceleration
+    int16_t gyro[3];         // X - Y - Z Gyroscope Data
+    float temp;              // Temperature
+
+    uint16_t accel_config;   // 16384, 8192, 4096, 2048  
+    float gyro_config;       // 131, 65.5, 32.8, 16.4     
 }MPU6050;
 
 typedef struct MPU6050_SELFTEST
@@ -40,13 +42,34 @@ typedef struct MPU6050_SELFTEST
 
 
 //write_i2c()//
-//i2c_address => device address, reg => device register(place to write data), data => data to write in register  
-void write_i2c(uint8_t i2c_address, uint8_t reg, uint8_t data);
-void mpu_init(); //mpu I2C init
-bool mpu_self_test(); // mpu6050 sensor self test, return true if selftest goes properly and false otherwise
-void who_i_am(uint8_t* mpu_address); // get I2C address
-void mpu_reset(); // device reset
-void mpu_setresolution(uint8_t gyro_res, uint8_t acc_res); //±2g, ±4g, ±8g, or ±16g 
+//@param i2c_address => device address
+//@param reg => device register(place to write data)
+//@param data => data to write in register  
+void i2c_write_reg(uint8_t i2c_address, uint8_t reg, uint8_t data);
+
+//mpu I2C init//
+//@param mpu6050 =>mpu6050 data structure
+void mpu_init(MPU6050* mpu6050); 
+
+// mpu6050 sensor self test, return true if selftest goes properly and false otherwise//
+bool mpu_self_test(); 
+
+//who_i_am//
+// save MPU6050 I2C address in mpu_address param
+void who_i_am(uint8_t* mpu_address); 
+
+//device reset//
+void mpu_reset(); 
+
+//mpu_setresolution
+//@param gyro_res => gyrometer resolution
+//@param acc_res => acceleroeter resolution <=> ±2g, ±4g, ±8g, or ±16g  <=user enter=> 0, 1, 2, 3 
+//@param mpu6050 => mpu6050 data structure <=> ±250 ±500g ±1000g ±2000g <=user enter=> 0, 1, 2, 3
+void mpu_setresolution(uint8_t gyro_res, uint8_t acc_res, MPU6050* mpu6050); 
+
+//mpu_read
+// reaad data from sensor
+//@param mpu6050 => mpu6050 data structure 
 void mpu_read(MPU6050* mpu6050); // read data from mpu6050
 
 #endif
