@@ -30,8 +30,8 @@ typedef struct MPU6050
     int16_t gyro[3];         // X - Y - Z Gyroscope Data
     float temp;              // Temperature
 
-    uint16_t accel_config;   // 16384, 8192, 4096, 2048  
-    float gyro_config;       // 131, 65.5, 32.8, 16.4     
+    uint8_t accel_config;   // 0=> 16384, 1=>8192, 2=>4096, 3=>2048  
+    uint8_t gyro_config;    // 0=>131, 1=>65.5, 2=>32.8, 3=>16.4     
 }MPU6050;
 
 typedef struct MPU6050_SELFTEST
@@ -68,7 +68,7 @@ void mpu_reset();
 void mpu_setresolution(uint8_t gyro_res, uint8_t acc_res, MPU6050* mpu6050); 
 
 //mpu_read
-// reaad data from sensor
+//reaad data from sensor
 //@param mpu6050 => mpu6050 data structure 
 void mpu_read(MPU6050* mpu6050); // read data from mpu6050
 
