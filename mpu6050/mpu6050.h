@@ -7,6 +7,7 @@
 #include "hardware/uart.h"
 #include "hardware/i2c.h"
 #include "hardware/gpio.h"
+#include <math.h>
 
 //I2C INTERFACE//
 #define SDA_Pin 26
@@ -40,9 +41,10 @@ typedef struct MPU6050
 
 typedef struct MPU6050_SELFTEST
 {
-    uint8_t STR_X, STR_Y, STR_Z; //STR => SELFT-TEST-RESPONSE
-    uint8_t FT_X, FT_Y, FT_Z; //FT => FACTORY TRIMMER
-    uint8_t X_TEST, Y_TEST, Z_TEST; // TEST REGISTER
+    uint8_t STR_X, STR_Y, STR_Z;            //STR => SELFT-TEST-RESPONSE
+    double FT_X, FT_Y, FT_Z;                //FT => FACTORY TRIMMER
+    uint8_t X_TEST, Y_TEST, Z_TEST, A_TEST; // TEST REGISTER
+    double X_ERROR, Y_ERROR, Z_ERROR;       //Errors given in %
 }MPU6050_SELFTEST;
 
 

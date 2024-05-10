@@ -1,14 +1,18 @@
 #include "mpu6050.h"
 
 MPU6050_REG mpu6050_reg = {
-    .address = 0x68, //device address
+    .address = 0x68,        //device address
     .who_i_am_add = 0x75,
-    .reset_add = 0x6B, //reset address
-    .accel_add = 0x3B, //accelerator data address register
-    .gyro_add = 0x43, //gryoscope data address register
-    .temp_add = 0x41, //temperature data address register
-    .acc_config = 0x1C, //accelerometer resolution config regisrer and calibration
-    .gyro_config = 0x1B // gyroscope resolution config register and calibration
+    .reset_add = 0x6B,      //reset address
+    .accel_add = 0x3B,      //accelerator data address register
+    .gyro_add = 0x43,       //gryoscope data address register
+    .temp_add = 0x41,       //temperature data address register
+    .acc_config = 0x1C,     //accelerometer resolution config regisrer and calibration
+    .gyro_config = 0x1B,    // gyroscope resolution config register and calibration
+    .XA_TEST = 0x0D,        //XA_TEST and XG_test register
+    .YA_TEST = 0x0E,        //YA_TEST and YG_test register
+    .ZA_TEST = 0x0F,        //ZA_TEST and ZG_test register
+    .A_TEST = 0x10          //second accelerometer test register XA_TEST[1:0]
 };
 
 void i2c_write_reg(uint8_t i2c_address, uint8_t reg, uint8_t data)
@@ -165,6 +169,7 @@ bool mpu_accel_st(MPU6050* mpu6050, MPU6050_SELFTEST* mpu6050_accel_st)
 {
     uint8_t gyro_res_mem = mpu6050->gyro_config;
     uint8_t accel_res_mem = mpu6050->accel_config;
+    uint8_t mask = 0b00000011;
 
     mpu_read(mpu6050); // read data before selF test
     uint8_t accel_x = mpu6050->acceleration[0];
@@ -173,21 +178,35 @@ bool mpu_accel_st(MPU6050* mpu6050, MPU6050_SELFTEST* mpu6050_accel_st)
 
     i2c_write_reg(mpu6050_reg.address, mpu6050->accel_config, 0b11110000); // enable selft test | set +-8g
 
+    i2c_write_blocking(i2c1, mpu6050_reg.address, &mpu6050_reg.XA_TEST, 1, true); 
+    i2c_read_blocking(i2c1, mpu6050_reg.address, &mpu6050_accel_st->X_TEST, 1, false);
+    
+    i2c_write_blocking(i2c1, mpu6050_reg.address, &mpu6050_reg.YA_TEST, 1, true); 
+    i2c_read_blocking(i2c1, mpu6050_reg.address, &mpu6050_accel_st->Y_TEST, 1, false);
+    
+    i2c_write_blocking(i2c1, mpu6050_reg.address, &mpu6050_reg.ZA_TEST, 1, true); 
+    i2c_read_blocking(i2c1, mpu6050_reg.address, &mpu6050_accel_st->Z_TEST, 1, false);
+    
+    i2c_write_blocking(i2c1, mpu6050_reg.address, &mpu6050_reg.A_TEST, 1, true); 
+    i2c_read_blocking(i2c1, mpu6050_reg.address, &mpu6050_accel_st->A_TEST, 1, false);
+    
+    mpu6050_accel_st->X_TEST = (mpu6050_accel_st->X_TEST >> 3); mpu6050_accel_st->X_TEST |= ((mpu6050_accel_st->A_TEST >> 4) & mask);
+    mpu6050_accel_st->Y_TEST = (mpu6050_accel_st->Y_TEST >> 3); mpu6050_accel_st->Y_TEST |= ((mpu6050_accel_st->A_TEST >> 2) & mask);
+    mpu6050_accel_st->Z_TEST = (mpu6050_accel_st->Z_TEST >> 3); mpu6050_accel_st->Z_TEST |= (mpu6050_accel_st->A_TEST & mask);
+    
+    mpu6050_accel_st->FT_X = 4096 * pow(0.92, (mpu6050_accel_st->X_TEST - 1.0) / 30.0);
+    mpu6050_accel_st->FT_Y = 4096 * pow(0.92, (mpu6050_accel_st->Y_TEST - 1.0) / 30.0);
+    mpu6050_accel_st->FT_Z = 4096 * pow(0.92, (mpu6050_accel_st->Z_TEST - 1.0) / 30.0);
+
     mpu_read(mpu6050); // read data while self test is enabled
     mpu6050_accel_st->STR_X = mpu6050->acceleration[0] - accel_x;
     mpu6050_accel_st->STR_Y = mpu6050->acceleration[1] - accel_y;
     mpu6050_accel_st->STR_Z = mpu6050->acceleration[2] - accel_z;
 
+    mpu6050_accel_st->X_ERROR = (mpu6050_accel_st->STR_X - mpu6050_accel_st->FT_X) / mpu6050_accel_st->FT_X;
+    mpu6050_accel_st->Y_ERROR = (mpu6050_accel_st->STR_Y - mpu6050_accel_st->FT_Y) / mpu6050_accel_st->FT_Y;
+    mpu6050_accel_st->Z_ERROR = (mpu6050_accel_st->STR_Z - mpu6050_accel_st->FT_Z) / mpu6050_accel_st->FT_Z;
     
-    
-
-
-
-
-
-
-
-
     mpu_setresolution(gyro_res_mem, accel_res_mem, mpu6050);// After self test come back to old config values and disable self test mode 
     return true;
 }
