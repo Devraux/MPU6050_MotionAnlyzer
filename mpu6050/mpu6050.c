@@ -210,3 +210,49 @@ bool mpu_accel_st(MPU6050* mpu6050, MPU6050_SELFTEST* mpu6050_accel_st)
     mpu_setresolution(gyro_res_mem, accel_res_mem, mpu6050);// After self test come back to old config values and disable self test mode 
     return true;
 }
+
+bool mpu_gyro_st(MPU6050* mpu6050, MPU6050_SELFTEST* mpu6050_gyro_st)
+{
+    uint8_t gyro_res_mem = mpu6050->gyro_config;
+    uint8_t accel_res_mem = mpu6050->accel_config;
+    uint8_t mask = 0b00011111;
+
+    mpu_read(mpu6050); // read data before selF test
+    uint8_t gyro_x = mpu6050->acceleration[0];
+    uint8_t gyro_y = mpu6050->acceleration[1];
+    uint8_t gyro_z = mpu6050->acceleration[2];
+
+    i2c_write_reg(mpu6050_reg.address, mpu6050->gyro_config, 0b11100000); // enable selft test | set +-250*/s
+
+    i2c_write_blocking(i2c1, mpu6050_reg.address, &mpu6050_reg.XA_TEST, 1, true); 
+    i2c_read_blocking(i2c1, mpu6050_reg.address, &mpu6050_gyro_st->X_TEST, 1, false);
+    
+    i2c_write_blocking(i2c1, mpu6050_reg.address, &mpu6050_reg.YA_TEST, 1, true); 
+    i2c_read_blocking(i2c1, mpu6050_reg.address, &mpu6050_gyro_st->Y_TEST, 1, false);
+    
+    i2c_write_blocking(i2c1, mpu6050_reg.address, &mpu6050_reg.ZA_TEST, 1, true); 
+    i2c_read_blocking(i2c1, mpu6050_reg.address, &mpu6050_gyro_st->Z_TEST, 1, false);
+    
+    i2c_write_blocking(i2c1, mpu6050_reg.address, &mpu6050_reg.A_TEST, 1, true); 
+    i2c_read_blocking(i2c1, mpu6050_reg.address, &mpu6050_gyro_st->A_TEST, 1, false);
+    
+    mpu6050_gyro_st->X_TEST = (mpu6050_gyro_st->X_TEST & mask);
+    mpu6050_gyro_st->Y_TEST = (mpu6050_gyro_st->Y_TEST & mask);
+    mpu6050_gyro_st->Z_TEST = (mpu6050_gyro_st->Z_TEST & mask);
+    
+    mpu6050_gyro_st->FT_X = 25 * 131 * pow(1.046, (mpu6050_gyro_st->X_TEST - 1.0));
+    mpu6050_gyro_st->FT_Y = -25 * 131 * pow(1.046, (mpu6050_gyro_st->Y_TEST - 1.0));
+    mpu6050_gyro_st->FT_Z = 25 * 131 * pow(1.046, (mpu6050_gyro_st->Z_TEST - 1.0));
+
+    mpu_read(mpu6050); // read data while self test is enabled
+    mpu6050_gyro_st->STR_X = mpu6050->acceleration[0] - gyro_x;
+    mpu6050_gyro_st->STR_Y = mpu6050->acceleration[1] - gyro_y;
+    mpu6050_gyro_st->STR_Z = mpu6050->acceleration[2] - gyro_z;
+
+    mpu6050_gyro_st->X_ERROR = (mpu6050_gyro_st->STR_X - mpu6050_gyro_st->FT_X) / mpu6050_gyro_st->FT_X;
+    mpu6050_gyro_st->Y_ERROR = (mpu6050_gyro_st->STR_Y - mpu6050_gyro_st->FT_Y) / mpu6050_gyro_st->FT_Y;
+    mpu6050_gyro_st->Z_ERROR = (mpu6050_gyro_st->STR_Z - mpu6050_gyro_st->FT_Z) / mpu6050_gyro_st->FT_Z;
+    
+    mpu_setresolution(gyro_res_mem, accel_res_mem, mpu6050);// After self test come back to old config values and disable self test mode 
+    return true;
+}
