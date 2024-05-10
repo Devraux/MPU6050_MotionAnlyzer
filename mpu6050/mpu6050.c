@@ -161,11 +161,33 @@ void mpu_setresolution(uint8_t gyro_res, uint8_t acc_res, MPU6050* mpu6050)
     */
 }
 
-bool mpu_self_test()
+bool mpu_accel_st(MPU6050* mpu6050, MPU6050_SELFTEST* mpu6050_accel_st)
 {
-    MPU6050_SELFTEST mpu6050_selftest;
-    //mpu_setresolution(1, 2);// gyro => +-250, acc => +- 8
+    uint8_t gyro_res_mem = mpu6050->gyro_config;
+    uint8_t accel_res_mem = mpu6050->accel_config;
+
+    mpu_read(mpu6050); // read data before selF test
+    uint8_t accel_x = mpu6050->acceleration[0];
+    uint8_t accel_y = mpu6050->acceleration[1];
+    uint8_t accel_z = mpu6050->acceleration[2];
+
+    i2c_write_reg(mpu6050_reg.address, mpu6050->accel_config, 0b11110000); // enable selft test | set +-8g
+
+    mpu_read(mpu6050); // read data while self test is enabled
+    mpu6050_accel_st->STR_X = mpu6050->acceleration[0] - accel_x;
+    mpu6050_accel_st->STR_Y = mpu6050->acceleration[1] - accel_y;
+    mpu6050_accel_st->STR_Z = mpu6050->acceleration[2] - accel_z;
+
+    
+    
 
 
+
+
+
+
+
+
+    mpu_setresolution(gyro_res_mem, accel_res_mem, mpu6050);// After self test come back to old config values and disable self test mode 
     return true;
 }

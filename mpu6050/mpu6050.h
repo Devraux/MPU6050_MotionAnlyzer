@@ -14,14 +14,18 @@
 
 typedef struct MPU6050_REG
 {
-    const uint8_t address; //device address
+    const uint8_t address;      //device address
     const uint8_t who_i_am_add;
-    const uint8_t reset_add; //reset address
-    const uint8_t accel_add; //accelerator data address register
-    const uint8_t gyro_add; //gryoscope data address register
-    const uint8_t temp_add; //temperature data address register
-    const uint8_t gyro_config; // gyroscope resolution config and calibration
-    const uint8_t acc_config; // accelerometer resolution config and calibration
+    const uint8_t reset_add;    //reset address
+    const uint8_t accel_add;    //accelerator data address register
+    const uint8_t gyro_add;     //gryoscope data address register
+    const uint8_t temp_add;     //temperature data address register
+    const uint8_t gyro_config;  // gyroscope resolution config and calibration
+    const uint8_t acc_config;   // accelerometer resolution config and calibration
+    const uint8_t XA_TEST;      //XA_TEST and XG_test register 
+    const uint8_t YA_TEST;      //YA_TEST and YG_test register
+    const uint8_t ZA_TEST;      //ZA_TEST and ZG_test register
+    const uint8_t A_TEST;       //second accelerometer test register XA_TEST[1:0]
 }MPU6050_REG;
 
 typedef struct MPU6050
@@ -36,8 +40,9 @@ typedef struct MPU6050
 
 typedef struct MPU6050_SELFTEST
 {
-    int16_t accel_TEST[3];
-    int16_t gyro_TEST[3];
+    uint8_t STR_X, STR_Y, STR_Z; //STR => SELFT-TEST-RESPONSE
+    uint8_t FT_X, FT_Y, FT_Z; //FT => FACTORY TRIMMER
+    uint8_t X_TEST, Y_TEST, Z_TEST; // TEST REGISTER
 }MPU6050_SELFTEST;
 
 
@@ -51,9 +56,6 @@ void i2c_write_reg(uint8_t i2c_address, uint8_t reg, uint8_t data);
 //@param mpu6050 =>mpu6050 data structure
 void mpu_init(MPU6050* mpu6050); 
 
-// mpu6050 sensor self test, return true if selftest goes properly and false otherwise//
-bool mpu_self_test(); 
-
 //who_i_am//
 // save MPU6050 I2C address in mpu_address param
 void who_i_am(uint8_t* mpu_address); 
@@ -62,14 +64,24 @@ void who_i_am(uint8_t* mpu_address);
 void mpu_reset(); 
 
 //mpu_setresolution
-//@param gyro_res => gyrometer resolution
+//@param gyro_res => gyrometer resolution <=> ±250 ±500g ±1000g ±2000g <=user enter=> 0, 1, 2, 3
 //@param acc_res => acceleroeter resolution <=> ±2g, ±4g, ±8g, or ±16g  <=user enter=> 0, 1, 2, 3 
-//@param mpu6050 => mpu6050 data structure <=> ±250 ±500g ±1000g ±2000g <=user enter=> 0, 1, 2, 3
+//@param mpu6050 => mpu6050 data structure 
 void mpu_setresolution(uint8_t gyro_res, uint8_t acc_res, MPU6050* mpu6050); 
 
 //mpu_read
 //reaad data from sensor
 //@param mpu6050 => mpu6050 data structure 
 void mpu_read(MPU6050* mpu6050); // read data from mpu6050
+
+// mpu6050 accelerometer sensor self test, return true if selftest goes properly and false otherwise//
+//@param mpu6050 => mpu6050 data structure 
+//@param mpu6050_accel_st => mpu6050 accel self test data structure
+bool mpu_accel_st(MPU6050* mpu6050, MPU6050_SELFTEST* mpu6050_accel_st); 
+
+// mpu6050 gyrometer sensor self test, return true if selftest goes properly and false otherwise//
+//@param mpu6050 => mpu6050 data structure 
+//@param mpu6050_gyro_st => mpu6050 gyro self test data structure
+bool mpu_gyro_st(MPU6050* mpu6050, MPU6050_SELFTEST* mpu6050_gyro_st); 
 
 #endif

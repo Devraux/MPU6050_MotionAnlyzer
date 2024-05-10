@@ -31,23 +31,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
  13 .comment      00000045  00000000  00000000  0000cc48  2**0
                   CONTENTS, READONLY
- 14 .debug_info   000254f2  00000000  00000000  0000cc8d  2**0
+ 14 .debug_info   00025659  00000000  00000000  0000cc8d  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_abbrev 00007407  00000000  00000000  0003217f  2**0
+ 15 .debug_abbrev 00007408  00000000  00000000  000322e6  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_aranges 000016a8  00000000  00000000  00039588  2**3
+ 16 .debug_aranges 000016a8  00000000  00000000  000396f0  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_rnglists 000016b1  00000000  00000000  0003ac30  2**0
+ 17 .debug_rnglists 000016b1  00000000  00000000  0003ad98  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   000169c2  00000000  00000000  0003c2e1  2**0
+ 18 .debug_line   00016a25  00000000  00000000  0003c449  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    00007426  00000000  00000000  00052ca3  2**0
+ 19 .debug_str    00007491  00000000  00000000  00052e6e  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .debug_frame  00003228  00000000  00000000  0005a0cc  2**2
+ 20 .debug_frame  00003240  00000000  00000000  0005a300  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_loclists 0000e5f5  00000000  00000000  0005d2f4  2**0
+ 21 .debug_loclists 0000e69a  00000000  00000000  0005d540  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 22 .debug_line_str 00000313  00000000  00000000  0006b8e9  2**0
+ 22 .debug_line_str 00000313  00000000  00000000  0006bbda  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/build/MPU6050_MotionAnalyzer.elf:     file format elf32-littlearm
@@ -825,7 +825,7 @@ Disassembly of section .text:
 1000073a:	701a      	strb	r2, [r3, #0]
 1000073c:	4770      	bx	lr
 1000073e:	46c0      	nop			@ (mov r8, r8)
-10000740:	20000b00 	.word	0x20000b00
+10000740:	20000b04 	.word	0x20000b04
 
 10000744 <spin_lock_claim_unused>:
 10000744:	b510      	push	{r4, lr}
@@ -1042,7 +1042,7 @@ Disassembly of section .text:
 10000912:	2000      	movs	r0, #0
 10000914:	e7fa      	b.n	1000090c <irq_has_shared_handler+0x1c>
 10000916:	46c0      	nop			@ (mov r8, r8)
-10000918:	20000b04 	.word	0x20000b04
+10000918:	20000b08 	.word	0x20000b08
 
 1000091c <irq_set_exclusive_handler>:
 1000091c:	b570      	push	{r4, r5, r6, lr}
@@ -1302,11 +1302,11 @@ Disassembly of section .text:
 10000b46:	e765      	b.n	10000a14 <irq_add_shared_handler+0xa0>
 10000b48:	d0000124 	.word	0xd0000124
 10000b4c:	20001989 	.word	0x20001989
-10000b50:	20000b04 	.word	0x20000b04
+10000b50:	20000b08 	.word	0x20000b08
 10000b54:	e000ed00 	.word	0xe000ed00
 10000b58:	100001cd 	.word	0x100001cd
 10000b5c:	ffffa100 	.word	0xffffa100
-10000b60:	20000b34 	.word	0x20000b34
+10000b60:	20000b38 	.word	0x20000b38
 10000b64:	ffffbd01 	.word	0xffffbd01
 10000b68:	10007988 	.word	0x10007988
 10000b6c:	10007b44 	.word	0x10007b44
@@ -1478,7 +1478,7 @@ Disassembly of section .text:
 10000cdc:	d0000124 	.word	0xd0000124
 10000ce0:	e000ed00 	.word	0xe000ed00
 10000ce4:	100001cd 	.word	0x100001cd
-10000ce8:	20000b04 	.word	0x20000b04
+10000ce8:	20000b08 	.word	0x20000b08
 10000cec:	10007a4c 	.word	0x10007a4c
 10000cf0:	10007b14 	.word	0x10007b14
 10000cf4:	100078d0 	.word	0x100078d0
@@ -1486,7 +1486,7 @@ Disassembly of section .text:
 10000cfc:	20001989 	.word	0x20001989
 10000d00:	ffffbd01 	.word	0xffffbd01
 10000d04:	0000aaaa 	.word	0x0000aaaa
-10000d08:	20000b3e 	.word	0x20000b3e
+10000d08:	20000b42 	.word	0x20000b42
 10000d0c:	10007a80 	.word	0x10007a80
 
 10000d10 <irq_add_tail_to_free_list>:
@@ -1578,7 +1578,7 @@ Disassembly of section .text:
 10000dc8:	0049      	lsls	r1, r1, #1
 10000dca:	f001 faeb 	bl	100023a4 <__assert_func>
 10000dce:	46c0      	nop			@ (mov r8, r8)
-10000dd0:	20000b04 	.word	0x20000b04
+10000dd0:	20000b08 	.word	0x20000b08
 10000dd4:	d0000124 	.word	0xd0000124
 10000dd8:	0000aaaa 	.word	0x0000aaaa
 10000ddc:	e000ed00 	.word	0xe000ed00
@@ -2546,7 +2546,7 @@ Disassembly of section .text:
 1000161c:	f7ff fe2c 	bl	10001278 <alarm_pool_post_alloc_init>
 10001620:	e7eb      	b.n	100015fa <alarm_pool_init_default+0xa>
 10001622:	46c0      	nop			@ (mov r8, r8)
-10001624:	20000b4c 	.word	0x20000b4c
+10001624:	20000b50 	.word	0x20000b50
 10001628:	20001958 	.word	0x20001958
 1000162c:	10001005 	.word	0x10001005
 
@@ -2564,7 +2564,7 @@ Disassembly of section .text:
 10001644:	215e      	movs	r1, #94	@ 0x5e
 10001646:	f000 fead 	bl	100023a4 <__assert_func>
 1000164a:	46c0      	nop			@ (mov r8, r8)
-1000164c:	20000b4c 	.word	0x20000b4c
+1000164c:	20000b50 	.word	0x20000b50
 10001650:	10007f3c 	.word	0x10007f3c
 10001654:	10007ff0 	.word	0x10007ff0
 10001658:	10007da8 	.word	0x10007da8
@@ -15718,43 +15718,43 @@ Disassembly of section .data:
 20000af4:	100046b9 	.word	0x100046b9
 
 20000af8 <mpu6050_reg>:
-20000af8:	3b6b7568 1c1b4143                       huk;CA..
+20000af8:	3b6b7568 1c1b4143 00000000              huk;CA......
 
-20000b00 <striped_spin_lock_num>:
-20000b00:	00000010                                ....
+20000b04 <striped_spin_lock_num>:
+20000b04:	00000010                                ....
 
-20000b04 <irq_handler_chain_slots>:
-20000b04:	00000000 	.word	0x00000000
-20000b08:	00010000 	.word	0x00010000
+20000b08 <irq_handler_chain_slots>:
+20000b08:	00000000 	.word	0x00000000
+20000b0c:	00010000 	.word	0x00010000
 	...
-20000b14:	00020000 	.word	0x00020000
+20000b18:	00020000 	.word	0x00020000
 	...
-20000b20:	00030000 	.word	0x00030000
+20000b24:	00030000 	.word	0x00030000
 	...
-20000b2c:	00ff0000 	.word	0x00ff0000
-20000b30:	00000000 	.word	0x00000000
+20000b30:	00ff0000 	.word	0x00ff0000
+20000b34:	00000000 	.word	0x00000000
 
-20000b34 <irq_handler_chain_first_slot>:
-20000b34:	b501      	push	{r0, lr}
-20000b36:	6848      	ldr	r0, [r1, #4]
-20000b38:	3101      	adds	r1, #1
-20000b3a:	468e      	mov	lr, r1
-20000b3c:	4700      	bx	r0
+20000b38 <irq_handler_chain_first_slot>:
+20000b38:	b501      	push	{r0, lr}
+20000b3a:	6848      	ldr	r0, [r1, #4]
+20000b3c:	3101      	adds	r1, #1
+20000b3e:	468e      	mov	lr, r1
+20000b40:	4700      	bx	r0
 
-20000b3e <irq_handler_chain_remove_tail>:
-20000b3e:	4670      	mov	r0, lr
-20000b40:	3809      	subs	r0, #9
-20000b42:	4901      	ldr	r1, [pc, #4]	@ (20000b48 <irq_handler_chain_remove_tail+0xa>)
-20000b44:	4788      	blx	r1
-20000b46:	bd01      	pop	{r0, pc}
-20000b48:	10000d11 	.word	0x10000d11
+20000b42 <irq_handler_chain_remove_tail>:
+20000b42:	4670      	mov	r0, lr
+20000b44:	3809      	subs	r0, #9
+20000b46:	4901      	ldr	r1, [pc, #4]	@ (20000b4c <irq_handler_chain_remove_tail+0xa>)
+20000b48:	4788      	blx	r1
+20000b4a:	bd01      	pop	{r0, pc}
+20000b4c:	10000d11 	.word	0x10000d11
 
-20000b4c <default_alarm_pool>:
-20000b4c:	20000b64 00000000 20000c10 200012a0     d.. ....... ... 
+20000b50 <default_alarm_pool>:
+20000b50:	20000b68 00000000 20000c10 200012a0     h.. ....... ... 
 	...
 
-20000b64 <default_alarm_pool_heap>:
-20000b64:	200012b0 00000000 00000000 00000010     ... ............
+20000b68 <default_alarm_pool_heap>:
+20000b68:	200012b0 00000000 00000000 00000010     ... ............
 	...
 
 20000b80 <aeabi_bits_funcs>:
