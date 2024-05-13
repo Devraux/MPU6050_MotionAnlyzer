@@ -8,12 +8,7 @@
 
 typedef struct KALMAN //kalman coeficients
 {
-    int16_t x[2];   // x[0] = apropriate value, x[1] = g => jitter/noise 
-    int16_t u;      //filter input
-    int16_t P;      //
-    uint16_t n;     //time stamp
-    //K
-    //A and At 
+    uint16_t n;
 }KALMAN;
 
 

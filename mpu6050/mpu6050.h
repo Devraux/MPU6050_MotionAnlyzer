@@ -19,15 +19,17 @@ typedef struct MPU6050_REG
     const uint8_t accel_add;    //accelerator data address register
     const uint8_t gyro_add;     //gryoscope data address register
     const uint8_t temp_add;     //temperature data address register
-    const uint8_t gyro_res;  // gyroscope resolution config and calibration
+    const uint8_t gyro_res;     // gyroscope resolution config and calibration
     const uint8_t acc_config;   // accelerometer resolution config and calibration
     const uint8_t XA_TEST;      //XA_TEST and XG_test register 
     const uint8_t YA_TEST;      //YA_TEST and YG_test register
     const uint8_t ZA_TEST;      //ZA_TEST and ZG_test register
     const uint8_t A_TEST;       //second accelerometer test register XA_TEST[1:0]
+    const uint8_t config;       //gyroscope DLPF_CFG set register
+    const uint8_t SMPLRT_DIV;   //sample rate divider
 }MPU6050_REG;
 
-typedef struct MPU6050
+typedef struct MPU6050_RAW
 {
     int16_t acceleration[3]; // X - Y - Z Acceleration
     int16_t gyro[3];         // X - Y - Z Gyroscope Data
@@ -38,7 +40,7 @@ typedef struct MPU6050
 
     uint8_t accel_res;   // 0=> 16384, 1=>8192, 2=>4096, 3=>2048  
     uint8_t gyro_res;    // 0=> 131,   1=>65.5, 2=>32.8, 3=>16.4     
-}MPU6050;
+}MPU6050_RAW;
 
 typedef struct MPU6050_SELFTEST
 {
@@ -56,8 +58,8 @@ typedef struct MPU6050_SELFTEST
 void i2c_write_reg(uint8_t i2c_address, uint8_t reg, uint8_t data);
 
 /// mpu I2C init//
-/// @param mpu6050 =>mpu6050 data structure
-void mpu_init(MPU6050* mpu6050); 
+/// @param MPU6050_RAW =>MPU6050_RAW data structure
+void mpu_init(MPU6050_RAW* mpu6050_raw); 
 
 //who_i_am//
 ///@brief save MPU6050 I2C address in mpu_address param
@@ -69,26 +71,29 @@ void mpu_reset();
 //mpu_setresolution
 /// @param gyro_res => gyrometer resolution <=> ±250 ±500g ±1000g ±2000g  <=user enter=> 0, 1, 2, 3
 /// @param acc_res => acceleroeter resolution <=> ±2g, ±4g, ±8g, or ±16g  <=user enter=> 0, 1, 2, 3 
-/// @param mpu6050 => mpu6050 data structure 
-void mpu_setresolution(uint8_t gyro_res, uint8_t acc_res, MPU6050* mpu6050); 
+/// @param MPU6050_RAW => MPU6050_RAW data structure 
+void mpu_setresolution(uint8_t gyro_res, uint8_t acc_res, MPU6050_RAW* mpu6050_raw); 
 
 //mpu_read
 /// @brief data from sensor
-/// @param mpu6050 => mpu6050 data structure 
-void mpu_read(MPU6050* mpu6050); // read data from mpu6050
+/// @param MPU6050_RAW => MPU6050_RAW data structure 
+void mpu_read(MPU6050_RAW* mpu6050_raw); // read data from mpu6050
 
 /// @brief mpu6050 accelerometer sensor self test, return true if selftest goes properly and false otherwise//
-/// @param mpu6050 => mpu6050 data structure 
+/// @param MPU6050_RAW => MPU6050_RAW data structure 
 /// @param mpu6050_accel_st => mpu6050 accel self test data structure
-bool mpu_accel_st(MPU6050* mpu6050, MPU6050_SELFTEST* mpu6050_accel_st); 
+bool mpu_accel_st(MPU6050_RAW* mpu6050_raw, MPU6050_SELFTEST* mpu6050_accel_st); 
 
-/// @brief => mpu6050 gyrometer sensor self test, return true if selftest goes properly and false otherwise//
-/// @param mpu6050 => mpu6050 data structure 
+/// @brief mpu6050 gyrometer sensor self test, return true if selftest goes properly and false otherwise//
+/// @param MPU6050_RAW => MPU6050_RAW data structure 
 /// @param mpu6050_gyro_st => mpu6050 gyro self test data structure
-bool mpu_gyro_st(MPU6050* mpu6050, MPU6050_SELFTEST* mpu6050_gyro_st); 
+bool mpu_gyro_st(MPU6050_RAW* mpu6050_raw, MPU6050_SELFTEST* mpu6050_gyro_st); 
 
-/// @brief => convert data measured as ADC value into acceleration in [m/s2] and gyroscope [*]
-/// @param mpu6050 => mpu6050 data structure 
-void mpu_convert(MPU6050* mpu6050);
+/// @brief convert data measured as ADC value into acceleration in [m/s2] and gyroscope [*]
+/// @param MPU6050_RAW => MPU6050_RAW data structure 
+void mpu_convert(MPU6050_RAW* mpu6050_raw);
 
+/// @brief set sample rate of gyroscope and accelometer
+/// @param divider => divide sample rate by: 1, 2, 4, 8, 16, 32, 64, 128 
+void mpu_set_sample_rate(uint8_t divider);
 #endif
