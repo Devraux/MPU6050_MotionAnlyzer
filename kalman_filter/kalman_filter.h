@@ -8,7 +8,12 @@
 
 typedef struct KALMAN //kalman coeficients
 {
-    uint16_t n;
+    uint16_t n;     //time stamp
+    double K;       //Kalman gain 0 < k < 1
+    double z_n;     // data measured in n => current value
+    double r_n;      // measurement variance
+    
+ 
 }KALMAN;
 
 
@@ -21,6 +26,5 @@ int8_t kalman_accel(int8_t input_data, KALMAN* kalman);
 /// @param input_data
 /// @return int8_t data => computed data => filtered gyroscope value 
 int8_t kalman_gyro(int8_t input_data, KALMAN* kalman);
-
 
 #endif

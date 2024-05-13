@@ -354,3 +354,49 @@ void mpu_set_sample_rate(uint8_t divider)
         break;
     }  
 }
+
+void mpu_statistic(MPU6050_RAW* mpu6050_raw)
+{
+    double acc_x[50], acc_y[50], acc_z[50];
+    double gyro_x[50], gyro_y[50], gyro_z[50];
+    double var_acc_x, var_acc_y, var_acc_z, var_gyro_x, var_gyro_y, var_gyro_z;
+    double sigma_acc_x, sigma_acc_y, sigma_acc_z, sigma_gyro_x, sigma_gyro_y, sgima_gyro_z;
+
+
+    for(uint8_t i; i < 50; i++) // measure output 50 times
+    {
+        mpu_read(mpu6050_raw);
+        acc_x[i] = mpu6050_raw->accel_convert[0]; acc_y[i] = mpu6050_raw->accel_convert[1]; acc_z[i] = mpu6050_raw->accel_convert[2];
+        gyro_x[i] = mpu6050_raw->gyro_convert[0];  gyro_y[i] = mpu6050_raw->gyro_convert[1];  gyro_z[i] = mpu6050_raw->gyro_convert[2];
+    }
+
+    var_acc_x = get_variance(acc_x, 50); var_acc_y = get_variance(acc_y, 50); var_acc_z = get_variance(acc_z, 50);
+    var_gyro_x = get_variance(gyro_x, 50); var_gyro_y= get_variance(gyro_y, 50); var_gyro_z = get_variance(gyro_z, 50);
+
+    printf("var_acc_x: %f, var_acc_y: %f, var_acc_z: %f\n", var_acc_x, var_acc_y, var_acc_z);
+    printf("var_gyro_x: %f, var_gyro_y: %f, var_gyro_z: %f\n", var_gyro_x, var_gyro_y, var_gyro_z);
+}
+
+double get_variance(double* data, uint8_t data_size)
+{
+    double variance;
+    double sum = 0;
+    double mean;
+    double x[data_size];
+
+    for(uint8_t i = 0; i < data_size; i++)
+        sum = sum + data[i];
+        
+    mean = sum / data_size;
+    sum = 0;
+
+    for(uint8_t i = 0; i < data_size; i++)
+        x[i] = data[i] - mean;
+
+    for(uint8_t i = 0; i < data_size; i++)
+        sum = sum + pow(x[i], 2);
+    
+    variance = sum / data_size;
+
+    return variance;
+}

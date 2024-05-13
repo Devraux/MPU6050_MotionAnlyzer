@@ -29,8 +29,10 @@ int main()
         //printf("%d,%d,%d\n", mpu6050_raw.acceleration[0], mpu6050_raw.acceleration[1], mpu6050_raw.acceleration[2]); //plot app formula
         
         // visual app converted FORMAT DATA
-        printf("%f,%f,%f\n", mpu6050_raw.accel_convert[0], mpu6050_raw.accel_convert[1], mpu6050_raw.accel_convert[2]); 
-        sleep_ms(100);
+        //printf("%f,%f,%f\n", mpu6050_raw.accel_convert[0], mpu6050_raw.accel_convert[1], mpu6050_raw.accel_convert[2]); 
+
+        mpu_statistic(&mpu6050_raw);
+        sleep_ms(2000);
     }
     return 0;
 }

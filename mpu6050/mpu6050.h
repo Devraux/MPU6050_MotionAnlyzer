@@ -79,21 +79,34 @@ void mpu_setresolution(uint8_t gyro_res, uint8_t acc_res, MPU6050_RAW* mpu6050_r
 /// @param MPU6050_RAW => MPU6050_RAW data structure 
 void mpu_read(MPU6050_RAW* mpu6050_raw); // read data from mpu6050
 
+//mpu_accel_st//
 /// @brief mpu6050 accelerometer sensor self test, return true if selftest goes properly and false otherwise//
 /// @param MPU6050_RAW => MPU6050_RAW data structure 
 /// @param mpu6050_accel_st => mpu6050 accel self test data structure
 bool mpu_accel_st(MPU6050_RAW* mpu6050_raw, MPU6050_SELFTEST* mpu6050_accel_st); 
 
+//mpu_gyro_st//
 /// @brief mpu6050 gyrometer sensor self test, return true if selftest goes properly and false otherwise//
 /// @param MPU6050_RAW => MPU6050_RAW data structure 
 /// @param mpu6050_gyro_st => mpu6050 gyro self test data structure
 bool mpu_gyro_st(MPU6050_RAW* mpu6050_raw, MPU6050_SELFTEST* mpu6050_gyro_st); 
 
+//mpu_convert//
 /// @brief convert data measured as ADC value into acceleration in [m/s2] and gyroscope [*]
 /// @param MPU6050_RAW => MPU6050_RAW data structure 
 void mpu_convert(MPU6050_RAW* mpu6050_raw);
 
+//mpu_set_sample_rate//
 /// @brief set sample rate of gyroscope and accelometer
 /// @param divider => divide sample rate by: 1, 2, 4, 8, 16, 32, 64, 128 
 void mpu_set_sample_rate(uint8_t divider);
+
+//mpu_statistic//
+/// @brief get mpu6050 statistic's information set
+/// @param MPU6050_RAW => MPU6050_RAW data structure 
+/// @return print statistics data like variance and standard deviation(sqrt(variance))
+/// @details => while mpu_statistic is enabled don't move sensor 
+void mpu_statistic(MPU6050_RAW* mpu6050);
+
+double get_variance(double* data, uint8_t data_size);
 #endif
