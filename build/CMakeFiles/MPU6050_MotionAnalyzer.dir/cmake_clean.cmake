@@ -126,6 +126,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj.d"
   "CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj"
   "CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj.d"
+  "CMakeFiles/MPU6050_MotionAnalyzer.dir/kalman_filter/kalman_filter.c.obj"
+  "CMakeFiles/MPU6050_MotionAnalyzer.dir/kalman_filter/kalman_filter.c.obj.d"
   "CMakeFiles/MPU6050_MotionAnalyzer.dir/main.c.obj"
   "CMakeFiles/MPU6050_MotionAnalyzer.dir/main.c.obj.d"
   "CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj"

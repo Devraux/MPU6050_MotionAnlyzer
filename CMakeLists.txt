@@ -9,7 +9,8 @@ pico_sdk_init()
 
 add_executable(${PROJECT_NAME} 
     main.c 
-    mpu6050/mpu6050.c)
+    mpu6050/mpu6050.c
+    kalman_filter/kalman_filter.c)
 
 # enable usb output, disable uart output
 pico_enable_stdio_usb(${PROJECT_NAME} 1)

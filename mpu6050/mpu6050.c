@@ -8,7 +8,7 @@ MPU6050_REG mpu6050_reg = {
     .gyro_add = 0x43,       //gryoscope data address register
     .temp_add = 0x41,       //temperature data address register
     .acc_config = 0x1C,     //accelerometer resolution config regisrer and calibration
-    .gyro_config = 0x1B,    // gyroscope resolution config register and calibration
+    .gyro_res = 0x1B,    // gyroscope resolution config register and calibration
     .XA_TEST = 0x0D,        //XA_TEST and XG_test register
     .YA_TEST = 0x0E,        //YA_TEST and YG_test register
     .ZA_TEST = 0x0F,        //ZA_TEST and ZG_test register
@@ -87,6 +87,8 @@ void mpu_read(MPU6050* mpu6050)
 
     temperature = buffer[0] << 8 | buffer[1];
     mpu6050->temp = (temperature / 340.f) + 36.53;
+
+    mpu_convert(mpu6050); // data conversion into [m/s] and [*] 
 }
 
 void mpu_setresolution(uint8_t gyro_res, uint8_t acc_res, MPU6050* mpu6050)
@@ -118,8 +120,8 @@ void mpu_setresolution(uint8_t gyro_res, uint8_t acc_res, MPU6050* mpu6050)
             break;
     }
 
-    i2c_write_reg(mpu6050_reg.address, mpu6050_reg.gyro_config, resolution);
-    mpu6050->gyro_config = res_value;
+    i2c_write_reg(mpu6050_reg.address, mpu6050_reg.gyro_res, resolution);
+    mpu6050->gyro_res = res_value;
 
 
     //ACCELEROMETER RESOLUTION
@@ -147,12 +149,12 @@ void mpu_setresolution(uint8_t gyro_res, uint8_t acc_res, MPU6050* mpu6050)
     }
     
     i2c_write_reg(mpu6050_reg.address,mpu6050_reg.acc_config ,resolution);
-    mpu6050->accel_config = res_value; 
+    mpu6050->accel_res = res_value; 
 
 
     /*
     //CHECK GYRO RESOLUTION
-    i2c_write_blocking(i2c1, mpu6050_reg.address, &mpu6050_reg.gyro_config, 1, true);
+    i2c_write_blocking(i2c1, mpu6050_reg.address, &mpu6050_reg.gyro_res, 1, true);
     i2c_read_blocking(i2c1, mpu6050_reg.address, &check ,1 , false);
     if(check != resolution)
         printf("\ncheck:%d\n", check);
@@ -167,8 +169,8 @@ void mpu_setresolution(uint8_t gyro_res, uint8_t acc_res, MPU6050* mpu6050)
 
 bool mpu_accel_st(MPU6050* mpu6050, MPU6050_SELFTEST* mpu6050_accel_st)
 {
-    uint8_t gyro_res_mem = mpu6050->gyro_config;
-    uint8_t accel_res_mem = mpu6050->accel_config;
+    uint8_t gyro_res_mem = mpu6050->gyro_res;
+    uint8_t accel_res_mem = mpu6050->accel_res;
     uint8_t mask = 0b00000011;
 
     mpu_read(mpu6050); // read data before selF test
@@ -176,7 +178,7 @@ bool mpu_accel_st(MPU6050* mpu6050, MPU6050_SELFTEST* mpu6050_accel_st)
     uint8_t accel_y = mpu6050->acceleration[1];
     uint8_t accel_z = mpu6050->acceleration[2];
 
-    i2c_write_reg(mpu6050_reg.address, mpu6050->accel_config, 0b11110000); // enable selft test | set +-8g
+    i2c_write_reg(mpu6050_reg.address, mpu6050->accel_res, 0b11110000); // enable selft test | set +-8g
 
     i2c_write_blocking(i2c1, mpu6050_reg.address, &mpu6050_reg.XA_TEST, 1, true); 
     i2c_read_blocking(i2c1, mpu6050_reg.address, &mpu6050_accel_st->X_TEST, 1, false);
@@ -213,8 +215,8 @@ bool mpu_accel_st(MPU6050* mpu6050, MPU6050_SELFTEST* mpu6050_accel_st)
 
 bool mpu_gyro_st(MPU6050* mpu6050, MPU6050_SELFTEST* mpu6050_gyro_st)
 {
-    uint8_t gyro_res_mem = mpu6050->gyro_config;
-    uint8_t accel_res_mem = mpu6050->accel_config;
+    uint8_t gyro_res_mem = mpu6050->gyro_res;
+    uint8_t accel_res_mem = mpu6050->accel_res;
     uint8_t mask = 0b00011111;
 
     mpu_read(mpu6050); // read data before selF test
@@ -222,7 +224,7 @@ bool mpu_gyro_st(MPU6050* mpu6050, MPU6050_SELFTEST* mpu6050_gyro_st)
     uint8_t gyro_y = mpu6050->acceleration[1];
     uint8_t gyro_z = mpu6050->acceleration[2];
 
-    i2c_write_reg(mpu6050_reg.address, mpu6050->gyro_config, 0b11100000); // enable selft test | set +-250*/s
+    i2c_write_reg(mpu6050_reg.address, mpu6050->gyro_res, 0b11100000); // enable selft test | set +-250*/s
 
     i2c_write_blocking(i2c1, mpu6050_reg.address, &mpu6050_reg.XA_TEST, 1, true); 
     i2c_read_blocking(i2c1, mpu6050_reg.address, &mpu6050_gyro_st->X_TEST, 1, false);
@@ -232,9 +234,6 @@ bool mpu_gyro_st(MPU6050* mpu6050, MPU6050_SELFTEST* mpu6050_gyro_st)
     
     i2c_write_blocking(i2c1, mpu6050_reg.address, &mpu6050_reg.ZA_TEST, 1, true); 
     i2c_read_blocking(i2c1, mpu6050_reg.address, &mpu6050_gyro_st->Z_TEST, 1, false);
-    
-    i2c_write_blocking(i2c1, mpu6050_reg.address, &mpu6050_reg.A_TEST, 1, true); 
-    i2c_read_blocking(i2c1, mpu6050_reg.address, &mpu6050_gyro_st->A_TEST, 1, false);
     
     mpu6050_gyro_st->X_TEST = (mpu6050_gyro_st->X_TEST & mask);
     mpu6050_gyro_st->Y_TEST = (mpu6050_gyro_st->Y_TEST & mask);
@@ -255,4 +254,61 @@ bool mpu_gyro_st(MPU6050* mpu6050, MPU6050_SELFTEST* mpu6050_gyro_st)
     
     mpu_setresolution(gyro_res_mem, accel_res_mem, mpu6050);// After self test come back to old config values and disable self test mode 
     return true;
+}
+
+void mpu_convert(MPU6050* mpu6050)
+{
+    switch(mpu6050->accel_res)
+    {
+        case 0:
+            mpu6050->accel_convert[0] = mpu6050->acceleration[0] / 16384.0;
+            mpu6050->accel_convert[1] = mpu6050->acceleration[1] / 16384.0;
+            mpu6050->accel_convert[2] = mpu6050->acceleration[2] / 16384.0;
+        break;
+
+        case 1:
+            mpu6050->accel_convert[0] = mpu6050->acceleration[0] / 8192.0;
+            mpu6050->accel_convert[1] = mpu6050->acceleration[1] / 8192.0;
+            mpu6050->accel_convert[2] = mpu6050->acceleration[2] / 8192.0;
+        break;
+
+        case 2:
+            mpu6050->accel_convert[0] = mpu6050->acceleration[0] / 4096.0;
+            mpu6050->accel_convert[1] = mpu6050->acceleration[1] / 4096.0;
+            mpu6050->accel_convert[2] = mpu6050->acceleration[2] / 4096.0;
+        break;
+
+        case 3:
+            mpu6050->accel_convert[0] = mpu6050->acceleration[0] / 2048.0;
+            mpu6050->accel_convert[1] = mpu6050->acceleration[1] / 2048.0;
+            mpu6050->accel_convert[2] = mpu6050->acceleration[2] / 2048.0;
+        break;
+    }
+
+    switch(mpu6050->gyro_res)
+    {
+        case 0:
+            mpu6050->gyro_convert[0] = mpu6050->gyro[0] / 131.0;
+            mpu6050->gyro_convert[1] = mpu6050->gyro[1] / 131.0;
+            mpu6050->gyro_convert[2] = mpu6050->gyro[2] / 131.0;
+        break;
+
+        case 1:
+            mpu6050->gyro_convert[0] = mpu6050->gyro[0] / 65.5;
+            mpu6050->gyro_convert[1] = mpu6050->gyro[1] / 65.5;
+            mpu6050->gyro_convert[2] = mpu6050->gyro[2] / 65.5;
+        break;
+
+        case 2:
+            mpu6050->gyro_convert[0] = mpu6050->gyro[0] / 32.8;
+            mpu6050->gyro_convert[1] = mpu6050->gyro[1] / 32.8;
+            mpu6050->gyro_convert[2] = mpu6050->gyro[2] / 32.8;
+        break;
+
+        case 3:
+            mpu6050->gyro_convert[0] = mpu6050->gyro[0] / 16.4;
+            mpu6050->gyro_convert[1] = mpu6050->gyro[1] / 16.4;
+            mpu6050->gyro_convert[2] = mpu6050->gyro[2] / 16.4;
+        break;
+    }
 }

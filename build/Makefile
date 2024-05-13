@@ -1660,6 +1660,30 @@ C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\MPU6050_MotionAnalyzer.dir\build.make CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.s
 .PHONY : C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.s
 
+kalman_filter/kalman_filter.obj: kalman_filter/kalman_filter.c.obj
+.PHONY : kalman_filter/kalman_filter.obj
+
+# target to build an object file
+kalman_filter/kalman_filter.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MPU6050_MotionAnalyzer.dir\build.make CMakeFiles/MPU6050_MotionAnalyzer.dir/kalman_filter/kalman_filter.c.obj
+.PHONY : kalman_filter/kalman_filter.c.obj
+
+kalman_filter/kalman_filter.i: kalman_filter/kalman_filter.c.i
+.PHONY : kalman_filter/kalman_filter.i
+
+# target to preprocess a source file
+kalman_filter/kalman_filter.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MPU6050_MotionAnalyzer.dir\build.make CMakeFiles/MPU6050_MotionAnalyzer.dir/kalman_filter/kalman_filter.c.i
+.PHONY : kalman_filter/kalman_filter.c.i
+
+kalman_filter/kalman_filter.s: kalman_filter/kalman_filter.c.s
+.PHONY : kalman_filter/kalman_filter.s
+
+# target to generate assembly for a file
+kalman_filter/kalman_filter.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MPU6050_MotionAnalyzer.dir\build.make CMakeFiles/MPU6050_MotionAnalyzer.dir/kalman_filter/kalman_filter.c.s
+.PHONY : kalman_filter/kalman_filter.c.s
+
 main.obj: main.c.obj
 .PHONY : main.obj
 
@@ -1906,6 +1930,9 @@ help:
 	@echo ... C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.obj
 	@echo ... C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.i
 	@echo ... C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.s
+	@echo ... kalman_filter/kalman_filter.obj
+	@echo ... kalman_filter/kalman_filter.i
+	@echo ... kalman_filter/kalman_filter.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
