@@ -35,21 +35,30 @@ typedef struct MPU6050_RAW
     int16_t gyro[3];         // X - Y - Z Gyroscope Data
     float temp;              // Temperature
 
-    float accel_convert[3]; // converted acceleration measures
-    double gyro_convert[3];  // converted gyroscope measures 
+    float accel_convert[3];  // converted acceleration measures
+    float gyro_convert[3];  // converted gyroscope measures 
 
-    uint8_t accel_res;   // 0=> 16384, 1=>8192, 2=>4096, 3=>2048  
-    uint8_t gyro_res;    // 0=> 131,   1=>65.5, 2=>32.8, 3=>16.4     
+    uint8_t accel_res;       // 0=> 16384, 1=>8192, 2=>4096, 3=>2048  
+    uint8_t gyro_res;        // 0=> 131,   1=>65.5, 2=>32.8, 3=>16.4 
+
+    float accel_x_offset, accel, accel_y_offset, accel_z_offset; // accelerometer offset
+    float gyro_x_offset, gyro_y_offset, gyro_z_offset;           // gyroscope offset
+        
 }MPU6050_RAW;
 
 typedef struct MPU6050_SELFTEST
 {
     uint8_t STR_X, STR_Y, STR_Z;            //STR => SELFT-TEST-RESPONSE
-    double FT_X, FT_Y, FT_Z;                //FT => FACTORY TRIMMER
+    float FT_X, FT_Y, FT_Z;                //FT => FACTORY TRIMMER
     uint8_t X_TEST, Y_TEST, Z_TEST, A_TEST; // TEST REGISTER
-    double X_ERROR, Y_ERROR, Z_ERROR;       //Errors given in %
+    float X_ERROR, Y_ERROR, Z_ERROR;       //Errors given in %
 }MPU6050_SELFTEST;
 
+typedef struct MPU6050
+{
+    float accel[3];  // user's data without offset
+    float gyro[3];   // user's data without offset  
+}MPU6050;
 
 //write_i2c()//
 /// @param i2c_address => device address
@@ -77,7 +86,7 @@ void mpu_setresolution(uint8_t gyro_res, uint8_t acc_res, MPU6050_RAW* mpu6050_r
 //mpu_read
 /// @brief data from sensor
 /// @param MPU6050_RAW => MPU6050_RAW data structure 
-void mpu_read(MPU6050_RAW* mpu6050_raw); // read data from mpu6050
+void mpu_read_raw(MPU6050_RAW* mpu6050_raw); // read data from mpu6050
 
 //mpu_accel_st//
 /// @brief mpu6050 accelerometer sensor self test, return true if selftest goes properly and false otherwise//
@@ -108,5 +117,19 @@ void mpu_set_sample_rate(uint8_t divider);
 /// @details => while mpu_statistic is enabled don't move sensor 
 void mpu_statistic(MPU6050_RAW* mpu6050);
 
-double get_variance(double* data, uint8_t data_size);
+//get_variance//
+/// @brief get mpu6050 variance information
+/// @param data => input data => sensor data
+/// @param data_size => data size
+float get_variance(float* data, uint8_t data_size);
+
+//remove offset//
+/// @param MPU6050_RAW => MPU6050_RAW data structure 
+/// @param MPU6050 => mpu6050 output data without offset
+void mpu_get_offset(MPU6050_RAW* mpu6050_raw); 
+
+//mpu_read//
+/// @param MPU6050_RAW => MPU6050_RAW data structure 
+/// @param MPU6050 => mpu6050 output data
+void mpu_read(MPU6050_RAW* mpu6050_raw, MPU6050* mpu6050);
 #endif

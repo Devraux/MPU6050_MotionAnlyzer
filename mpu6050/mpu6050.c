@@ -58,9 +58,10 @@ void mpu_init(MPU6050_RAW* mpu6050_raw)
     mpu_reset();
     mpu_set_sample_rate(1);
     mpu_setresolution(0, 0, mpu6050_raw);
+    mpu_get_offset(mpu6050_raw);
 }
 
-void mpu_read(MPU6050_RAW* mpu6050_raw)
+void mpu_read_raw(MPU6050_RAW* mpu6050_raw)
 {
     uint8_t buffer[6];
     int16_t temperature = 0;
@@ -90,7 +91,7 @@ void mpu_read(MPU6050_RAW* mpu6050_raw)
     temperature = buffer[0] << 8 | buffer[1];
     mpu6050_raw->temp = (temperature / 340.f) + 36.53;
 
-    mpu_convert(mpu6050_raw); // data conversion into [m/s] and [*] 
+    mpu_convert(mpu6050_raw); // data conversion into [m/s] and [deg/s] 
 }
 
 void mpu_setresolution(uint8_t gyro_res, uint8_t acc_res, MPU6050_RAW* mpu6050_raw)
@@ -175,7 +176,7 @@ bool mpu_accel_st(MPU6050_RAW* mpu6050_raw, MPU6050_SELFTEST* mpu6050_accel_st)
     uint8_t accel_res_mem = mpu6050_raw->accel_res;
     uint8_t mask = 0b00000011;
 
-    mpu_read(mpu6050_raw); // read data before selF test
+    mpu_read_raw(mpu6050_raw); // read data before selF test
     uint8_t accel_x = mpu6050_raw->acceleration[0];
     uint8_t accel_y = mpu6050_raw->acceleration[1];
     uint8_t accel_z = mpu6050_raw->acceleration[2];
@@ -202,7 +203,7 @@ bool mpu_accel_st(MPU6050_RAW* mpu6050_raw, MPU6050_SELFTEST* mpu6050_accel_st)
     mpu6050_accel_st->FT_Y = 4096 * pow(0.92, (mpu6050_accel_st->Y_TEST - 1.0) / 30.0);
     mpu6050_accel_st->FT_Z = 4096 * pow(0.92, (mpu6050_accel_st->Z_TEST - 1.0) / 30.0);
 
-    mpu_read(mpu6050_raw); // read data while self test is enabled
+    mpu_read_raw(mpu6050_raw); // read data while self test is enabled
     mpu6050_accel_st->STR_X = mpu6050_raw->acceleration[0] - accel_x;
     mpu6050_accel_st->STR_Y = mpu6050_raw->acceleration[1] - accel_y;
     mpu6050_accel_st->STR_Z = mpu6050_raw->acceleration[2] - accel_z;
@@ -221,7 +222,7 @@ bool mpu_gyro_st(MPU6050_RAW* mpu6050_raw, MPU6050_SELFTEST* mpu6050_gyro_st)
     uint8_t accel_res_mem = mpu6050_raw->accel_res;
     uint8_t mask = 0b00011111;
 
-    mpu_read(mpu6050_raw); // read data before selF test
+    mpu_read_raw(mpu6050_raw); // read data before selF test
     uint8_t gyro_x = mpu6050_raw->acceleration[0];
     uint8_t gyro_y = mpu6050_raw->acceleration[1];
     uint8_t gyro_z = mpu6050_raw->acceleration[2];
@@ -245,7 +246,7 @@ bool mpu_gyro_st(MPU6050_RAW* mpu6050_raw, MPU6050_SELFTEST* mpu6050_gyro_st)
     mpu6050_gyro_st->FT_Y = -25 * 131 * pow(1.046, (mpu6050_gyro_st->Y_TEST - 1.0));
     mpu6050_gyro_st->FT_Z = 25 * 131 * pow(1.046, (mpu6050_gyro_st->Z_TEST - 1.0));
 
-    mpu_read(mpu6050_raw); // read data while self test is enabled
+    mpu_read_raw(mpu6050_raw); // read data while self test is enabled
     mpu6050_gyro_st->STR_X = mpu6050_raw->acceleration[0] - gyro_x;
     mpu6050_gyro_st->STR_Y = mpu6050_raw->acceleration[1] - gyro_y;
     mpu6050_gyro_st->STR_Z = mpu6050_raw->acceleration[2] - gyro_z;
@@ -357,32 +358,62 @@ void mpu_set_sample_rate(uint8_t divider)
 
 void mpu_statistic(MPU6050_RAW* mpu6050_raw)
 {
-    double acc_x[50], acc_y[50], acc_z[50];
-    double gyro_x[50], gyro_y[50], gyro_z[50];
-    double var_acc_x, var_acc_y, var_acc_z, var_gyro_x, var_gyro_y, var_gyro_z;
-    double sigma_acc_x, sigma_acc_y, sigma_acc_z, sigma_gyro_x, sigma_gyro_y, sgima_gyro_z;
+    float acc_x[244], acc_y[244], acc_z[244];
+    float gyro_x[244], gyro_y[244], gyro_z[244];
+    float var_acc_x, var_acc_y, var_acc_z, var_gyro_x, var_gyro_y, var_gyro_z;
+    float sigma_acc_x, sigma_acc_y, sigma_acc_z, sigma_gyro_x, sigma_gyro_y, sgima_gyro_z;
 
 
-    for(uint8_t i; i < 50; i++) // measure output 50 times
+    for(uint8_t i; i < 244; i++) // measure output 50 times
     {
-        mpu_read(mpu6050_raw);
+        mpu_read_raw(mpu6050_raw);
         acc_x[i] = mpu6050_raw->accel_convert[0]; acc_y[i] = mpu6050_raw->accel_convert[1]; acc_z[i] = mpu6050_raw->accel_convert[2];
         gyro_x[i] = mpu6050_raw->gyro_convert[0];  gyro_y[i] = mpu6050_raw->gyro_convert[1];  gyro_z[i] = mpu6050_raw->gyro_convert[2];
     }
 
-    var_acc_x = get_variance(acc_x, 50); var_acc_y = get_variance(acc_y, 50); var_acc_z = get_variance(acc_z, 50);
-    var_gyro_x = get_variance(gyro_x, 50); var_gyro_y= get_variance(gyro_y, 50); var_gyro_z = get_variance(gyro_z, 50);
+    var_acc_x = get_variance(acc_x, 244); var_acc_y = get_variance(acc_y, 244); var_acc_z = get_variance(acc_z, 244);
+    var_gyro_x = get_variance(gyro_x, 244); var_gyro_y= get_variance(gyro_y, 244); var_gyro_z = get_variance(gyro_z, 244);
 
-    printf("var_acc_x: %f, var_acc_y: %f, var_acc_z: %f\n", var_acc_x, var_acc_y, var_acc_z);
-    printf("var_gyro_x: %f, var_gyro_y: %f, var_gyro_z: %f\n", var_gyro_x, var_gyro_y, var_gyro_z);
+    //printf("%f,%f,%f\n", sqrt(var_acc_x), sqrt(var_acc_y), sqrt(var_acc_z));
+    //printf("%f,%f,%f\n", sqrt(var_gyro_x), sqrt(var_gyro_y), sqrt(var_gyro_z));
 }
 
-double get_variance(double* data, uint8_t data_size)
+void mpu_read(MPU6050_RAW* mpu6050_raw, MPU6050* mpu6050)
 {
-    double variance;
-    double sum = 0;
-    double mean;
-    double x[data_size];
+    mpu_read_raw(mpu6050_raw);
+    mpu6050->accel[0] = mpu6050_raw->accel_convert[0] - mpu6050_raw->accel_x_offset;
+    mpu6050->accel[1] = mpu6050_raw->accel_convert[1] - mpu6050_raw->accel_y_offset;
+    mpu6050->accel[2] = mpu6050_raw->accel_convert[2] - mpu6050_raw->accel_z_offset; 
+
+    mpu6050->gyro[0] = mpu6050_raw->gyro_convert[0] - mpu6050_raw->gyro_x_offset;
+    mpu6050->gyro[1] = mpu6050_raw->gyro_convert[1] - mpu6050_raw->gyro_y_offset;
+    mpu6050->gyro[2] = mpu6050_raw->gyro_convert[2] - mpu6050_raw->gyro_z_offset;
+}
+
+void mpu_get_offset(MPU6050_RAW* mpu6050_raw)
+{
+    for(uint8_t i = 0; i < 244; i++)
+    {
+        mpu_read_raw(mpu6050_raw);
+        mpu6050_raw->accel_x_offset += mpu6050_raw->accel_convert[0]; 
+        mpu6050_raw->accel_y_offset += mpu6050_raw->accel_convert[1];
+        mpu6050_raw->accel_z_offset += mpu6050_raw->accel_convert[2] - 1.0;
+
+        mpu6050_raw->gyro_x_offset += mpu6050_raw->gyro_convert[0];
+        mpu6050_raw->gyro_y_offset += mpu6050_raw->gyro_convert[1];
+        mpu6050_raw->gyro_z_offset += mpu6050_raw->gyro_convert[2];
+    }
+
+    mpu6050_raw->accel_x_offset /= 250.0f; mpu6050_raw->accel_y_offset /= 250.0f; mpu6050_raw->accel_z_offset /= 250.0f;
+    mpu6050_raw->gyro_x_offset /= 250.0f; mpu6050_raw->gyro_y_offset /= 250.0f; mpu6050_raw->gyro_z_offset /= 250.0f;
+}
+
+float get_variance(float* data, uint8_t data_size)
+{
+    float variance;
+    float sum = 0;
+    float mean;
+    float x[data_size];
 
     for(uint8_t i = 0; i < data_size; i++)
         sum = sum + data[i];
