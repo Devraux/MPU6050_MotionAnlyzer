@@ -9,11 +9,7 @@ int main()
     MPU6050 mpu6050 = {0};
     mpu_init(&mpu6050_raw);
     sleep_ms(5000);
-    mpu_accel_st(&mpu6050_raw, &mpu6050_accel_st);
-    mpu_gyro_st(&mpu6050_raw, &mpu6050_gyro_st);
-    //printf("X_ACC_ERR: %f\nY_ACC_ERR: %f\nZ_ACC_ERR: %f\n", mpu6050_accel_st.X_ERROR, mpu6050_accel_st.Y_ERROR, mpu6050_accel_st.Z_ERROR);
-    //printf("X_GYRO_ERR: %f\nY_GYRO_ERR: %f\nZ_GYRO_ERR: %f\n", mpu6050_gyro_st.X_ERROR, mpu6050_gyro_st.Y_ERROR, mpu6050_gyro_st.Z_ERROR);
-
+    
     while(1)
     {
         //mpu_read_raw(&mpu6050_raw);
@@ -35,9 +31,13 @@ int main()
         //mpu_statistic(&mpu6050_raw);
         mpu_read(&mpu6050_raw, &mpu6050);
         //printf("Acc. X = %f, Y = %f, Z = %f\n", mpu6050.accel[0],mpu6050.accel[1], mpu6050.accel[2]);
-        printf("%f,%f,%f\n", mpu6050.accelwithoutgravity[0],mpu6050.accelwithoutgravity[1], mpu6050.accelwithoutgravity[2]);
+        printf("%f,%f,%f\n", 9.81*mpu6050.accelwithoutgravity[0],9.81*mpu6050.accelwithoutgravity[1], 9.81*mpu6050.accelwithoutgravity[2]);
         //printf("Gyro. X = %f, Y = %f, Z = %f\n", mpu6050.gyro[0], mpu6050.gyro[1], mpu6050.gyro[2]);
 
+        mpu_get_distance(&mpu6050_raw, &mpu6050);
+        //printf("Acc. X = %f, Y = %f, Z = %f\n", mpu6050.accelwithoutgravity[0],mpu6050.accelwithoutgravity[1], mpu6050.accelwithoutgravity[2]);
+        //printf("%f\n", mpu6050.distance);
+        
         sleep_ms(100);
     }
     return 0;

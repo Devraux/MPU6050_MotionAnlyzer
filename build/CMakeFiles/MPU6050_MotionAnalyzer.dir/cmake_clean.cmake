@@ -132,6 +132,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/MPU6050_MotionAnalyzer.dir/main.c.obj.d"
   "CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj"
   "CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj.d"
+  "CMakeFiles/MPU6050_MotionAnalyzer.dir/ringbuffer/ringbuffer.c.obj"
+  "CMakeFiles/MPU6050_MotionAnalyzer.dir/ringbuffer/ringbuffer.c.obj.d"
   "MPU6050_MotionAnalyzer.elf"
   "MPU6050_MotionAnalyzer.elf.manifest"
   "MPU6050_MotionAnalyzer.pdb"

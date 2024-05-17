@@ -1732,6 +1732,30 @@ mpu6050/mpu6050.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\MPU6050_MotionAnalyzer.dir\build.make CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.s
 .PHONY : mpu6050/mpu6050.c.s
 
+ringbuffer/ringbuffer.obj: ringbuffer/ringbuffer.c.obj
+.PHONY : ringbuffer/ringbuffer.obj
+
+# target to build an object file
+ringbuffer/ringbuffer.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MPU6050_MotionAnalyzer.dir\build.make CMakeFiles/MPU6050_MotionAnalyzer.dir/ringbuffer/ringbuffer.c.obj
+.PHONY : ringbuffer/ringbuffer.c.obj
+
+ringbuffer/ringbuffer.i: ringbuffer/ringbuffer.c.i
+.PHONY : ringbuffer/ringbuffer.i
+
+# target to preprocess a source file
+ringbuffer/ringbuffer.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MPU6050_MotionAnalyzer.dir\build.make CMakeFiles/MPU6050_MotionAnalyzer.dir/ringbuffer/ringbuffer.c.i
+.PHONY : ringbuffer/ringbuffer.c.i
+
+ringbuffer/ringbuffer.s: ringbuffer/ringbuffer.c.s
+.PHONY : ringbuffer/ringbuffer.s
+
+# target to generate assembly for a file
+ringbuffer/ringbuffer.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MPU6050_MotionAnalyzer.dir\build.make CMakeFiles/MPU6050_MotionAnalyzer.dir/ringbuffer/ringbuffer.c.s
+.PHONY : ringbuffer/ringbuffer.c.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -1939,6 +1963,9 @@ help:
 	@echo ... mpu6050/mpu6050.obj
 	@echo ... mpu6050/mpu6050.i
 	@echo ... mpu6050/mpu6050.s
+	@echo ... ringbuffer/ringbuffer.obj
+	@echo ... ringbuffer/ringbuffer.i
+	@echo ... ringbuffer/ringbuffer.s
 .PHONY : help
 
 

@@ -181,6 +181,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/kalman_filter/kalman_filter.c" "CMakeFiles/MPU6050_MotionAnalyzer.dir/kalman_filter/kalman_filter.c.obj" "gcc" "CMakeFiles/MPU6050_MotionAnalyzer.dir/kalman_filter/kalman_filter.c.obj.d"
   "C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/main.c" "CMakeFiles/MPU6050_MotionAnalyzer.dir/main.c.obj" "gcc" "CMakeFiles/MPU6050_MotionAnalyzer.dir/main.c.obj.d"
   "C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/mpu6050/mpu6050.c" "CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj" "gcc" "CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj.d"
+  "C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/ringbuffer/ringbuffer.c" "CMakeFiles/MPU6050_MotionAnalyzer.dir/ringbuffer/ringbuffer.c.obj" "gcc" "CMakeFiles/MPU6050_MotionAnalyzer.dir/ringbuffer/ringbuffer.c.obj.d"
   "C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp" "CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj" "gcc" "CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj.d"
   )
 

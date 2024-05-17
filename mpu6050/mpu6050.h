@@ -3,6 +3,7 @@
 
 #include <stdbool.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include "hardware/i2c.h"
 #include "hardware/gpio.h"
 #include <math.h>
@@ -41,7 +42,7 @@ typedef struct MPU6050_RAW
     uint8_t accel_res;       // 0=> 16384, 1=>8192, 2=>4096, 3=>2048  
     uint8_t gyro_res;        // 0=> 131,   1=>65.5, 2=>32.8, 3=>16.4 
 
-    float accel_x_offset, accel, accel_y_offset, accel_z_offset; // accelerometer offset
+    float accel_x_offset, accel_y_offset, accel_z_offset; // accelerometer offset
     float gyro_x_offset, gyro_y_offset, gyro_z_offset;           // gyroscope offset
         
 }MPU6050_RAW;
@@ -60,12 +61,10 @@ typedef struct MPU6050
     float gyro[3];   // user's data without sensor offset
 
     float accelwithoutgravity[3]; 
-}MPU6050;
 
-typedef struct MPU6050_DISTANCE
-{
-    float distance; // sensor computed data from accelerometer and gyrometer to distance
-} MPU6050_DISTANCE;
+    float distance;  // computed distance
+    float v_0; // last velocity value
+}MPU6050;
 
 //write_i2c()//
 /// @param i2c_address => device address
@@ -144,4 +143,10 @@ void mpu_read(MPU6050_RAW* mpu6050_raw, MPU6050* mpu6050);
 /// @brief remove gravity from sensor output and save data in mpu6050 structure 
 /// @param MPU6050 => mpu6050 output data
 void mpu_remove_gravity(MPU6050* mpu6050);
+
+//mpu_get_distance// 
+/// @param MPU6050 => mpu6050 output data
+/// @param MPU6050_RAW => mpu6050_raw output data
+void mpu_get_distance(MPU6050_RAW* mpu6050_raw, MPU6050* mpu6050);
+
 #endif

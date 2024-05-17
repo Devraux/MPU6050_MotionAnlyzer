@@ -286,6 +286,7 @@ void mpu_convert(MPU6050_RAW* mpu6050_raw)
             mpu6050_raw->accel_convert[1] = mpu6050_raw->acceleration[1] / 2048.0;
             mpu6050_raw->accel_convert[2] = mpu6050_raw->acceleration[2] / 2048.0;
         break;
+    
     }
 
     switch(mpu6050_raw->gyro_res)
@@ -314,6 +315,7 @@ void mpu_convert(MPU6050_RAW* mpu6050_raw)
             mpu6050_raw->gyro_convert[2] = mpu6050_raw->gyro[2] / 16.4;
         break;
     }
+
 }
 
 void mpu_set_sample_rate(uint8_t divider)
@@ -422,6 +424,18 @@ void mpu_remove_gravity(MPU6050* mpu6050)
     mpu6050->accelwithoutgravity[0] = mpu6050->accel[0] - gravity[0];
     mpu6050->accelwithoutgravity[1] = mpu6050->accel[1] - gravity[1];
     mpu6050->accelwithoutgravity[2] = mpu6050->accel[2] - gravity[2]; 
+}
+
+void mpu_get_distance(MPU6050_RAW* mpu6050_raw, MPU6050* mpu6050)
+{
+    mpu_read(mpu6050_raw, mpu6050);
+    float velocity = fabs(mpu6050->accelwithoutgravity[0] * 9.81) * 0.001;
+    mpu6050->distance += velocity * 0.001;
+
+    //mpu6050->distance += 0.5 * fabs(mpu6050->accelwithoutgravity[0] * 9.81) * 0.0001;
+
+    //printf("%f\n", mpu6050->distance);
+   
 }
 
 float get_variance(float* data, uint8_t data_size)

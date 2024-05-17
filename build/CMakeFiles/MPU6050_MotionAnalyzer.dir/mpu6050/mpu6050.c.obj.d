@@ -19,6 +19,9 @@ CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj: \
  c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\machine\_types.h \
  c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\sys\lock.h \
  c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\sys\stdio.h \
+ c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\stdlib.h \
+ c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\machine\stdlib.h \
+ c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\alloca.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_i2c\include/hardware/i2c.h \
  C:\VSARM\sdk\pico\pico-sdk\src\common\pico_base\include/pico.h \
  C:\VSARM\sdk\pico\pico-sdk\src\common\pico_base\include/pico/types.h \
