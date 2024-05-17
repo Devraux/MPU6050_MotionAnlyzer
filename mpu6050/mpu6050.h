@@ -49,16 +49,23 @@ typedef struct MPU6050_RAW
 typedef struct MPU6050_SELFTEST
 {
     uint8_t STR_X, STR_Y, STR_Z;            //STR => SELFT-TEST-RESPONSE
-    float FT_X, FT_Y, FT_Z;                //FT => FACTORY TRIMMER
+    float FT_X, FT_Y, FT_Z;                 //FT => FACTORY TRIMMER
     uint8_t X_TEST, Y_TEST, Z_TEST, A_TEST; // TEST REGISTER
-    float X_ERROR, Y_ERROR, Z_ERROR;       //Errors given in %
+    float X_ERROR, Y_ERROR, Z_ERROR;        //Errors given in %
 }MPU6050_SELFTEST;
 
 typedef struct MPU6050
 {
-    float accel[3];  // user's data without offset
-    float gyro[3];   // user's data without offset  
+    float accel[3];  // user's data without sensor offset
+    float gyro[3];   // user's data without sensor offset
+
+    float accelwithoutgravity[3]; 
 }MPU6050;
+
+typedef struct MPU6050_DISTANCE
+{
+    float distance; // sensor computed data from accelerometer and gyrometer to distance
+} MPU6050_DISTANCE;
 
 //write_i2c()//
 /// @param i2c_address => device address
@@ -132,4 +139,9 @@ void mpu_get_offset(MPU6050_RAW* mpu6050_raw);
 /// @param MPU6050_RAW => MPU6050_RAW data structure 
 /// @param MPU6050 => mpu6050 output data
 void mpu_read(MPU6050_RAW* mpu6050_raw, MPU6050* mpu6050);
+
+//mpu_remove_gravity//
+/// @brief remove gravity from sensor output and save data in mpu6050 structure 
+/// @param MPU6050 => mpu6050 output data
+void mpu_remove_gravity(MPU6050* mpu6050);
 #endif

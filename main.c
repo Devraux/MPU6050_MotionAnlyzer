@@ -34,10 +34,11 @@ int main()
 
         //mpu_statistic(&mpu6050_raw);
         mpu_read(&mpu6050_raw, &mpu6050);
-        printf("Acc. X = %f, Y = %f, Z = %f\n", mpu6050.accel[0],mpu6050.accel[1], mpu6050.accel[2]);
+        //printf("Acc. X = %f, Y = %f, Z = %f\n", mpu6050.accel[0],mpu6050.accel[1], mpu6050.accel[2]);
+        printf("%f,%f,%f\n", mpu6050.accelwithoutgravity[0],mpu6050.accelwithoutgravity[1], mpu6050.accelwithoutgravity[2]);
         //printf("Gyro. X = %f, Y = %f, Z = %f\n", mpu6050.gyro[0], mpu6050.gyro[1], mpu6050.gyro[2]);
 
-        sleep_ms(1000);
+        sleep_ms(100);
     }
     return 0;
 }

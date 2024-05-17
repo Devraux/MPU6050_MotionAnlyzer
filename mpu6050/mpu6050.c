@@ -318,7 +318,7 @@ void mpu_convert(MPU6050_RAW* mpu6050_raw)
 
 void mpu_set_sample_rate(uint8_t divider)
 {
-    i2c_write_reg(mpu6050_reg.address, mpu6050_reg.config, 0b00000011); // => set DLPF as 1kHz
+    i2c_write_reg(mpu6050_reg.address, mpu6050_reg.config, 0b00000110); // => set DLPF as 1kHz
 
     switch(divider)
     {
@@ -388,6 +388,8 @@ void mpu_read(MPU6050_RAW* mpu6050_raw, MPU6050* mpu6050)
     mpu6050->gyro[0] = mpu6050_raw->gyro_convert[0] - mpu6050_raw->gyro_x_offset;
     mpu6050->gyro[1] = mpu6050_raw->gyro_convert[1] - mpu6050_raw->gyro_y_offset;
     mpu6050->gyro[2] = mpu6050_raw->gyro_convert[2] - mpu6050_raw->gyro_z_offset;
+
+    mpu_remove_gravity(mpu6050);
 }
 
 void mpu_get_offset(MPU6050_RAW* mpu6050_raw)
@@ -406,6 +408,20 @@ void mpu_get_offset(MPU6050_RAW* mpu6050_raw)
 
     mpu6050_raw->accel_x_offset /= 250.0f; mpu6050_raw->accel_y_offset /= 250.0f; mpu6050_raw->accel_z_offset /= 250.0f;
     mpu6050_raw->gyro_x_offset /= 250.0f; mpu6050_raw->gyro_y_offset /= 250.0f; mpu6050_raw->gyro_z_offset /= 250.0f;
+}
+
+void mpu_remove_gravity(MPU6050* mpu6050)
+{
+    static float gravity[3] = {0, 0, 0};
+    float alpha = 0.8;
+
+    gravity[0] = alpha * gravity[0] + (1 - alpha) * mpu6050->accel[0];
+    gravity[1] = alpha * gravity[1] + (1 - alpha) * mpu6050->accel[1];
+    gravity[2] = alpha * gravity[2] + (1 - alpha) * mpu6050->accel[2];
+
+    mpu6050->accelwithoutgravity[0] = mpu6050->accel[0] - gravity[0];
+    mpu6050->accelwithoutgravity[1] = mpu6050->accel[1] - gravity[1];
+    mpu6050->accelwithoutgravity[2] = mpu6050->accel[2] - gravity[2]; 
 }
 
 float get_variance(float* data, uint8_t data_size)
