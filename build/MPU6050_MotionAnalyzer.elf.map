@@ -125,8 +125,12 @@ Discarded input sections
  .text          0x00000000        0x0 CMakeFiles/MPU6050_MotionAnalyzer.dir/ringbuffer/ringbuffer.c.obj
  .data          0x00000000        0x0 CMakeFiles/MPU6050_MotionAnalyzer.dir/ringbuffer/ringbuffer.c.obj
  .bss           0x00000000        0x0 CMakeFiles/MPU6050_MotionAnalyzer.dir/ringbuffer/ringbuffer.c.obj
- .debug_line    0x00000000        0x0 CMakeFiles/MPU6050_MotionAnalyzer.dir/ringbuffer/ringbuffer.c.obj
- .debug_str     0x00000000      0x109 CMakeFiles/MPU6050_MotionAnalyzer.dir/ringbuffer/ringbuffer.c.obj
+ .debug_info    0x00000000       0x7a CMakeFiles/MPU6050_MotionAnalyzer.dir/ringbuffer/ringbuffer.c.obj
+ .debug_abbrev  0x00000000       0x26 CMakeFiles/MPU6050_MotionAnalyzer.dir/ringbuffer/ringbuffer.c.obj
+ .debug_aranges
+                0x00000000       0x18 CMakeFiles/MPU6050_MotionAnalyzer.dir/ringbuffer/ringbuffer.c.obj
+ .debug_line    0x00000000       0x68 CMakeFiles/MPU6050_MotionAnalyzer.dir/ringbuffer/ringbuffer.c.obj
+ .debug_str     0x00000000      0x1a4 CMakeFiles/MPU6050_MotionAnalyzer.dir/ringbuffer/ringbuffer.c.obj
  .comment       0x00000000       0x46 CMakeFiles/MPU6050_MotionAnalyzer.dir/ringbuffer/ringbuffer.c.obj
  .ARM.attributes
                 0x00000000       0x2c CMakeFiles/MPU6050_MotionAnalyzer.dir/ringbuffer/ringbuffer.c.obj
@@ -1630,9 +1634,9 @@ Discarded input sections
                 0x00000000       0x3e CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
  .rodata.__func__.3
                 0x00000000       0x13 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
- .text          0x00000000        0x0 C:\Users\krzys\AppData\Local\Temp\ccM1HyNS.o
- .data          0x00000000        0x0 C:\Users\krzys\AppData\Local\Temp\ccM1HyNS.o
- .bss           0x00000000        0x0 C:\Users\krzys\AppData\Local\Temp\ccM1HyNS.o
+ .text          0x00000000        0x0 C:\Users\krzys\AppData\Local\Temp\ccUExOka.o
+ .data          0x00000000        0x0 C:\Users\krzys\AppData\Local\Temp\ccUExOka.o
+ .bss           0x00000000        0x0 C:\Users\krzys\AppData\Local\Temp\ccUExOka.o
  .data          0x00000000        0x0 c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libgcc.a(_dvmd_tls.o)
  .bss           0x00000000        0x0 c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libgcc.a(_dvmd_tls.o)
  .text          0x00000000        0x0 c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libg.a(libc_a-calloc.o)
@@ -1951,7 +1955,7 @@ LOAD c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb
 .boot2          0x10000000      0x100
                 0x10000000                        __boot2_start__ = .
  *(.boot2)
- .boot2         0x10000000      0x100 C:\Users\krzys\AppData\Local\Temp\ccM1HyNS.o
+ .boot2         0x10000000      0x100 C:\Users\krzys\AppData\Local\Temp\ccUExOka.o
                 0x10000100                        __boot2_end__ = .
                 0x00000001                        ASSERT (((__boot2_end__ - __boot2_start__) == 0x100), ERROR: Pico second stage bootloader must be 256 bytes in size)
 
@@ -3686,7 +3690,7 @@ LOAD CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyus
 LOAD CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
 LOAD CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj
 LOAD CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
-LOAD C:\Users\krzys\AppData\Local\Temp\ccM1HyNS.o
+LOAD C:\Users\krzys\AppData\Local\Temp\ccUExOka.o
 LOAD c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libstdc++.a
 LOAD c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libm.a
 START GROUP
@@ -3805,7 +3809,7 @@ LOAD linker stubs
  .ARM.attributes
                 0x000007ce       0x2c CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
  .ARM.attributes
-                0x000007fa       0x22 C:\Users\krzys\AppData\Local\Temp\ccM1HyNS.o
+                0x000007fa       0x22 C:\Users\krzys\AppData\Local\Temp\ccUExOka.o
  .ARM.attributes
                 0x0000081c       0x1e c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libgcc.a(_dvmd_tls.o)
  .ARM.attributes

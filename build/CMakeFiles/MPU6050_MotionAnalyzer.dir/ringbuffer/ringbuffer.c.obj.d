@@ -1,3 +1,28 @@
 CMakeFiles/MPU6050_MotionAnalyzer.dir/ringbuffer/ringbuffer.c.obj: \
  C:\VSARM\PI_PICO_PROJECTS\MPU6050_MotionAnlyzer\ringbuffer\ringbuffer.c \
- C:\VSARM\PI_PICO_PROJECTS\MPU6050_MotionAnlyzer\ringbuffer\ringbuffer.h
+ C:\VSARM\PI_PICO_PROJECTS\MPU6050_MotionAnlyzer\ringbuffer\ringbuffer.h \
+ c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\stdio.h \
+ c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\_ansi.h \
+ c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\newlib.h \
+ c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\_newlib_version.h \
+ c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\sys\config.h \
+ c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\machine\ieeefp.h \
+ c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\sys\features.h \
+ c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\sys\cdefs.h \
+ c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\machine\_default_types.h \
+ c:\progra~2\armgnu~1\125863~1.3re\lib\gcc\arm-none-eabi\12.3.1\include\stddef.h \
+ c:\progra~2\armgnu~1\125863~1.3re\lib\gcc\arm-none-eabi\12.3.1\include\stdarg.h \
+ c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\sys\reent.h \
+ c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\_ansi.h \
+ c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\sys\_types.h \
+ c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\machine\_types.h \
+ c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\sys\lock.h \
+ c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\sys\stdio.h \
+ c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\stdlib.h \
+ c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\machine\stdlib.h \
+ c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\alloca.h \
+ c:\progra~2\armgnu~1\125863~1.3re\lib\gcc\arm-none-eabi\12.3.1\include\stdbool.h \
+ c:\progra~2\armgnu~1\125863~1.3re\lib\gcc\arm-none-eabi\12.3.1\include\stdint.h \
+ c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\stdint.h \
+ c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\sys\_intsup.h \
+ c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\sys\_stdint.h
