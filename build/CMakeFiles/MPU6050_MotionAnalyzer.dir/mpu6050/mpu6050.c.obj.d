@@ -19,10 +19,7 @@ CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj: \
  c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\machine\_types.h \
  c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\sys\lock.h \
  c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\sys\stdio.h \
- c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\stdlib.h \
- c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\machine\stdlib.h \
- c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\alloca.h \
- C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_i2c\include/hardware/i2c.h \
+ C:\VSARM\sdk\pico\pico-sdk\src\common\pico_stdlib\include/pico/stdlib.h \
  C:\VSARM\sdk\pico\pico-sdk\src\common\pico_base\include/pico.h \
  C:\VSARM\sdk\pico\pico-sdk\src\common\pico_base\include/pico/types.h \
  C:\VSARM\sdk\pico\pico-sdk\src\common\pico_base\include/pico/assert.h \
@@ -42,14 +39,12 @@ CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj: \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include/hardware/regs/sio.h \
  C:\VSARM\sdk\pico\pico-sdk\src\common\pico_base\include/pico/types.h \
  C:\VSARM\sdk\pico\pico-sdk\src\common\pico_base\include/pico/error.h \
+ C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio\include/pico/stdio.h \
  C:\VSARM\sdk\pico\pico-sdk\src\common\pico_time\include/pico/time.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_timer\include/hardware/timer.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_structs\include/hardware/structs/timer.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_base\include/hardware/address_mapped.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include/hardware/regs/timer.h \
- C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_structs\include/hardware/structs/i2c.h \
- C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include/hardware/regs/i2c.h \
- C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include/hardware/regs/dreq.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_gpio\include/hardware/gpio.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_structs\include/hardware/structs/sio.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_structs\include/hardware/structs/interp.h \
@@ -60,6 +55,17 @@ CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj: \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_irq\include/hardware/irq.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include/hardware/regs/intctrl.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include/hardware/regs/m0plus.h \
+ C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_uart\include/hardware/uart.h \
+ C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_structs\include/hardware/structs/uart.h \
+ C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include/hardware/regs/uart.h \
+ C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include/hardware/regs/dreq.h \
+ C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_stdio_usb\include/pico/stdio_usb.h \
+ C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_i2c\include/hardware/i2c.h \
+ C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_structs\include/hardware/structs/i2c.h \
+ C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include/hardware/regs/i2c.h \
  c:\vsarm\pi_pico_projects\mpu6050_motionanlyzer\kalman_filter\kalman_filter.h \
  c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\math.h \
- c:\vsarm\pi_pico_projects\mpu6050_motionanlyzer\ringbuffer\ringbuffer.h
+ c:\vsarm\pi_pico_projects\mpu6050_motionanlyzer\ringbuffer\ringbuffer.h \
+ c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\stdlib.h \
+ c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\machine\stdlib.h \
+ c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\alloca.h

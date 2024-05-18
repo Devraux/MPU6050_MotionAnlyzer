@@ -1,5 +1,7 @@
 #include "mpu6050.h"
 
+struct repeating_timer timer;
+
 MPU6050_REG mpu6050_reg = {
     .address = 0x68,        //device address
     .who_i_am_add = 0x75,
@@ -47,18 +49,27 @@ void mpu_reset()
     sleep_ms(50);
  }
 
-void mpu_init(MPU6050_RAW* mpu6050_raw)
+void mpu_init(MPU6050_RAW* mpu6050_raw, MPU6050* mpu6050, MPU6050_DATA* mpu6050_data)
 {
+    // I2C INIT //
     i2c_init(i2c1, 400000);
     gpio_set_function(SDA_Pin, GPIO_FUNC_I2C); //27 and 26
     gpio_set_function(SCL_Pin, GPIO_FUNC_I2C);
     gpio_pull_up(SDA_Pin);
     gpio_pull_up(SCL_Pin);
 
+    //RING BUFFER INIT //
+    Ring_buffer_init(&mpu6050->accelbuffer, 50);
+    Ring_buffer_init(&mpu6050->gyrobuffer, 50);
+
+    // MPU6050 SENSOR INIT //
     mpu_reset();
     mpu_set_sample_rate(1);
     mpu_setresolution(0, 0, mpu6050_raw);
     mpu_get_offset(mpu6050_raw);
+
+    //MPU6050 INTERRUPT INIT
+    add_repeating_timer_ms(-10, mpu_callback, (void*)mpu6050_data, &timer);
 }
 
 void mpu_read_raw(MPU6050_RAW* mpu6050_raw)
@@ -392,6 +403,8 @@ void mpu_read(MPU6050_RAW* mpu6050_raw, MPU6050* mpu6050)
     mpu6050->gyro[2] = mpu6050_raw->gyro_convert[2] - mpu6050_raw->gyro_z_offset;
 
     mpu_remove_gravity(mpu6050);
+    Ring_buffer_push(&mpu6050->accelbuffer, mpu6050->accel[0]); //TO DO !!!
+    Ring_buffer_push(&mpu6050->gyrobuffer, mpu6050->gyro[0]); 
 }
 
 void mpu_get_offset(MPU6050_RAW* mpu6050_raw)
@@ -436,6 +449,12 @@ void mpu_get_distance(MPU6050_RAW* mpu6050_raw, MPU6050* mpu6050)
 
     //printf("%f\n", mpu6050->distance);
    
+}
+
+bool mpu_callback(struct repeating_timer *timer)
+{
+    MPU6050_DATA* mpu6050_data = (MPU6050_DATA*)timer->user_data;   // void* casting 
+    mpu_read(&mpu6050_data->mpu6050_raw, &mpu6050_data->mpu6050);
 }
 
 float get_variance(float* data, uint8_t data_size)

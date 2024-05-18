@@ -3,9 +3,11 @@
 
 #include <stdbool.h>
 #include <stdio.h>
-#include <stdlib.h>
+#include <pico/stdlib.h>
 #include "hardware/i2c.h"
 #include "hardware/gpio.h"
+#include "hardware/timer.h"
+#include "hardware/irq.h"
 #include "../kalman_filter/kalman_filter.h"
 #include "../ringbuffer/ringbuffer.h"
 #include <math.h>
@@ -59,14 +61,24 @@ typedef struct MPU6050_SELFTEST
 
 typedef struct MPU6050
 {
-    float accel[3];  // user's data without sensor offset
-    float gyro[3];   // user's data without sensor offset
+    float accel[3];                 // user's data without sensor offset
+    float gyro[3];                  // user's data without sensor offset
 
-    float accelwithoutgravity[3]; 
+    float accelwithoutgravity[3];   //user's data without offset and gravity constant
 
-    float distance;  // computed distance
-    float v_0; // last velocity value
+    RINGBUFFER accelbuffer;
+    RINGBUFFER gyrobuffer;
+
+    float distance;                 // computed distance
+    float v_0;                      // last velocity value
 }MPU6050;
+
+typedef struct MPU6050_DATA
+{
+    MPU6050_RAW mpu6050_raw;
+    MPU6050 mpu6050;
+}MPU6050_DATA;
+
 
 //write_i2c()//
 /// @param i2c_address => device address
@@ -76,7 +88,9 @@ void i2c_write_reg(uint8_t i2c_address, uint8_t reg, uint8_t data);
 
 /// mpu I2C init//
 /// @param MPU6050_RAW =>MPU6050_RAW data structure
-void mpu_init(MPU6050_RAW* mpu6050_raw); 
+/// @param MPU6050 => OUPUT MPU6050 computed DATA <=> data without offset, gravity constant and final distaance data
+/// @param MPU6050 => structure constaining MPU6050_RAW and MPU6050, necessary do interrupt 
+void mpu_init(MPU6050_RAW* mpu6050_raw, MPU6050* mpu6050, MPU6050_DATA* mpu6050_data); 
 
 //who_i_am//
 ///@brief save MPU6050 I2C address in mpu_address param
@@ -151,4 +165,8 @@ void mpu_remove_gravity(MPU6050* mpu6050);
 /// @param MPU6050_RAW => mpu6050_raw output data
 void mpu_get_distance(MPU6050_RAW* mpu6050_raw, MPU6050* mpu6050);
 
+//MPU_CALLBACK//
+/// @brief build in pi pico sdk callback 
+/// @brief read data from sensor every 10 ms <> sensor measure new data after 19 ms(look mpu_set_resolution) 
+bool mpu_callback(struct repeating_timer *timer);
 #endif
