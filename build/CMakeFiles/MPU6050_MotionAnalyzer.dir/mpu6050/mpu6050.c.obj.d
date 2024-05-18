@@ -60,4 +60,6 @@ CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj: \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_irq\include/hardware/irq.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include/hardware/regs/intctrl.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include/hardware/regs/m0plus.h \
- c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\math.h
+ c:\vsarm\pi_pico_projects\mpu6050_motionanlyzer\kalman_filter\kalman_filter.h \
+ c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\math.h \
+ c:\vsarm\pi_pico_projects\mpu6050_motionanlyzer\ringbuffer\ringbuffer.h

@@ -2770,7 +2770,8 @@ CMakeFiles/MPU6050_MotionAnalyzer.dir/main.c.obj: C:/VSARM/PI_PICO_PROJECTS/MPU6
   C:/Program\ Files\ (x86)/Arm\ GNU\ Toolchain\ arm-none-eabi/12.3\ rel1/lib/gcc/arm-none-eabi/12.3.1/include/stdarg.h \
   C:/Program\ Files\ (x86)/Arm\ GNU\ Toolchain\ arm-none-eabi/12.3\ rel1/lib/gcc/arm-none-eabi/12.3.1/include/stdbool.h \
   C:/Program\ Files\ (x86)/Arm\ GNU\ Toolchain\ arm-none-eabi/12.3\ rel1/lib/gcc/arm-none-eabi/12.3.1/include/stddef.h \
-  C:/Program\ Files\ (x86)/Arm\ GNU\ Toolchain\ arm-none-eabi/12.3\ rel1/lib/gcc/arm-none-eabi/12.3.1/include/stdint.h
+  C:/Program\ Files\ (x86)/Arm\ GNU\ Toolchain\ arm-none-eabi/12.3\ rel1/lib/gcc/arm-none-eabi/12.3.1/include/stdint.h \
+  C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/ringbuffer/ringbuffer.h
 
 CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj: C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/mpu6050/mpu6050.c \
   C:/VSARM/sdk/pico/pico-sdk/src/boards/include/boards/pico.h \
@@ -2831,7 +2832,8 @@ CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj: C:/VSARM/PI_PICO_PR
   C:/Program\ Files\ (x86)/Arm\ GNU\ Toolchain\ arm-none-eabi/12.3\ rel1/lib/gcc/arm-none-eabi/12.3.1/include/stdarg.h \
   C:/Program\ Files\ (x86)/Arm\ GNU\ Toolchain\ arm-none-eabi/12.3\ rel1/lib/gcc/arm-none-eabi/12.3.1/include/stdbool.h \
   C:/Program\ Files\ (x86)/Arm\ GNU\ Toolchain\ arm-none-eabi/12.3\ rel1/lib/gcc/arm-none-eabi/12.3.1/include/stddef.h \
-  C:/Program\ Files\ (x86)/Arm\ GNU\ Toolchain\ arm-none-eabi/12.3\ rel1/lib/gcc/arm-none-eabi/12.3.1/include/stdint.h
+  C:/Program\ Files\ (x86)/Arm\ GNU\ Toolchain\ arm-none-eabi/12.3\ rel1/lib/gcc/arm-none-eabi/12.3.1/include/stdint.h \
+  C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/ringbuffer/ringbuffer.h
 
 CMakeFiles/MPU6050_MotionAnalyzer.dir/ringbuffer/ringbuffer.c.obj: C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/ringbuffer/ringbuffer.c \
   C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/ringbuffer/ringbuffer.h \
@@ -3339,8 +3341,8 @@ C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/main.h:
 
 C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/mpu6050/mpu6050.h:
 
+C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/ringbuffer/ringbuffer.h:
+
 C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/mpu6050/mpu6050.c:
 
 C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/ringbuffer/ringbuffer.c:
-
-C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/ringbuffer/ringbuffer.h:

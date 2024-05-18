@@ -39,6 +39,11 @@ CMakeFiles/MPU6050_MotionAnalyzer.dir/main.c.obj: \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include/hardware/regs/sio.h \
  C:\VSARM\sdk\pico\pico-sdk\src\common\pico_base\include/pico/types.h \
  C:\VSARM\sdk\pico\pico-sdk\src\common\pico_base\include/pico/error.h \
+ C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_uart\include/hardware/uart.h \
+ C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_structs\include/hardware/structs/uart.h \
+ C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_base\include/hardware/address_mapped.h \
+ C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include/hardware/regs/uart.h \
+ C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include/hardware/regs/dreq.h \
  C:\VSARM\PI_PICO_PROJECTS\MPU6050_MotionAnlyzer\mpu6050/mpu6050.h \
  c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\stdio.h \
  c:\progra~2\armgnu~1\125863~1.3re\lib\gcc\arm-none-eabi\12.3.1\include\stdarg.h \
@@ -47,11 +52,9 @@ CMakeFiles/MPU6050_MotionAnalyzer.dir/main.c.obj: \
  C:\VSARM\sdk\pico\pico-sdk\src\common\pico_time\include/pico/time.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_timer\include/hardware/timer.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_structs\include/hardware/structs/timer.h \
- C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_base\include/hardware/address_mapped.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include/hardware/regs/timer.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_structs\include/hardware/structs/i2c.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include/hardware/regs/i2c.h \
- C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include/hardware/regs/dreq.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_gpio\include/hardware/gpio.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_structs\include/hardware/structs/sio.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_structs\include/hardware/structs/interp.h \
@@ -62,7 +65,6 @@ CMakeFiles/MPU6050_MotionAnalyzer.dir/main.c.obj: \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_irq\include/hardware/irq.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include/hardware/regs/intctrl.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include/hardware/regs/m0plus.h \
+ c:\vsarm\pi_pico_projects\mpu6050_motionanlyzer\kalman_filter\kalman_filter.h \
  c:\progra~2\armgnu~1\125863~1.3re\arm-none-eabi\include\math.h \
- C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_uart\include/hardware/uart.h \
- C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_structs\include/hardware/structs/uart.h \
- C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include/hardware/regs/uart.h
+ c:\vsarm\pi_pico_projects\mpu6050_motionanlyzer\ringbuffer\ringbuffer.h

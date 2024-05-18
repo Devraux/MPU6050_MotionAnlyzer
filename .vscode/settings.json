@@ -3,6 +3,7 @@
         "mpu6050.h": "c",
         "main.h": "c",
         "random": "c",
-        "uart.h": "c"
+        "uart.h": "c",
+        "makefile": "c"
     }
 }

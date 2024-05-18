@@ -6,6 +6,8 @@
 #include <stdlib.h>
 #include "hardware/i2c.h"
 #include "hardware/gpio.h"
+#include "../kalman_filter/kalman_filter.h"
+#include "../ringbuffer/ringbuffer.h"
 #include <math.h>
 
 //I2C INTERFACE//

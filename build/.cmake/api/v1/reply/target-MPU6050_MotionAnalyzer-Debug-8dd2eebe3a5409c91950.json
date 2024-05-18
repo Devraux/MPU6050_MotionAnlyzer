@@ -15,7 +15,8 @@
 			"pico_define_boot_stage2",
 			"add_dependencies",
 			"target_compile_definitions",
-			"pico_add_extra_outputs"
+			"pico_add_extra_outputs",
+			"include_directories"
 		],
 		"files" : 
 		[
@@ -37,7 +38,7 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 23,
+				"line" : 29,
 				"parent" : 0
 			},
 			{
@@ -64,13 +65,13 @@
 			{
 				"command" : 4,
 				"file" : 0,
-				"line" : 21,
+				"line" : 27,
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 0,
-				"line" : 20,
+				"line" : 26,
 				"parent" : 0
 			},
 			{
@@ -78,6 +79,24 @@
 				"file" : 2,
 				"line" : 30,
 				"parent" : 8
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 16,
+				"parent" : 0
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 17,
+				"parent" : 0
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 18,
+				"parent" : 0
 			}
 		]
 	},
@@ -275,6 +294,18 @@
 			],
 			"includes" : 
 			[
+				{
+					"backtrace" : 10,
+					"path" : "C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/mpu6050"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/ringbuffer"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/kalman_filter"
+				},
 				{
 					"backtrace" : 2,
 					"path" : "C:/VSARM/sdk/pico/pico-sdk/src/common/pico_stdlib/include"
@@ -727,6 +758,18 @@
 			"includes" : 
 			[
 				{
+					"backtrace" : 10,
+					"path" : "C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/mpu6050"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/ringbuffer"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/kalman_filter"
+				},
+				{
 					"backtrace" : 2,
 					"path" : "C:/VSARM/sdk/pico/pico-sdk/src/common/pico_stdlib/include"
 				},
@@ -1135,6 +1178,18 @@
 			],
 			"includes" : 
 			[
+				{
+					"backtrace" : 10,
+					"path" : "C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/mpu6050"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/ringbuffer"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/kalman_filter"
+				},
 				{
 					"backtrace" : 2,
 					"path" : "C:/VSARM/sdk/pico/pico-sdk/src/common/pico_stdlib/include"

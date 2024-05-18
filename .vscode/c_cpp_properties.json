@@ -5,7 +5,8 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "${env:PICO_SDK_PATH}/**",
-                "C:/VSARM/sdk/pico/pico-sdk/src/common/pico_stdlib/include"
+                "C:/VSARM/sdk/pico/pico-sdk/src/common/pico_stdlib/include",
+                "C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer"
             ],
             "defines": [
                 "_DEBUG",

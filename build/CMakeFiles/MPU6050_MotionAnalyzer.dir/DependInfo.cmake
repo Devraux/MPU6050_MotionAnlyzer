@@ -71,6 +71,9 @@ set(CMAKE_TARGET_DEFINITIONS_ASM
 
 # The include file search paths:
 set(CMAKE_ASM_TARGET_INCLUDE_PATH
+  "C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/mpu6050"
+  "C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/ringbuffer"
+  "C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/kalman_filter"
   "C:/VSARM/sdk/pico/pico-sdk/src/common/pico_stdlib/include"
   "C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_gpio/include"
   "C:/VSARM/sdk/pico/pico-sdk/src/common/pico_base/include"

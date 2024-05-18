@@ -135,8 +135,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/build/CMakeFiles/CMakeScratch/TryCompile-4wsniu"
-      binary: "C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/build/CMakeFiles/CMakeScratch/TryCompile-4wsniu"
+      source: "C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/build/CMakeFiles/CMakeScratch/TryCompile-et312f"
+      binary: "C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/build/CMakeFiles/CMakeScratch/TryCompile-et312f"
     cmakeVariables:
       CMAKE_C_FLAGS: "-mcpu=cortex-m0plus -mthumb"
       CMAKE_C_FLAGS_DEBUG: "-Og -g"
@@ -146,13 +146,13 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/build/CMakeFiles/CMakeScratch/TryCompile-4wsniu'
+        Change Dir: 'C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/build/CMakeFiles/CMakeScratch/TryCompile-et312f'
         
-        Run Build Command(s): C:/Users/krzys/Downloads/cmake-3.27.4-windows-x86_64/cmake-3.27.4-windows-x86_64/bin/cmake.exe -E env VERBOSE=1 C:/msys64/ucrt64/bin/mingw32-make.exe -f Makefile cmTC_73344/fast
-        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_73344.dir\\build.make CMakeFiles/cmTC_73344.dir/build
-        mingw32-make[1]: Entering directory 'C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/build/CMakeFiles/CMakeScratch/TryCompile-4wsniu'
-        Building C object CMakeFiles/cmTC_73344.dir/CMakeCCompilerABI.c.obj
-        C:\\PROGRA~2\\ARMGNU~1\\125863~1.3RE\\bin\\AR19DD~1.EXE   -mcpu=cortex-m0plus -mthumb    -v -o CMakeFiles\\cmTC_73344.dir\\CMakeCCompilerABI.c.obj -c C:\\Users\\krzys\\Downloads\\cmake-3.27.4-windows-x86_64\\cmake-3.27.4-windows-x86_64\\share\\cmake-3.27\\Modules\\CMakeCCompilerABI.c
+        Run Build Command(s): C:/Users/krzys/Downloads/cmake-3.27.4-windows-x86_64/cmake-3.27.4-windows-x86_64/bin/cmake.exe -E env VERBOSE=1 C:/msys64/ucrt64/bin/mingw32-make.exe -f Makefile cmTC_2696f/fast
+        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_2696f.dir\\build.make CMakeFiles/cmTC_2696f.dir/build
+        mingw32-make[1]: Entering directory 'C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/build/CMakeFiles/CMakeScratch/TryCompile-et312f'
+        Building C object CMakeFiles/cmTC_2696f.dir/CMakeCCompilerABI.c.obj
+        C:\\PROGRA~2\\ARMGNU~1\\125863~1.3RE\\bin\\AR19DD~1.EXE   -mcpu=cortex-m0plus -mthumb    -v -o CMakeFiles\\cmTC_2696f.dir\\CMakeCCompilerABI.c.obj -c C:\\Users\\krzys\\Downloads\\cmake-3.27.4-windows-x86_64\\cmake-3.27.4-windows-x86_64\\share\\cmake-3.27\\Modules\\CMakeCCompilerABI.c
         Using built-in specs.
         COLLECT_GCC=C:\\PROGRA~2\\ARMGNU~1\\125863~1.3RE\\bin\\AR19DD~1.EXE
         Target: arm-none-eabi
@@ -160,8 +160,8 @@ events:
         Thread model: single
         Supported LTO compression algorithms: zlib
         gcc version 12.3.1 20230626 (Arm GNU Toolchain 12.3.Rel1 (Build arm-12.35)) 
-        COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_73344.dir\\CMakeCCompilerABI.c.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'CMakeFiles\\cmTC_73344.dir\\'
-         c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/cc1.exe -quiet -v -imultilib thumb/v6-m/nofp -iprefix c:\\progra~2\\armgnu~1\\125863~1.3re\\bin\\../lib/gcc/arm-none-eabi/12.3.1/ -isysroot c:\\progra~2\\armgnu~1\\125863~1.3re\\bin\\../arm-none-eabi -D__USES_INITFINI__ C:\\Users\\krzys\\Downloads\\cmake-3.27.4-windows-x86_64\\cmake-3.27.4-windows-x86_64\\share\\cmake-3.27\\Modules\\CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles\\cmTC_73344.dir\\ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mcpu=cortex-m0plus -mthumb -mfloat-abi=soft -mlibarch=armv6s-m -march=armv6s-m -version -o C:\\Users\\krzys\\AppData\\Local\\Temp\\cc09m2gw.s
+        COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_2696f.dir\\CMakeCCompilerABI.c.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'CMakeFiles\\cmTC_2696f.dir\\'
+         c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/cc1.exe -quiet -v -imultilib thumb/v6-m/nofp -iprefix c:\\progra~2\\armgnu~1\\125863~1.3re\\bin\\../lib/gcc/arm-none-eabi/12.3.1/ -isysroot c:\\progra~2\\armgnu~1\\125863~1.3re\\bin\\../arm-none-eabi -D__USES_INITFINI__ C:\\Users\\krzys\\Downloads\\cmake-3.27.4-windows-x86_64\\cmake-3.27.4-windows-x86_64\\share\\cmake-3.27\\Modules\\CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles\\cmTC_2696f.dir\\ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mcpu=cortex-m0plus -mthumb -mfloat-abi=soft -mlibarch=armv6s-m -march=armv6s-m -version -o C:\\Users\\krzys\\AppData\\Local\\Temp\\cc6TtTDM.s
         GNU C17 (Arm GNU Toolchain 12.3.Rel1 (Build arm-12.35)) version 12.3.1 20230626 (arm-none-eabi)
         	compiled by GNU C version 9.3-win32 20200320, GMP version 6.2.1, MPFR version 3.1.6, MPC version 1.0.3, isl version isl-0.15-1-g835ea3a-GMP
         
@@ -182,15 +182,15 @@ events:
         
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
         Compiler executable checksum: fb91a105811bc5825517df4b6b01bd08
-        COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_73344.dir\\CMakeCCompilerABI.c.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'CMakeFiles\\cmTC_73344.dir\\'
-         c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/as.exe -v -march=armv6s-m -mfloat-abi=soft -meabi=5 -o CMakeFiles\\cmTC_73344.dir\\CMakeCCompilerABI.c.obj C:\\Users\\krzys\\AppData\\Local\\Temp\\cc09m2gw.s
+        COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_2696f.dir\\CMakeCCompilerABI.c.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'CMakeFiles\\cmTC_2696f.dir\\'
+         c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/as.exe -v -march=armv6s-m -mfloat-abi=soft -meabi=5 -o CMakeFiles\\cmTC_2696f.dir\\CMakeCCompilerABI.c.obj C:\\Users\\krzys\\AppData\\Local\\Temp\\cc6TtTDM.s
         GNU assembler version 2.40.0 (arm-none-eabi) using BFD version (Arm GNU Toolchain 12.3.Rel1 (Build arm-12.35)) 2.40.0.20230627
         COMPILER_PATH=c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/;c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/;c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/
         LIBRARY_PATH=c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/;c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/;c:/progra~2/armgnu~1/125863~1.3re/bin/../arm-none-eabi/lib/thumb/v6-m/nofp/;c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/;c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/;c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/;c:/progra~2/armgnu~1/125863~1.3re/bin/../arm-none-eabi/lib/
-        COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_73344.dir\\CMakeCCompilerABI.c.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'CMakeFiles\\cmTC_73344.dir\\CMakeCCompilerABI.c.'
-        Linking C executable cmTC_73344.elf
-        C:\\Users\\krzys\\Downloads\\cmake-3.27.4-windows-x86_64\\cmake-3.27.4-windows-x86_64\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_73344.dir\\link.txt --verbose=1
-        C:\\PROGRA~2\\ARMGNU~1\\125863~1.3RE\\bin\\AR19DD~1.EXE -mcpu=cortex-m0plus -mthumb  -Wl,--build-id=none -nostdlib  -v CMakeFiles/cmTC_73344.dir/CMakeCCompilerABI.c.obj -o cmTC_73344.elf 
+        COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_2696f.dir\\CMakeCCompilerABI.c.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'CMakeFiles\\cmTC_2696f.dir\\CMakeCCompilerABI.c.'
+        Linking C executable cmTC_2696f.elf
+        C:\\Users\\krzys\\Downloads\\cmake-3.27.4-windows-x86_64\\cmake-3.27.4-windows-x86_64\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_2696f.dir\\link.txt --verbose=1
+        C:\\PROGRA~2\\ARMGNU~1\\125863~1.3RE\\bin\\AR19DD~1.EXE -mcpu=cortex-m0plus -mthumb  -Wl,--build-id=none -nostdlib  -v CMakeFiles/cmTC_2696f.dir/CMakeCCompilerABI.c.obj -o cmTC_2696f.elf 
         Using built-in specs.
         COLLECT_GCC=C:\\PROGRA~2\\ARMGNU~1\\125863~1.3RE\\bin\\AR19DD~1.EXE
         COLLECT_LTO_WRAPPER=c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/lto-wrapper.exe
@@ -201,11 +201,11 @@ events:
         gcc version 12.3.1 20230626 (Arm GNU Toolchain 12.3.Rel1 (Build arm-12.35)) 
         COMPILER_PATH=c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/;c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/;c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/
         LIBRARY_PATH=c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/;c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/;c:/progra~2/armgnu~1/125863~1.3re/bin/../arm-none-eabi/lib/thumb/v6-m/nofp/;c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/;c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/;c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/;c:/progra~2/armgnu~1/125863~1.3re/bin/../arm-none-eabi/lib/
-        COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-nostdlib' '-v' '-o' 'cmTC_73344.elf' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'cmTC_73344.elf.'
-         c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/collect2.exe -plugin c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/liblto_plugin.dll -plugin-opt=c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\krzys\\AppData\\Local\\Temp\\ccUYOD5C.res --sysroot=c:\\progra~2\\armgnu~1\\125863~1.3re\\bin\\../arm-none-eabi -X -o cmTC_73344.elf -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1 -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../arm-none-eabi/lib --build-id=none CMakeFiles/cmTC_73344.dir/CMakeCCompilerABI.c.obj
+        COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-nostdlib' '-v' '-o' 'cmTC_2696f.elf' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'cmTC_2696f.elf.'
+         c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/collect2.exe -plugin c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/liblto_plugin.dll -plugin-opt=c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\krzys\\AppData\\Local\\Temp\\ccSgQKUS.res --sysroot=c:\\progra~2\\armgnu~1\\125863~1.3re\\bin\\../arm-none-eabi -X -o cmTC_2696f.elf -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1 -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../arm-none-eabi/lib --build-id=none CMakeFiles/cmTC_2696f.dir/CMakeCCompilerABI.c.obj
         c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: cannot find entry symbol _start; defaulting to 00008000
-        COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-nostdlib' '-v' '-o' 'cmTC_73344.elf' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'cmTC_73344.elf.'
-        mingw32-make[1]: Leaving directory 'C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/build/CMakeFiles/CMakeScratch/TryCompile-4wsniu'
+        COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-nostdlib' '-v' '-o' 'cmTC_2696f.elf' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'cmTC_2696f.elf.'
+        mingw32-make[1]: Leaving directory 'C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/build/CMakeFiles/CMakeScratch/TryCompile-et312f'
         
       exitCode: 0
   -
@@ -237,13 +237,13 @@ events:
     message: |
       Parsed C implicit link information:
         link line regex: [^( *|.*[/\\])(arm-none-eabi-ld\\.exe|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
-        ignore line: [Change Dir: 'C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/build/CMakeFiles/CMakeScratch/TryCompile-4wsniu']
+        ignore line: [Change Dir: 'C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/build/CMakeFiles/CMakeScratch/TryCompile-et312f']
         ignore line: []
-        ignore line: [Run Build Command(s): C:/Users/krzys/Downloads/cmake-3.27.4-windows-x86_64/cmake-3.27.4-windows-x86_64/bin/cmake.exe -E env VERBOSE=1 C:/msys64/ucrt64/bin/mingw32-make.exe -f Makefile cmTC_73344/fast]
-        ignore line: [C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_73344.dir\\build.make CMakeFiles/cmTC_73344.dir/build]
-        ignore line: [mingw32-make[1]: Entering directory 'C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/build/CMakeFiles/CMakeScratch/TryCompile-4wsniu']
-        ignore line: [Building C object CMakeFiles/cmTC_73344.dir/CMakeCCompilerABI.c.obj]
-        ignore line: [C:\\PROGRA~2\\ARMGNU~1\\125863~1.3RE\\bin\\AR19DD~1.EXE   -mcpu=cortex-m0plus -mthumb    -v -o CMakeFiles\\cmTC_73344.dir\\CMakeCCompilerABI.c.obj -c C:\\Users\\krzys\\Downloads\\cmake-3.27.4-windows-x86_64\\cmake-3.27.4-windows-x86_64\\share\\cmake-3.27\\Modules\\CMakeCCompilerABI.c]
+        ignore line: [Run Build Command(s): C:/Users/krzys/Downloads/cmake-3.27.4-windows-x86_64/cmake-3.27.4-windows-x86_64/bin/cmake.exe -E env VERBOSE=1 C:/msys64/ucrt64/bin/mingw32-make.exe -f Makefile cmTC_2696f/fast]
+        ignore line: [C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_2696f.dir\\build.make CMakeFiles/cmTC_2696f.dir/build]
+        ignore line: [mingw32-make[1]: Entering directory 'C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/build/CMakeFiles/CMakeScratch/TryCompile-et312f']
+        ignore line: [Building C object CMakeFiles/cmTC_2696f.dir/CMakeCCompilerABI.c.obj]
+        ignore line: [C:\\PROGRA~2\\ARMGNU~1\\125863~1.3RE\\bin\\AR19DD~1.EXE   -mcpu=cortex-m0plus -mthumb    -v -o CMakeFiles\\cmTC_2696f.dir\\CMakeCCompilerABI.c.obj -c C:\\Users\\krzys\\Downloads\\cmake-3.27.4-windows-x86_64\\cmake-3.27.4-windows-x86_64\\share\\cmake-3.27\\Modules\\CMakeCCompilerABI.c]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=C:\\PROGRA~2\\ARMGNU~1\\125863~1.3RE\\bin\\AR19DD~1.EXE]
         ignore line: [Target: arm-none-eabi]
@@ -251,8 +251,8 @@ events:
         ignore line: [Thread model: single]
         ignore line: [Supported LTO compression algorithms: zlib]
         ignore line: [gcc version 12.3.1 20230626 (Arm GNU Toolchain 12.3.Rel1 (Build arm-12.35)) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_73344.dir\\CMakeCCompilerABI.c.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'CMakeFiles\\cmTC_73344.dir\\']
-        ignore line: [ c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/cc1.exe -quiet -v -imultilib thumb/v6-m/nofp -iprefix c:\\progra~2\\armgnu~1\\125863~1.3re\\bin\\../lib/gcc/arm-none-eabi/12.3.1/ -isysroot c:\\progra~2\\armgnu~1\\125863~1.3re\\bin\\../arm-none-eabi -D__USES_INITFINI__ C:\\Users\\krzys\\Downloads\\cmake-3.27.4-windows-x86_64\\cmake-3.27.4-windows-x86_64\\share\\cmake-3.27\\Modules\\CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles\\cmTC_73344.dir\\ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mcpu=cortex-m0plus -mthumb -mfloat-abi=soft -mlibarch=armv6s-m -march=armv6s-m -version -o C:\\Users\\krzys\\AppData\\Local\\Temp\\cc09m2gw.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_2696f.dir\\CMakeCCompilerABI.c.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'CMakeFiles\\cmTC_2696f.dir\\']
+        ignore line: [ c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/cc1.exe -quiet -v -imultilib thumb/v6-m/nofp -iprefix c:\\progra~2\\armgnu~1\\125863~1.3re\\bin\\../lib/gcc/arm-none-eabi/12.3.1/ -isysroot c:\\progra~2\\armgnu~1\\125863~1.3re\\bin\\../arm-none-eabi -D__USES_INITFINI__ C:\\Users\\krzys\\Downloads\\cmake-3.27.4-windows-x86_64\\cmake-3.27.4-windows-x86_64\\share\\cmake-3.27\\Modules\\CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles\\cmTC_2696f.dir\\ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mcpu=cortex-m0plus -mthumb -mfloat-abi=soft -mlibarch=armv6s-m -march=armv6s-m -version -o C:\\Users\\krzys\\AppData\\Local\\Temp\\cc6TtTDM.s]
         ignore line: [GNU C17 (Arm GNU Toolchain 12.3.Rel1 (Build arm-12.35)) version 12.3.1 20230626 (arm-none-eabi)]
         ignore line: [	compiled by GNU C version 9.3-win32 20200320  GMP version 6.2.1  MPFR version 3.1.6  MPC version 1.0.3  isl version isl-0.15-1-g835ea3a-GMP]
         ignore line: []
@@ -273,8 +273,8 @@ events:
         ignore line: []
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
         ignore line: [Compiler executable checksum: fb91a105811bc5825517df4b6b01bd08]
-        ignore line: [COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_73344.dir\\CMakeCCompilerABI.c.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'CMakeFiles\\cmTC_73344.dir\\']
-        ignore line: [ c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/as.exe -v -march=armv6s-m -mfloat-abi=soft -meabi=5 -o CMakeFiles\\cmTC_73344.dir\\CMakeCCompilerABI.c.obj C:\\Users\\krzys\\AppData\\Local\\Temp\\cc09m2gw.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_2696f.dir\\CMakeCCompilerABI.c.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'CMakeFiles\\cmTC_2696f.dir\\']
+        ignore line: [ c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/as.exe -v -march=armv6s-m -mfloat-abi=soft -meabi=5 -o CMakeFiles\\cmTC_2696f.dir\\CMakeCCompilerABI.c.obj C:\\Users\\krzys\\AppData\\Local\\Temp\\cc6TtTDM.s]
         ignore line: [GNU assembler version 2.40.0 (arm-none-eabi) using BFD version (Arm GNU Toolchain 12.3.Rel1 (Build arm-12.35)) 2.40.0.20230627]
         ignore line: [COMPILER_PATH=c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/]
         ignore line: [c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/]
@@ -286,10 +286,10 @@ events:
         ignore line: [c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/]
         ignore line: [c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/]
         ignore line: [c:/progra~2/armgnu~1/125863~1.3re/bin/../arm-none-eabi/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_73344.dir\\CMakeCCompilerABI.c.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'CMakeFiles\\cmTC_73344.dir\\CMakeCCompilerABI.c.']
-        ignore line: [Linking C executable cmTC_73344.elf]
-        ignore line: [C:\\Users\\krzys\\Downloads\\cmake-3.27.4-windows-x86_64\\cmake-3.27.4-windows-x86_64\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_73344.dir\\link.txt --verbose=1]
-        ignore line: [C:\\PROGRA~2\\ARMGNU~1\\125863~1.3RE\\bin\\AR19DD~1.EXE -mcpu=cortex-m0plus -mthumb  -Wl --build-id=none -nostdlib  -v CMakeFiles/cmTC_73344.dir/CMakeCCompilerABI.c.obj -o cmTC_73344.elf ]
+        ignore line: [COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_2696f.dir\\CMakeCCompilerABI.c.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'CMakeFiles\\cmTC_2696f.dir\\CMakeCCompilerABI.c.']
+        ignore line: [Linking C executable cmTC_2696f.elf]
+        ignore line: [C:\\Users\\krzys\\Downloads\\cmake-3.27.4-windows-x86_64\\cmake-3.27.4-windows-x86_64\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_2696f.dir\\link.txt --verbose=1]
+        ignore line: [C:\\PROGRA~2\\ARMGNU~1\\125863~1.3RE\\bin\\AR19DD~1.EXE -mcpu=cortex-m0plus -mthumb  -Wl --build-id=none -nostdlib  -v CMakeFiles/cmTC_2696f.dir/CMakeCCompilerABI.c.obj -o cmTC_2696f.elf ]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=C:\\PROGRA~2\\ARMGNU~1\\125863~1.3RE\\bin\\AR19DD~1.EXE]
         ignore line: [COLLECT_LTO_WRAPPER=c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/lto-wrapper.exe]
@@ -308,17 +308,17 @@ events:
         ignore line: [c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/]
         ignore line: [c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/]
         ignore line: [c:/progra~2/armgnu~1/125863~1.3re/bin/../arm-none-eabi/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-nostdlib' '-v' '-o' 'cmTC_73344.elf' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'cmTC_73344.elf.']
-        link line: [ c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/collect2.exe -plugin c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/liblto_plugin.dll -plugin-opt=c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\krzys\\AppData\\Local\\Temp\\ccUYOD5C.res --sysroot=c:\\progra~2\\armgnu~1\\125863~1.3re\\bin\\../arm-none-eabi -X -o cmTC_73344.elf -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1 -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../arm-none-eabi/lib --build-id=none CMakeFiles/cmTC_73344.dir/CMakeCCompilerABI.c.obj]
+        ignore line: [COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-nostdlib' '-v' '-o' 'cmTC_2696f.elf' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'cmTC_2696f.elf.']
+        link line: [ c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/collect2.exe -plugin c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/liblto_plugin.dll -plugin-opt=c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\krzys\\AppData\\Local\\Temp\\ccSgQKUS.res --sysroot=c:\\progra~2\\armgnu~1\\125863~1.3re\\bin\\../arm-none-eabi -X -o cmTC_2696f.elf -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1 -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../arm-none-eabi/lib --build-id=none CMakeFiles/cmTC_2696f.dir/CMakeCCompilerABI.c.obj]
           arg [c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/collect2.exe] ==> ignore
           arg [-plugin] ==> ignore
           arg [c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/liblto_plugin.dll] ==> ignore
           arg [-plugin-opt=c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/lto-wrapper.exe] ==> ignore
-          arg [-plugin-opt=-fresolution=C:\\Users\\krzys\\AppData\\Local\\Temp\\ccUYOD5C.res] ==> ignore
+          arg [-plugin-opt=-fresolution=C:\\Users\\krzys\\AppData\\Local\\Temp\\ccSgQKUS.res] ==> ignore
           arg [--sysroot=c:\\progra~2\\armgnu~1\\125863~1.3re\\bin\\../arm-none-eabi] ==> ignore
           arg [-X] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_73344.elf] ==> ignore
+          arg [cmTC_2696f.elf] ==> ignore
           arg [-Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp] ==> dir [c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp]
           arg [-Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp] ==> dir [c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp]
           arg [-Lc:/progra~2/armgnu~1/125863~1.3re/bin/../arm-none-eabi/lib/thumb/v6-m/nofp] ==> dir [c:/progra~2/armgnu~1/125863~1.3re/bin/../arm-none-eabi/lib/thumb/v6-m/nofp]
@@ -327,7 +327,7 @@ events:
           arg [-Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib] ==> dir [c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib]
           arg [-Lc:/progra~2/armgnu~1/125863~1.3re/bin/../arm-none-eabi/lib] ==> dir [c:/progra~2/armgnu~1/125863~1.3re/bin/../arm-none-eabi/lib]
           arg [--build-id=none] ==> ignore
-          arg [CMakeFiles/cmTC_73344.dir/CMakeCCompilerABI.c.obj] ==> ignore
+          arg [CMakeFiles/cmTC_2696f.dir/CMakeCCompilerABI.c.obj] ==> ignore
         collapse library dir [c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp] ==> [C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/12.3 rel1/lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp]
         collapse library dir [c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp] ==> [C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/12.3 rel1/arm-none-eabi/lib/thumb/v6-m/nofp]
         collapse library dir [c:/progra~2/armgnu~1/125863~1.3re/bin/../arm-none-eabi/lib/thumb/v6-m/nofp] ==> [C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/12.3 rel1/arm-none-eabi/lib/thumb/v6-m/nofp]
@@ -350,8 +350,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/build/CMakeFiles/CMakeScratch/TryCompile-nwq9wp"
-      binary: "C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/build/CMakeFiles/CMakeScratch/TryCompile-nwq9wp"
+      source: "C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/build/CMakeFiles/CMakeScratch/TryCompile-kf4k26"
+      binary: "C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/build/CMakeFiles/CMakeScratch/TryCompile-kf4k26"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "-mcpu=cortex-m0plus -mthumb"
       CMAKE_CXX_FLAGS_DEBUG: "-Og -g"
@@ -361,13 +361,13 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/build/CMakeFiles/CMakeScratch/TryCompile-nwq9wp'
+        Change Dir: 'C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/build/CMakeFiles/CMakeScratch/TryCompile-kf4k26'
         
-        Run Build Command(s): C:/Users/krzys/Downloads/cmake-3.27.4-windows-x86_64/cmake-3.27.4-windows-x86_64/bin/cmake.exe -E env VERBOSE=1 C:/msys64/ucrt64/bin/mingw32-make.exe -f Makefile cmTC_bbfff/fast
-        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_bbfff.dir\\build.make CMakeFiles/cmTC_bbfff.dir/build
-        mingw32-make[1]: Entering directory 'C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/build/CMakeFiles/CMakeScratch/TryCompile-nwq9wp'
-        Building CXX object CMakeFiles/cmTC_bbfff.dir/CMakeCXXCompilerABI.cpp.obj
-        C:\\PROGRA~2\\ARMGNU~1\\125863~1.3RE\\bin\\AR10B2~1.EXE   -mcpu=cortex-m0plus -mthumb    -v -o CMakeFiles\\cmTC_bbfff.dir\\CMakeCXXCompilerABI.cpp.obj -c C:\\Users\\krzys\\Downloads\\cmake-3.27.4-windows-x86_64\\cmake-3.27.4-windows-x86_64\\share\\cmake-3.27\\Modules\\CMakeCXXCompilerABI.cpp
+        Run Build Command(s): C:/Users/krzys/Downloads/cmake-3.27.4-windows-x86_64/cmake-3.27.4-windows-x86_64/bin/cmake.exe -E env VERBOSE=1 C:/msys64/ucrt64/bin/mingw32-make.exe -f Makefile cmTC_23661/fast
+        C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_23661.dir\\build.make CMakeFiles/cmTC_23661.dir/build
+        mingw32-make[1]: Entering directory 'C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/build/CMakeFiles/CMakeScratch/TryCompile-kf4k26'
+        Building CXX object CMakeFiles/cmTC_23661.dir/CMakeCXXCompilerABI.cpp.obj
+        C:\\PROGRA~2\\ARMGNU~1\\125863~1.3RE\\bin\\AR10B2~1.EXE   -mcpu=cortex-m0plus -mthumb    -v -o CMakeFiles\\cmTC_23661.dir\\CMakeCXXCompilerABI.cpp.obj -c C:\\Users\\krzys\\Downloads\\cmake-3.27.4-windows-x86_64\\cmake-3.27.4-windows-x86_64\\share\\cmake-3.27\\Modules\\CMakeCXXCompilerABI.cpp
         Using built-in specs.
         COLLECT_GCC=C:\\PROGRA~2\\ARMGNU~1\\125863~1.3RE\\bin\\AR10B2~1.EXE
         Target: arm-none-eabi
@@ -375,8 +375,8 @@ events:
         Thread model: single
         Supported LTO compression algorithms: zlib
         gcc version 12.3.1 20230626 (Arm GNU Toolchain 12.3.Rel1 (Build arm-12.35)) 
-        COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_bbfff.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'CMakeFiles\\cmTC_bbfff.dir\\'
-         c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/cc1plus.exe -quiet -v -imultilib thumb/v6-m/nofp -iprefix c:\\progra~2\\armgnu~1\\125863~1.3re\\bin\\../lib/gcc/arm-none-eabi/12.3.1/ -isysroot c:\\progra~2\\armgnu~1\\125863~1.3re\\bin\\../arm-none-eabi -D__USES_INITFINI__ C:\\Users\\krzys\\Downloads\\cmake-3.27.4-windows-x86_64\\cmake-3.27.4-windows-x86_64\\share\\cmake-3.27\\Modules\\CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles\\cmTC_bbfff.dir\\ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mcpu=cortex-m0plus -mthumb -mfloat-abi=soft -mlibarch=armv6s-m -march=armv6s-m -version -o C:\\Users\\krzys\\AppData\\Local\\Temp\\ccEmepN8.s
+        COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_23661.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'CMakeFiles\\cmTC_23661.dir\\'
+         c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/cc1plus.exe -quiet -v -imultilib thumb/v6-m/nofp -iprefix c:\\progra~2\\armgnu~1\\125863~1.3re\\bin\\../lib/gcc/arm-none-eabi/12.3.1/ -isysroot c:\\progra~2\\armgnu~1\\125863~1.3re\\bin\\../arm-none-eabi -D__USES_INITFINI__ C:\\Users\\krzys\\Downloads\\cmake-3.27.4-windows-x86_64\\cmake-3.27.4-windows-x86_64\\share\\cmake-3.27\\Modules\\CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles\\cmTC_23661.dir\\ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mcpu=cortex-m0plus -mthumb -mfloat-abi=soft -mlibarch=armv6s-m -march=armv6s-m -version -o C:\\Users\\krzys\\AppData\\Local\\Temp\\ccPUgnYd.s
         GNU C++17 (Arm GNU Toolchain 12.3.Rel1 (Build arm-12.35)) version 12.3.1 20230626 (arm-none-eabi)
         	compiled by GNU C version 9.3-win32 20200320, GMP version 6.2.1, MPFR version 3.1.6, MPC version 1.0.3, isl version isl-0.15-1-g835ea3a-GMP
         
@@ -403,15 +403,15 @@ events:
         
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
         Compiler executable checksum: e7b3f66350dc9cf5c9189807aa34626d
-        COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_bbfff.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'CMakeFiles\\cmTC_bbfff.dir\\'
-         c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/as.exe -v -march=armv6s-m -mfloat-abi=soft -meabi=5 -o CMakeFiles\\cmTC_bbfff.dir\\CMakeCXXCompilerABI.cpp.obj C:\\Users\\krzys\\AppData\\Local\\Temp\\ccEmepN8.s
+        COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_23661.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'CMakeFiles\\cmTC_23661.dir\\'
+         c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/as.exe -v -march=armv6s-m -mfloat-abi=soft -meabi=5 -o CMakeFiles\\cmTC_23661.dir\\CMakeCXXCompilerABI.cpp.obj C:\\Users\\krzys\\AppData\\Local\\Temp\\ccPUgnYd.s
         GNU assembler version 2.40.0 (arm-none-eabi) using BFD version (Arm GNU Toolchain 12.3.Rel1 (Build arm-12.35)) 2.40.0.20230627
         COMPILER_PATH=c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/;c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/;c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/
         LIBRARY_PATH=c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/;c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/;c:/progra~2/armgnu~1/125863~1.3re/bin/../arm-none-eabi/lib/thumb/v6-m/nofp/;c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/;c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/;c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/;c:/progra~2/armgnu~1/125863~1.3re/bin/../arm-none-eabi/lib/
-        COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_bbfff.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'CMakeFiles\\cmTC_bbfff.dir\\CMakeCXXCompilerABI.cpp.'
-        Linking CXX executable cmTC_bbfff.elf
-        C:\\Users\\krzys\\Downloads\\cmake-3.27.4-windows-x86_64\\cmake-3.27.4-windows-x86_64\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_bbfff.dir\\link.txt --verbose=1
-        C:\\PROGRA~2\\ARMGNU~1\\125863~1.3RE\\bin\\AR10B2~1.EXE -mcpu=cortex-m0plus -mthumb  -Wl,--build-id=none -nostdlib  -v CMakeFiles/cmTC_bbfff.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_bbfff.elf 
+        COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_23661.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'CMakeFiles\\cmTC_23661.dir\\CMakeCXXCompilerABI.cpp.'
+        Linking CXX executable cmTC_23661.elf
+        C:\\Users\\krzys\\Downloads\\cmake-3.27.4-windows-x86_64\\cmake-3.27.4-windows-x86_64\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_23661.dir\\link.txt --verbose=1
+        C:\\PROGRA~2\\ARMGNU~1\\125863~1.3RE\\bin\\AR10B2~1.EXE -mcpu=cortex-m0plus -mthumb  -Wl,--build-id=none -nostdlib  -v CMakeFiles/cmTC_23661.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_23661.elf 
         Using built-in specs.
         COLLECT_GCC=C:\\PROGRA~2\\ARMGNU~1\\125863~1.3RE\\bin\\AR10B2~1.EXE
         COLLECT_LTO_WRAPPER=c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/lto-wrapper.exe
@@ -422,11 +422,11 @@ events:
         gcc version 12.3.1 20230626 (Arm GNU Toolchain 12.3.Rel1 (Build arm-12.35)) 
         COMPILER_PATH=c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/;c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/;c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/
         LIBRARY_PATH=c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/;c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/;c:/progra~2/armgnu~1/125863~1.3re/bin/../arm-none-eabi/lib/thumb/v6-m/nofp/;c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/;c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/;c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/;c:/progra~2/armgnu~1/125863~1.3re/bin/../arm-none-eabi/lib/
-        COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-nostdlib' '-v' '-o' 'cmTC_bbfff.elf' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'cmTC_bbfff.elf.'
-         c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/collect2.exe -plugin c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/liblto_plugin.dll -plugin-opt=c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\krzys\\AppData\\Local\\Temp\\cciBEsJf.res --sysroot=c:\\progra~2\\armgnu~1\\125863~1.3re\\bin\\../arm-none-eabi -X -o cmTC_bbfff.elf -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1 -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../arm-none-eabi/lib --build-id=none CMakeFiles/cmTC_bbfff.dir/CMakeCXXCompilerABI.cpp.obj
+        COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-nostdlib' '-v' '-o' 'cmTC_23661.elf' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'cmTC_23661.elf.'
+         c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/collect2.exe -plugin c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/liblto_plugin.dll -plugin-opt=c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\krzys\\AppData\\Local\\Temp\\ccJ1nICj.res --sysroot=c:\\progra~2\\armgnu~1\\125863~1.3re\\bin\\../arm-none-eabi -X -o cmTC_23661.elf -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1 -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../arm-none-eabi/lib --build-id=none CMakeFiles/cmTC_23661.dir/CMakeCXXCompilerABI.cpp.obj
         c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: cannot find entry symbol _start; defaulting to 00008000
-        COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-nostdlib' '-v' '-o' 'cmTC_bbfff.elf' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'cmTC_bbfff.elf.'
-        mingw32-make[1]: Leaving directory 'C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/build/CMakeFiles/CMakeScratch/TryCompile-nwq9wp'
+        COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-nostdlib' '-v' '-o' 'cmTC_23661.elf' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'cmTC_23661.elf.'
+        mingw32-make[1]: Leaving directory 'C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/build/CMakeFiles/CMakeScratch/TryCompile-kf4k26'
         
       exitCode: 0
   -
@@ -464,13 +464,13 @@ events:
     message: |
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(arm-none-eabi-ld\\.exe|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
-        ignore line: [Change Dir: 'C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/build/CMakeFiles/CMakeScratch/TryCompile-nwq9wp']
+        ignore line: [Change Dir: 'C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/build/CMakeFiles/CMakeScratch/TryCompile-kf4k26']
         ignore line: []
-        ignore line: [Run Build Command(s): C:/Users/krzys/Downloads/cmake-3.27.4-windows-x86_64/cmake-3.27.4-windows-x86_64/bin/cmake.exe -E env VERBOSE=1 C:/msys64/ucrt64/bin/mingw32-make.exe -f Makefile cmTC_bbfff/fast]
-        ignore line: [C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_bbfff.dir\\build.make CMakeFiles/cmTC_bbfff.dir/build]
-        ignore line: [mingw32-make[1]: Entering directory 'C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/build/CMakeFiles/CMakeScratch/TryCompile-nwq9wp']
-        ignore line: [Building CXX object CMakeFiles/cmTC_bbfff.dir/CMakeCXXCompilerABI.cpp.obj]
-        ignore line: [C:\\PROGRA~2\\ARMGNU~1\\125863~1.3RE\\bin\\AR10B2~1.EXE   -mcpu=cortex-m0plus -mthumb    -v -o CMakeFiles\\cmTC_bbfff.dir\\CMakeCXXCompilerABI.cpp.obj -c C:\\Users\\krzys\\Downloads\\cmake-3.27.4-windows-x86_64\\cmake-3.27.4-windows-x86_64\\share\\cmake-3.27\\Modules\\CMakeCXXCompilerABI.cpp]
+        ignore line: [Run Build Command(s): C:/Users/krzys/Downloads/cmake-3.27.4-windows-x86_64/cmake-3.27.4-windows-x86_64/bin/cmake.exe -E env VERBOSE=1 C:/msys64/ucrt64/bin/mingw32-make.exe -f Makefile cmTC_23661/fast]
+        ignore line: [C:/msys64/ucrt64/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_23661.dir\\build.make CMakeFiles/cmTC_23661.dir/build]
+        ignore line: [mingw32-make[1]: Entering directory 'C:/VSARM/PI_PICO_PROJECTS/MPU6050_MotionAnlyzer/build/CMakeFiles/CMakeScratch/TryCompile-kf4k26']
+        ignore line: [Building CXX object CMakeFiles/cmTC_23661.dir/CMakeCXXCompilerABI.cpp.obj]
+        ignore line: [C:\\PROGRA~2\\ARMGNU~1\\125863~1.3RE\\bin\\AR10B2~1.EXE   -mcpu=cortex-m0plus -mthumb    -v -o CMakeFiles\\cmTC_23661.dir\\CMakeCXXCompilerABI.cpp.obj -c C:\\Users\\krzys\\Downloads\\cmake-3.27.4-windows-x86_64\\cmake-3.27.4-windows-x86_64\\share\\cmake-3.27\\Modules\\CMakeCXXCompilerABI.cpp]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=C:\\PROGRA~2\\ARMGNU~1\\125863~1.3RE\\bin\\AR10B2~1.EXE]
         ignore line: [Target: arm-none-eabi]
@@ -478,8 +478,8 @@ events:
         ignore line: [Thread model: single]
         ignore line: [Supported LTO compression algorithms: zlib]
         ignore line: [gcc version 12.3.1 20230626 (Arm GNU Toolchain 12.3.Rel1 (Build arm-12.35)) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_bbfff.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'CMakeFiles\\cmTC_bbfff.dir\\']
-        ignore line: [ c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/cc1plus.exe -quiet -v -imultilib thumb/v6-m/nofp -iprefix c:\\progra~2\\armgnu~1\\125863~1.3re\\bin\\../lib/gcc/arm-none-eabi/12.3.1/ -isysroot c:\\progra~2\\armgnu~1\\125863~1.3re\\bin\\../arm-none-eabi -D__USES_INITFINI__ C:\\Users\\krzys\\Downloads\\cmake-3.27.4-windows-x86_64\\cmake-3.27.4-windows-x86_64\\share\\cmake-3.27\\Modules\\CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles\\cmTC_bbfff.dir\\ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mcpu=cortex-m0plus -mthumb -mfloat-abi=soft -mlibarch=armv6s-m -march=armv6s-m -version -o C:\\Users\\krzys\\AppData\\Local\\Temp\\ccEmepN8.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_23661.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'CMakeFiles\\cmTC_23661.dir\\']
+        ignore line: [ c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/cc1plus.exe -quiet -v -imultilib thumb/v6-m/nofp -iprefix c:\\progra~2\\armgnu~1\\125863~1.3re\\bin\\../lib/gcc/arm-none-eabi/12.3.1/ -isysroot c:\\progra~2\\armgnu~1\\125863~1.3re\\bin\\../arm-none-eabi -D__USES_INITFINI__ C:\\Users\\krzys\\Downloads\\cmake-3.27.4-windows-x86_64\\cmake-3.27.4-windows-x86_64\\share\\cmake-3.27\\Modules\\CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles\\cmTC_23661.dir\\ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mcpu=cortex-m0plus -mthumb -mfloat-abi=soft -mlibarch=armv6s-m -march=armv6s-m -version -o C:\\Users\\krzys\\AppData\\Local\\Temp\\ccPUgnYd.s]
         ignore line: [GNU C++17 (Arm GNU Toolchain 12.3.Rel1 (Build arm-12.35)) version 12.3.1 20230626 (arm-none-eabi)]
         ignore line: [	compiled by GNU C version 9.3-win32 20200320  GMP version 6.2.1  MPFR version 3.1.6  MPC version 1.0.3  isl version isl-0.15-1-g835ea3a-GMP]
         ignore line: []
@@ -506,8 +506,8 @@ events:
         ignore line: []
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
         ignore line: [Compiler executable checksum: e7b3f66350dc9cf5c9189807aa34626d]
-        ignore line: [COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_bbfff.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'CMakeFiles\\cmTC_bbfff.dir\\']
-        ignore line: [ c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/as.exe -v -march=armv6s-m -mfloat-abi=soft -meabi=5 -o CMakeFiles\\cmTC_bbfff.dir\\CMakeCXXCompilerABI.cpp.obj C:\\Users\\krzys\\AppData\\Local\\Temp\\ccEmepN8.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_23661.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'CMakeFiles\\cmTC_23661.dir\\']
+        ignore line: [ c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/as.exe -v -march=armv6s-m -mfloat-abi=soft -meabi=5 -o CMakeFiles\\cmTC_23661.dir\\CMakeCXXCompilerABI.cpp.obj C:\\Users\\krzys\\AppData\\Local\\Temp\\ccPUgnYd.s]
         ignore line: [GNU assembler version 2.40.0 (arm-none-eabi) using BFD version (Arm GNU Toolchain 12.3.Rel1 (Build arm-12.35)) 2.40.0.20230627]
         ignore line: [COMPILER_PATH=c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/]
         ignore line: [c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/]
@@ -519,10 +519,10 @@ events:
         ignore line: [c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/]
         ignore line: [c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/]
         ignore line: [c:/progra~2/armgnu~1/125863~1.3re/bin/../arm-none-eabi/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_bbfff.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'CMakeFiles\\cmTC_bbfff.dir\\CMakeCXXCompilerABI.cpp.']
-        ignore line: [Linking CXX executable cmTC_bbfff.elf]
-        ignore line: [C:\\Users\\krzys\\Downloads\\cmake-3.27.4-windows-x86_64\\cmake-3.27.4-windows-x86_64\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_bbfff.dir\\link.txt --verbose=1]
-        ignore line: [C:\\PROGRA~2\\ARMGNU~1\\125863~1.3RE\\bin\\AR10B2~1.EXE -mcpu=cortex-m0plus -mthumb  -Wl --build-id=none -nostdlib  -v CMakeFiles/cmTC_bbfff.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_bbfff.elf ]
+        ignore line: [COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-v' '-o' 'CMakeFiles\\cmTC_23661.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'CMakeFiles\\cmTC_23661.dir\\CMakeCXXCompilerABI.cpp.']
+        ignore line: [Linking CXX executable cmTC_23661.elf]
+        ignore line: [C:\\Users\\krzys\\Downloads\\cmake-3.27.4-windows-x86_64\\cmake-3.27.4-windows-x86_64\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_23661.dir\\link.txt --verbose=1]
+        ignore line: [C:\\PROGRA~2\\ARMGNU~1\\125863~1.3RE\\bin\\AR10B2~1.EXE -mcpu=cortex-m0plus -mthumb  -Wl --build-id=none -nostdlib  -v CMakeFiles/cmTC_23661.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_23661.elf ]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=C:\\PROGRA~2\\ARMGNU~1\\125863~1.3RE\\bin\\AR10B2~1.EXE]
         ignore line: [COLLECT_LTO_WRAPPER=c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/lto-wrapper.exe]
@@ -541,17 +541,17 @@ events:
         ignore line: [c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/]
         ignore line: [c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/]
         ignore line: [c:/progra~2/armgnu~1/125863~1.3re/bin/../arm-none-eabi/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-nostdlib' '-v' '-o' 'cmTC_bbfff.elf' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'cmTC_bbfff.elf.']
-        link line: [ c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/collect2.exe -plugin c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/liblto_plugin.dll -plugin-opt=c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\krzys\\AppData\\Local\\Temp\\cciBEsJf.res --sysroot=c:\\progra~2\\armgnu~1\\125863~1.3re\\bin\\../arm-none-eabi -X -o cmTC_bbfff.elf -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1 -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../arm-none-eabi/lib --build-id=none CMakeFiles/cmTC_bbfff.dir/CMakeCXXCompilerABI.cpp.obj]
+        ignore line: [COLLECT_GCC_OPTIONS='-mcpu=cortex-m0plus' '-mthumb' '-nostdlib' '-v' '-o' 'cmTC_23661.elf' '-mfloat-abi=soft' '-mlibarch=armv6s-m' '-march=armv6s-m' '-dumpdir' 'cmTC_23661.elf.']
+        link line: [ c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/collect2.exe -plugin c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/liblto_plugin.dll -plugin-opt=c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\krzys\\AppData\\Local\\Temp\\ccJ1nICj.res --sysroot=c:\\progra~2\\armgnu~1\\125863~1.3re\\bin\\../arm-none-eabi -X -o cmTC_23661.elf -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../arm-none-eabi/lib/thumb/v6-m/nofp -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1 -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib -Lc:/progra~2/armgnu~1/125863~1.3re/bin/../arm-none-eabi/lib --build-id=none CMakeFiles/cmTC_23661.dir/CMakeCXXCompilerABI.cpp.obj]
           arg [c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/collect2.exe] ==> ignore
           arg [-plugin] ==> ignore
           arg [c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/liblto_plugin.dll] ==> ignore
           arg [-plugin-opt=c:/progra~2/armgnu~1/125863~1.3re/bin/../libexec/gcc/arm-none-eabi/12.3.1/lto-wrapper.exe] ==> ignore
-          arg [-plugin-opt=-fresolution=C:\\Users\\krzys\\AppData\\Local\\Temp\\cciBEsJf.res] ==> ignore
+          arg [-plugin-opt=-fresolution=C:\\Users\\krzys\\AppData\\Local\\Temp\\ccJ1nICj.res] ==> ignore
           arg [--sysroot=c:\\progra~2\\armgnu~1\\125863~1.3re\\bin\\../arm-none-eabi] ==> ignore
           arg [-X] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_bbfff.elf] ==> ignore
+          arg [cmTC_23661.elf] ==> ignore
           arg [-Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp] ==> dir [c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp]
           arg [-Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp] ==> dir [c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp]
           arg [-Lc:/progra~2/armgnu~1/125863~1.3re/bin/../arm-none-eabi/lib/thumb/v6-m/nofp] ==> dir [c:/progra~2/armgnu~1/125863~1.3re/bin/../arm-none-eabi/lib/thumb/v6-m/nofp]
@@ -560,7 +560,7 @@ events:
           arg [-Lc:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib] ==> dir [c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib]
           arg [-Lc:/progra~2/armgnu~1/125863~1.3re/bin/../arm-none-eabi/lib] ==> dir [c:/progra~2/armgnu~1/125863~1.3re/bin/../arm-none-eabi/lib]
           arg [--build-id=none] ==> ignore
-          arg [CMakeFiles/cmTC_bbfff.dir/CMakeCXXCompilerABI.cpp.obj] ==> ignore
+          arg [CMakeFiles/cmTC_23661.dir/CMakeCXXCompilerABI.cpp.obj] ==> ignore
         collapse library dir [c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp] ==> [C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/12.3 rel1/lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp]
         collapse library dir [c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp] ==> [C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/12.3 rel1/arm-none-eabi/lib/thumb/v6-m/nofp]
         collapse library dir [c:/progra~2/armgnu~1/125863~1.3re/bin/../arm-none-eabi/lib/thumb/v6-m/nofp] ==> [C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/12.3 rel1/arm-none-eabi/lib/thumb/v6-m/nofp]
