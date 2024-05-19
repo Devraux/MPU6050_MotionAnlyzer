@@ -60,8 +60,8 @@ void mpu_init(MPU6050* mpu6050)
     gpio_pull_up(SCL_Pin);
 
     //RING BUFFER INIT //
-    Ring_buffer_init(&mpu6050->mpu6050_data.accelbuffer, 50);
-    Ring_buffer_init(&mpu6050->mpu6050_data.gyrobuffer, 50);
+    Ring_buffer_init(&mpu6050->mpu6050_data.accelbuffer, 25);
+    Ring_buffer_init(&mpu6050->mpu6050_data.gyrobuffer, 25);
 
     // MPU6050 SENSOR INIT //
     mpu_reset();
@@ -426,20 +426,18 @@ void mpu_remove_gravity(MPU6050* mpu6050)
 
 void mpu_get_distance(MPU6050* mpu6050)
 {
-    //mpu_read(mpu6050_raw, mpu6050);
-    //float velocity = fabs(mpu6050->accelwithoutgravity[0] * 9.81) * 0.001;
-    //mpu6050->distance += velocity * 0.001;
 
-    //mpu6050->distance += 0.5 * fabs(mpu6050->accelwithoutgravity[0] * 9.81) * 0.0001;
-
-    //printf("%f\n", mpu6050->distance);
-   
+    Ring_buffer_clear(&mpu6050->mpu6050_data.accelbuffer);
 }
 
 bool mpu_callback(struct repeating_timer *timer)
 {
     MPU6050* mpu6050 = (MPU6050*)timer->user_data;   // void* casting 
     mpu_read(mpu6050);
+    
+    if(mpu6050->mpu6050_data.accelbuffer.Counter == 25) // compute data every 0.5 sec
+        mpu_get_distance(mpu6050);
+    return true;
 }
 
 float get_variance(float* data, uint8_t data_size)

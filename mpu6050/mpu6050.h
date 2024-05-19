@@ -164,5 +164,5 @@ void mpu_get_distance(MPU6050* mpu6050);
 //MPU_CALLBACK//
 /// @brief build in pi pico sdk callback 
 /// @brief read data from sensor every 10 ms <> sensor measure new data after 19 ms(look mpu_set_resolution) 
-bool mpu_callback(struct repeating_timer *timer);
+bool mpu_callback(struct repeating_timer* timer);
 #endif
