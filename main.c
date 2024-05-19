@@ -4,19 +4,18 @@
 int main()
 {
     stdio_init_all();
-    sleep_ms(5000);
-    MPU6050_RAW mpu6050_raw = {0};
+    //sleep_ms(5000);
     MPU6050 mpu6050 = {0};
-    MPU6050_DATA mpu6050_data = {0};
-    mpu6050_data.mpu6050 = mpu6050;
-    mpu6050_data.mpu6050_raw = mpu6050_raw;
 
-    mpu_init(&mpu6050_raw, &mpu6050, &mpu6050_data);
+
+    mpu_init(&mpu6050);
         
     while(1)
     {
-        //buffer_print(&mpu6050_data.mpu6050.accelbuffer);
-        //printf("%f\n", mpu6050_data.mpu6050.accel[0]);
+        //buffer_print(&mpu6050.mpu6050_data.accelbuffer);
+        mpu_read_raw(&mpu6050);
+        printf("%d\n", mpu6050.mpu6050_raw.acceleration[1]);
+        sleep_ms(1000);
     }
     return 0;
 }

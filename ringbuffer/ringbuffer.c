@@ -3,7 +3,7 @@
 void Ring_buffer_init(RINGBUFFER* ringbuffer, uint16_t buffer_size)
 {
     ringbuffer->Buffer_Size = buffer_size;
-    ringbuffer->Data = (float*)malloc(sizeof(float));
+    ringbuffer->Data = (float*)malloc(sizeof(buffer_size));
     ringbuffer->Head = 0;
     ringbuffer->Tail = 0;
 }

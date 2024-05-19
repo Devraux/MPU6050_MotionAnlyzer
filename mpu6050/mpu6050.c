@@ -9,7 +9,8 @@ MPU6050_REG mpu6050_reg = {
     .accel_add = 0x3B,      //accelerator data address register
     .gyro_add = 0x43,       //gryoscope data address register
     .temp_add = 0x41,       //temperature data address register
-    .acc_config = 0x1C,     //accelerometer resolution config regisrer and calibration
+    .acc_config = 0x1C,     //accelerometer resolution config register and calibration
+    .gyro_config = 0x1B,    // gyroscope resolution config register and calibration
     .gyro_res = 0x1B,       // gyroscope resolution config register and calibration
     .XA_TEST = 0x0D,        //XA_TEST and XG_test register
     .YA_TEST = 0x0E,        //YA_TEST and YG_test register
@@ -49,7 +50,7 @@ void mpu_reset()
     sleep_ms(50);
  }
 
-void mpu_init(MPU6050_RAW* mpu6050_raw, MPU6050* mpu6050, MPU6050_DATA* mpu6050_data)
+void mpu_init(MPU6050* mpu6050)
 {
     // I2C INIT //
     i2c_init(i2c1, 400000);
@@ -59,20 +60,20 @@ void mpu_init(MPU6050_RAW* mpu6050_raw, MPU6050* mpu6050, MPU6050_DATA* mpu6050_
     gpio_pull_up(SCL_Pin);
 
     //RING BUFFER INIT //
-    Ring_buffer_init(&mpu6050->accelbuffer, 50);
-    Ring_buffer_init(&mpu6050->gyrobuffer, 50);
+    Ring_buffer_init(&mpu6050->mpu6050_data.accelbuffer, 50);
+    Ring_buffer_init(&mpu6050->mpu6050_data.gyrobuffer, 50);
 
     // MPU6050 SENSOR INIT //
     mpu_reset();
     mpu_set_sample_rate(1);
-    mpu_setresolution(0, 0, mpu6050_raw);
-    mpu_get_offset(mpu6050_raw);
+    mpu_setresolution(0, 0, mpu6050);
+    mpu_get_offset(mpu6050);
 
     //MPU6050 INTERRUPT INIT
-    add_repeating_timer_ms(-10, mpu_callback, (void*)mpu6050_data, &timer);
+    //add_repeating_timer_ms(-10, mpu_callback, (void*)mpu6050, &timer);
 }
 
-void mpu_read_raw(MPU6050_RAW* mpu6050_raw)
+void mpu_read_raw(MPU6050* mpu6050)
 {
     uint8_t buffer[6];
     int16_t temperature = 0;
@@ -81,18 +82,17 @@ void mpu_read_raw(MPU6050_RAW* mpu6050_raw)
     i2c_write_blocking(i2c1, mpu6050_reg.address, &mpu6050_reg.accel_add, 1, true); 
     i2c_read_blocking(i2c1, mpu6050_reg.address, buffer, 6, false);
 
-    mpu6050_raw->acceleration[0] = (buffer[0] << 8) | buffer[1];
-    mpu6050_raw->acceleration[1] = (buffer[2] << 8) | buffer[3];
-    mpu6050_raw->acceleration[2] = (buffer[4] << 8) | buffer[5];
-
+    mpu6050->mpu6050_raw.acceleration[0] = (buffer[0] << 8) | buffer[1];
+    mpu6050->mpu6050_raw.acceleration[1] = (buffer[2] << 8) | buffer[3];
+    mpu6050->mpu6050_raw.acceleration[2] = (buffer[4] << 8) | buffer[5];
 
     //GYROSCOPE
     i2c_write_blocking(i2c1,mpu6050_reg.address, &mpu6050_reg.gyro_add, 1, true);
     i2c_read_blocking(i2c1, mpu6050_reg.address, buffer, 6, false);  
 
-    mpu6050_raw->gyro[0] = (buffer[0] << 8) | buffer[1];
-    mpu6050_raw->gyro[1] = (buffer[2] << 8) | buffer[3];
-    mpu6050_raw->gyro[2] = (buffer[4] << 8) | buffer[5];
+    mpu6050->mpu6050_raw.gyro[0] = (buffer[0] << 8) | buffer[1];
+    mpu6050->mpu6050_raw.gyro[1] = (buffer[2] << 8) | buffer[3];
+    mpu6050->mpu6050_raw.gyro[2] = (buffer[4] << 8) | buffer[5];
 
 
     //TEMPERATURE
@@ -100,12 +100,12 @@ void mpu_read_raw(MPU6050_RAW* mpu6050_raw)
     i2c_read_blocking(i2c1, mpu6050_reg.address, buffer, 2, false);  
 
     temperature = buffer[0] << 8 | buffer[1];
-    mpu6050_raw->temp = (temperature / 340.f) + 36.53;
+    mpu6050->mpu6050_raw.temp = (temperature / 340.f) + 36.53;
 
-    mpu_convert(mpu6050_raw); // data conversion into [m/s] and [deg/s] 
+    mpu_convert(mpu6050); // data conversion into [m/s] and [deg/s] 
 }
 
-void mpu_setresolution(uint8_t gyro_res, uint8_t acc_res, MPU6050_RAW* mpu6050_raw)
+void mpu_setresolution(uint8_t gyro_res, uint8_t acc_res, MPU6050* mpu6050)
 {
     uint8_t check, resolution = 0;
     uint8_t res_value = 0;
@@ -135,7 +135,7 @@ void mpu_setresolution(uint8_t gyro_res, uint8_t acc_res, MPU6050_RAW* mpu6050_r
     }
 
     i2c_write_reg(mpu6050_reg.address, mpu6050_reg.gyro_res, resolution);
-    mpu6050_raw->gyro_res = res_value;
+    mpu6050->mpu6050_raw.gyro_res = res_value;
 
 
     //ACCELEROMETER RESOLUTION
@@ -163,36 +163,21 @@ void mpu_setresolution(uint8_t gyro_res, uint8_t acc_res, MPU6050_RAW* mpu6050_r
     }
     
     i2c_write_reg(mpu6050_reg.address,mpu6050_reg.acc_config ,resolution);
-    mpu6050_raw->accel_res = res_value; 
-
-
-    /*
-    //CHECK GYRO RESOLUTION
-    i2c_write_blocking(i2c1, mpu6050_reg.address, &mpu6050_reg.gyro_res, 1, true);
-    i2c_read_blocking(i2c1, mpu6050_reg.address, &check ,1 , false);
-    if(check != resolution)
-        printf("\ncheck:%d\n", check);
-
-    //CHECK ACC RESOLUTION
-    i2c_write_blocking(i2c1, mpu6050_reg.address, &mpu6050_reg.acc_config, 1, true);
-    i2c_read_blocking(i2c1, mpu6050_reg.address, &check ,1 , false); 
-    if(check != resolution)
-        printf("\ncheck:%d\n", check);
-    */
+    mpu6050->mpu6050_raw.accel_res = res_value; 
 }
 
-bool mpu_accel_st(MPU6050_RAW* mpu6050_raw, MPU6050_SELFTEST* mpu6050_accel_st)
+bool mpu_accel_st(MPU6050* mpu6050, MPU6050_SELFTEST* mpu6050_accel_st)
 {
-    uint8_t gyro_res_mem = mpu6050_raw->gyro_res;
-    uint8_t accel_res_mem = mpu6050_raw->accel_res;
+    uint8_t gyro_res_mem = mpu6050->mpu6050_raw.gyro_res;
+    uint8_t accel_res_mem = mpu6050->mpu6050_raw.accel_res;
     uint8_t mask = 0b00000011;
 
-    mpu_read_raw(mpu6050_raw); // read data before selF test
-    uint8_t accel_x = mpu6050_raw->acceleration[0];
-    uint8_t accel_y = mpu6050_raw->acceleration[1];
-    uint8_t accel_z = mpu6050_raw->acceleration[2];
+    mpu_read_raw(mpu6050); // read data before selF test
+    int16_t accel_x = mpu6050->mpu6050_raw.acceleration[0];
+    int16_t accel_y = mpu6050->mpu6050_raw.acceleration[1];
+    int16_t accel_z = mpu6050->mpu6050_raw.acceleration[2];
 
-    i2c_write_reg(mpu6050_reg.address, mpu6050_raw->accel_res, 0b11110000); // enable selft test | set +-8g
+    i2c_write_reg(mpu6050_reg.address, mpu6050_reg.acc_config, 0b11110000); // enable selft test | set +-8g
 
     i2c_write_blocking(i2c1, mpu6050_reg.address, &mpu6050_reg.XA_TEST, 1, true); 
     i2c_read_blocking(i2c1, mpu6050_reg.address, &mpu6050_accel_st->X_TEST, 1, false);
@@ -214,31 +199,31 @@ bool mpu_accel_st(MPU6050_RAW* mpu6050_raw, MPU6050_SELFTEST* mpu6050_accel_st)
     mpu6050_accel_st->FT_Y = 4096 * pow(0.92, (mpu6050_accel_st->Y_TEST - 1.0) / 30.0);
     mpu6050_accel_st->FT_Z = 4096 * pow(0.92, (mpu6050_accel_st->Z_TEST - 1.0) / 30.0);
 
-    mpu_read_raw(mpu6050_raw); // read data while self test is enabled
-    mpu6050_accel_st->STR_X = mpu6050_raw->acceleration[0] - accel_x;
-    mpu6050_accel_st->STR_Y = mpu6050_raw->acceleration[1] - accel_y;
-    mpu6050_accel_st->STR_Z = mpu6050_raw->acceleration[2] - accel_z;
+    mpu_read_raw(mpu6050); // read data while self test is enabled
+    mpu6050_accel_st->STR_X = mpu6050->mpu6050_raw.acceleration[0] - accel_x;
+    mpu6050_accel_st->STR_Y = mpu6050->mpu6050_raw.acceleration[1] - accel_y;
+    mpu6050_accel_st->STR_Z = mpu6050->mpu6050_raw.acceleration[2] - accel_z;
 
     mpu6050_accel_st->X_ERROR = (mpu6050_accel_st->STR_X - mpu6050_accel_st->FT_X) / mpu6050_accel_st->FT_X;
     mpu6050_accel_st->Y_ERROR = (mpu6050_accel_st->STR_Y - mpu6050_accel_st->FT_Y) / mpu6050_accel_st->FT_Y;
     mpu6050_accel_st->Z_ERROR = (mpu6050_accel_st->STR_Z - mpu6050_accel_st->FT_Z) / mpu6050_accel_st->FT_Z;
     
-    mpu_setresolution(gyro_res_mem, accel_res_mem, mpu6050_raw);// After self test come back to old config values and disable self test mode 
+    mpu_setresolution(gyro_res_mem, accel_res_mem, mpu6050);// After self test come back to old config values and disable self test mode 
     return true;
 }
 
-bool mpu_gyro_st(MPU6050_RAW* mpu6050_raw, MPU6050_SELFTEST* mpu6050_gyro_st)
+bool mpu_gyro_st(MPU6050* mpu6050, MPU6050_SELFTEST* mpu6050_gyro_st)
 {
-    uint8_t gyro_res_mem = mpu6050_raw->gyro_res;
-    uint8_t accel_res_mem = mpu6050_raw->accel_res;
+    uint8_t gyro_res_mem = mpu6050->mpu6050_raw.gyro_res;
+    uint8_t accel_res_mem = mpu6050->mpu6050_raw.accel_res;
     uint8_t mask = 0b00011111;
 
-    mpu_read_raw(mpu6050_raw); // read data before selF test
-    uint8_t gyro_x = mpu6050_raw->acceleration[0];
-    uint8_t gyro_y = mpu6050_raw->acceleration[1];
-    uint8_t gyro_z = mpu6050_raw->acceleration[2];
+    mpu_read_raw(mpu6050); // read data before selF test
+    uint8_t gyro_x = mpu6050->mpu6050_raw.acceleration[0];
+    uint8_t gyro_y = mpu6050->mpu6050_raw.acceleration[1];
+    uint8_t gyro_z = mpu6050->mpu6050_raw.acceleration[2];
 
-    i2c_write_reg(mpu6050_reg.address, mpu6050_raw->gyro_res, 0b11100000); // enable selft test | set +-250*/s
+    i2c_write_reg(mpu6050_reg.address, mpu6050_reg.gyro_config, 0b11100000); // enable selft test | set +-250*/s
 
     i2c_write_blocking(i2c1, mpu6050_reg.address, &mpu6050_reg.XA_TEST, 1, true); 
     i2c_read_blocking(i2c1, mpu6050_reg.address, &mpu6050_gyro_st->X_TEST, 1, false);
@@ -257,73 +242,73 @@ bool mpu_gyro_st(MPU6050_RAW* mpu6050_raw, MPU6050_SELFTEST* mpu6050_gyro_st)
     mpu6050_gyro_st->FT_Y = -25 * 131 * pow(1.046, (mpu6050_gyro_st->Y_TEST - 1.0));
     mpu6050_gyro_st->FT_Z = 25 * 131 * pow(1.046, (mpu6050_gyro_st->Z_TEST - 1.0));
 
-    mpu_read_raw(mpu6050_raw); // read data while self test is enabled
-    mpu6050_gyro_st->STR_X = mpu6050_raw->acceleration[0] - gyro_x;
-    mpu6050_gyro_st->STR_Y = mpu6050_raw->acceleration[1] - gyro_y;
-    mpu6050_gyro_st->STR_Z = mpu6050_raw->acceleration[2] - gyro_z;
+    mpu_read_raw(mpu6050); // read data while self test is enabled
+    mpu6050_gyro_st->STR_X = mpu6050->mpu6050_raw.acceleration[0] - gyro_x;
+    mpu6050_gyro_st->STR_Y = mpu6050->mpu6050_raw.acceleration[1] - gyro_y;
+    mpu6050_gyro_st->STR_Z = mpu6050->mpu6050_raw.acceleration[2] - gyro_z;
 
     mpu6050_gyro_st->X_ERROR = (mpu6050_gyro_st->STR_X - mpu6050_gyro_st->FT_X) / mpu6050_gyro_st->FT_X;
     mpu6050_gyro_st->Y_ERROR = (mpu6050_gyro_st->STR_Y - mpu6050_gyro_st->FT_Y) / mpu6050_gyro_st->FT_Y;
     mpu6050_gyro_st->Z_ERROR = (mpu6050_gyro_st->STR_Z - mpu6050_gyro_st->FT_Z) / mpu6050_gyro_st->FT_Z;
     
-    mpu_setresolution(gyro_res_mem, accel_res_mem, mpu6050_raw);// After self test come back to old config values and disable self test mode 
+    mpu_setresolution(gyro_res_mem, accel_res_mem, mpu6050);// After self test come back to old config values and disable self test mode 
     return true;
 }
 
-void mpu_convert(MPU6050_RAW* mpu6050_raw)
+void mpu_convert(MPU6050* mpu6050)
 {
-    switch(mpu6050_raw->accel_res)
+    switch(mpu6050->mpu6050_raw.accel_res)
     {
         case 0:
-            mpu6050_raw->accel_convert[0] = mpu6050_raw->acceleration[0] / 16384.0;
-            mpu6050_raw->accel_convert[1] = mpu6050_raw->acceleration[1] / 16384.0;
-            mpu6050_raw->accel_convert[2] = mpu6050_raw->acceleration[2] / 16384.0;
+            mpu6050->mpu6050_raw.accel_convert[0] = mpu6050->mpu6050_raw.acceleration[0] / 16384.0;
+            mpu6050->mpu6050_raw.accel_convert[1] = mpu6050->mpu6050_raw.acceleration[1] / 16384.0;
+            mpu6050->mpu6050_raw.accel_convert[2] = mpu6050->mpu6050_raw.acceleration[2] / 16384.0;
         break;
 
         case 1:
-            mpu6050_raw->accel_convert[0] = mpu6050_raw->acceleration[0] / 8192.0;
-            mpu6050_raw->accel_convert[1] = mpu6050_raw->acceleration[1] / 8192.0;
-            mpu6050_raw->accel_convert[2] = mpu6050_raw->acceleration[2] / 8192.0;
+            mpu6050->mpu6050_raw.accel_convert[0] = mpu6050->mpu6050_raw.acceleration[0] / 8192.0;
+            mpu6050->mpu6050_raw.accel_convert[1] = mpu6050->mpu6050_raw.acceleration[1] / 8192.0;
+            mpu6050->mpu6050_raw.accel_convert[2] = mpu6050->mpu6050_raw.acceleration[2] / 8192.0;
         break;
 
         case 2:
-            mpu6050_raw->accel_convert[0] = mpu6050_raw->acceleration[0] / 4096.0;
-            mpu6050_raw->accel_convert[1] = mpu6050_raw->acceleration[1] / 4096.0;
-            mpu6050_raw->accel_convert[2] = mpu6050_raw->acceleration[2] / 4096.0;
+            mpu6050->mpu6050_raw.accel_convert[0] = mpu6050->mpu6050_raw.acceleration[0] / 4096.0;
+            mpu6050->mpu6050_raw.accel_convert[1] = mpu6050->mpu6050_raw.acceleration[1] / 4096.0;
+            mpu6050->mpu6050_raw.accel_convert[2] = mpu6050->mpu6050_raw.acceleration[2] / 4096.0;
         break;
 
         case 3:
-            mpu6050_raw->accel_convert[0] = mpu6050_raw->acceleration[0] / 2048.0;
-            mpu6050_raw->accel_convert[1] = mpu6050_raw->acceleration[1] / 2048.0;
-            mpu6050_raw->accel_convert[2] = mpu6050_raw->acceleration[2] / 2048.0;
+            mpu6050->mpu6050_raw.accel_convert[0] = mpu6050->mpu6050_raw.acceleration[0] / 2048.0;
+            mpu6050->mpu6050_raw.accel_convert[1] = mpu6050->mpu6050_raw.acceleration[1] / 2048.0;
+            mpu6050->mpu6050_raw.accel_convert[2] = mpu6050->mpu6050_raw.acceleration[2] / 2048.0;
         break;
     
     }
 
-    switch(mpu6050_raw->gyro_res)
+    switch(mpu6050->mpu6050_raw.gyro_res)
     {
         case 0:
-            mpu6050_raw->gyro_convert[0] = mpu6050_raw->gyro[0] / 131.0;
-            mpu6050_raw->gyro_convert[1] = mpu6050_raw->gyro[1] / 131.0;
-            mpu6050_raw->gyro_convert[2] = mpu6050_raw->gyro[2] / 131.0;
+            mpu6050->mpu6050_raw.gyro_convert[0] = mpu6050->mpu6050_raw.gyro[0] / 131.0;
+            mpu6050->mpu6050_raw.gyro_convert[1] = mpu6050->mpu6050_raw.gyro[1] / 131.0;
+            mpu6050->mpu6050_raw.gyro_convert[2] = mpu6050->mpu6050_raw.gyro[2] / 131.0;
         break;
 
         case 1:
-            mpu6050_raw->gyro_convert[0] = mpu6050_raw->gyro[0] / 65.5;
-            mpu6050_raw->gyro_convert[1] = mpu6050_raw->gyro[1] / 65.5;
-            mpu6050_raw->gyro_convert[2] = mpu6050_raw->gyro[2] / 65.5;
+            mpu6050->mpu6050_raw.gyro_convert[0] = mpu6050->mpu6050_raw.gyro[0] / 65.5;
+            mpu6050->mpu6050_raw.gyro_convert[1] = mpu6050->mpu6050_raw.gyro[1] / 65.5;
+            mpu6050->mpu6050_raw.gyro_convert[2] = mpu6050->mpu6050_raw.gyro[2] / 65.5;
         break;
 
         case 2:
-            mpu6050_raw->gyro_convert[0] = mpu6050_raw->gyro[0] / 32.8;
-            mpu6050_raw->gyro_convert[1] = mpu6050_raw->gyro[1] / 32.8;
-            mpu6050_raw->gyro_convert[2] = mpu6050_raw->gyro[2] / 32.8;
+            mpu6050->mpu6050_raw.gyro_convert[0] = mpu6050->mpu6050_raw.gyro[0] / 32.8;
+            mpu6050->mpu6050_raw.gyro_convert[1] = mpu6050->mpu6050_raw.gyro[1] / 32.8;
+            mpu6050->mpu6050_raw.gyro_convert[2] = mpu6050->mpu6050_raw.gyro[2] / 32.8;
         break;
 
         case 3:
-            mpu6050_raw->gyro_convert[0] = mpu6050_raw->gyro[0] / 16.4;
-            mpu6050_raw->gyro_convert[1] = mpu6050_raw->gyro[1] / 16.4;
-            mpu6050_raw->gyro_convert[2] = mpu6050_raw->gyro[2] / 16.4;
+            mpu6050->mpu6050_raw.gyro_convert[0] = mpu6050->mpu6050_raw.gyro[0] / 16.4;
+            mpu6050->mpu6050_raw.gyro_convert[1] = mpu6050->mpu6050_raw.gyro[1] / 16.4;
+            mpu6050->mpu6050_raw.gyro_convert[2] = mpu6050->mpu6050_raw.gyro[2] / 16.4;
         break;
     }
 
@@ -369,7 +354,7 @@ void mpu_set_sample_rate(uint8_t divider)
     }  
 }
 
-void mpu_statistic(MPU6050_RAW* mpu6050_raw)
+void mpu_statistic(MPU6050* mpu6050)
 {
     float acc_x[244], acc_y[244], acc_z[244];
     float gyro_x[244], gyro_y[244], gyro_z[244];
@@ -379,9 +364,9 @@ void mpu_statistic(MPU6050_RAW* mpu6050_raw)
 
     for(uint8_t i; i < 244; i++) // measure output 50 times
     {
-        mpu_read_raw(mpu6050_raw);
-        acc_x[i] = mpu6050_raw->accel_convert[0]; acc_y[i] = mpu6050_raw->accel_convert[1]; acc_z[i] = mpu6050_raw->accel_convert[2];
-        gyro_x[i] = mpu6050_raw->gyro_convert[0];  gyro_y[i] = mpu6050_raw->gyro_convert[1];  gyro_z[i] = mpu6050_raw->gyro_convert[2];
+        mpu_read_raw(mpu6050);
+        acc_x[i] = mpu6050->mpu6050_raw.accel_convert[0]; acc_y[i] = mpu6050->mpu6050_raw.accel_convert[1]; acc_z[i] = mpu6050->mpu6050_raw.accel_convert[2];
+        gyro_x[i] = mpu6050->mpu6050_raw.gyro_convert[0];  gyro_y[i] = mpu6050->mpu6050_raw.gyro_convert[1];  gyro_z[i] = mpu6050->mpu6050_raw.gyro_convert[2];
     }
 
     var_acc_x = get_variance(acc_x, 244); var_acc_y = get_variance(acc_y, 244); var_acc_z = get_variance(acc_z, 244);
@@ -391,38 +376,38 @@ void mpu_statistic(MPU6050_RAW* mpu6050_raw)
     //printf("%f,%f,%f\n", sqrt(var_gyro_x), sqrt(var_gyro_y), sqrt(var_gyro_z));
 }
 
-void mpu_read(MPU6050_RAW* mpu6050_raw, MPU6050* mpu6050)
+void mpu_read(MPU6050* mpu6050)
 {
-    mpu_read_raw(mpu6050_raw);
-    mpu6050->accel[0] = mpu6050_raw->accel_convert[0] - mpu6050_raw->accel_x_offset;
-    mpu6050->accel[1] = mpu6050_raw->accel_convert[1] - mpu6050_raw->accel_y_offset;
-    mpu6050->accel[2] = mpu6050_raw->accel_convert[2] - mpu6050_raw->accel_z_offset; 
+    mpu_read_raw(mpu6050);
+    mpu6050->mpu6050_data.accel[0] = mpu6050->mpu6050_raw.accel_convert[0] - mpu6050->mpu6050_raw.accel_x_offset;
+    mpu6050->mpu6050_data.accel[1] = mpu6050->mpu6050_raw.accel_convert[1] - mpu6050->mpu6050_raw.accel_y_offset;
+    mpu6050->mpu6050_data.accel[2] = mpu6050->mpu6050_raw.accel_convert[2] - mpu6050->mpu6050_raw.accel_z_offset; 
 
-    mpu6050->gyro[0] = mpu6050_raw->gyro_convert[0] - mpu6050_raw->gyro_x_offset;
-    mpu6050->gyro[1] = mpu6050_raw->gyro_convert[1] - mpu6050_raw->gyro_y_offset;
-    mpu6050->gyro[2] = mpu6050_raw->gyro_convert[2] - mpu6050_raw->gyro_z_offset;
-
+    mpu6050->mpu6050_data.gyro[0] = mpu6050->mpu6050_raw.gyro_convert[0] - mpu6050->mpu6050_raw.gyro_x_offset;
+    mpu6050->mpu6050_data.gyro[1] = mpu6050->mpu6050_raw.gyro_convert[1] - mpu6050->mpu6050_raw.gyro_y_offset;
+    mpu6050->mpu6050_data.gyro[2] = mpu6050->mpu6050_raw.gyro_convert[2] - mpu6050->mpu6050_raw.gyro_z_offset;
+    
     mpu_remove_gravity(mpu6050);
-    Ring_buffer_push(&mpu6050->accelbuffer, mpu6050->accel[0]); //TO DO !!!
-    Ring_buffer_push(&mpu6050->gyrobuffer, mpu6050->gyro[0]); 
+    Ring_buffer_push(&mpu6050->mpu6050_data.accelbuffer, mpu6050->mpu6050_data.accel[0]); //TO DO !!!
+    Ring_buffer_push(&mpu6050->mpu6050_data.gyrobuffer, mpu6050->mpu6050_data.gyro[0]); 
 }
 
-void mpu_get_offset(MPU6050_RAW* mpu6050_raw)
+void mpu_get_offset(MPU6050* mpu6050)
 {
     for(uint8_t i = 0; i < 244; i++)
     {
-        mpu_read_raw(mpu6050_raw);
-        mpu6050_raw->accel_x_offset += mpu6050_raw->accel_convert[0]; 
-        mpu6050_raw->accel_y_offset += mpu6050_raw->accel_convert[1];
-        mpu6050_raw->accel_z_offset += mpu6050_raw->accel_convert[2] - 1.0;
+        mpu_read_raw(mpu6050);
+        mpu6050->mpu6050_raw.accel_x_offset += mpu6050->mpu6050_raw.accel_convert[0]; 
+        mpu6050->mpu6050_raw.accel_x_offset += mpu6050->mpu6050_raw.accel_convert[1];
+        mpu6050->mpu6050_raw.accel_x_offset += mpu6050->mpu6050_raw.accel_convert[2] - 1.0;
 
-        mpu6050_raw->gyro_x_offset += mpu6050_raw->gyro_convert[0];
-        mpu6050_raw->gyro_y_offset += mpu6050_raw->gyro_convert[1];
-        mpu6050_raw->gyro_z_offset += mpu6050_raw->gyro_convert[2];
+        mpu6050->mpu6050_raw.gyro_x_offset += mpu6050->mpu6050_raw.gyro_convert[0];
+        mpu6050->mpu6050_raw.gyro_x_offset += mpu6050->mpu6050_raw.gyro_convert[1];
+        mpu6050->mpu6050_raw.gyro_x_offset += mpu6050->mpu6050_raw.gyro_convert[2];
     }
 
-    mpu6050_raw->accel_x_offset /= 250.0f; mpu6050_raw->accel_y_offset /= 250.0f; mpu6050_raw->accel_z_offset /= 250.0f;
-    mpu6050_raw->gyro_x_offset /= 250.0f; mpu6050_raw->gyro_y_offset /= 250.0f; mpu6050_raw->gyro_z_offset /= 250.0f;
+    mpu6050->mpu6050_raw.accel_x_offset /= 250.0f;  mpu6050->mpu6050_raw.accel_y_offset /= 250.0f;  mpu6050->mpu6050_raw.accel_z_offset /= 250.0f;
+    mpu6050->mpu6050_raw.gyro_x_offset /= 250.0f; mpu6050->mpu6050_raw.gyro_y_offset /= 250.0f; mpu6050->mpu6050_raw.gyro_z_offset /= 250.0f;
 }
 
 void mpu_remove_gravity(MPU6050* mpu6050)
@@ -430,20 +415,20 @@ void mpu_remove_gravity(MPU6050* mpu6050)
     static float gravity[3] = {0, 0, 0};
     float alpha = 0.8;
 
-    gravity[0] = alpha * gravity[0] + (1 - alpha) * mpu6050->accel[0];
-    gravity[1] = alpha * gravity[1] + (1 - alpha) * mpu6050->accel[1];
-    gravity[2] = alpha * gravity[2] + (1 - alpha) * mpu6050->accel[2];
+    gravity[0] = alpha * gravity[0] + (1 - alpha) * mpu6050->mpu6050_data.accel[0];
+    gravity[1] = alpha * gravity[1] + (1 - alpha) * mpu6050->mpu6050_data.accel[1];
+    gravity[2] = alpha * gravity[2] + (1 - alpha) * mpu6050->mpu6050_data.accel[2];
 
-    mpu6050->accelwithoutgravity[0] = mpu6050->accel[0] - gravity[0];
-    mpu6050->accelwithoutgravity[1] = mpu6050->accel[1] - gravity[1];
-    mpu6050->accelwithoutgravity[2] = mpu6050->accel[2] - gravity[2]; 
+    mpu6050->mpu6050_data.accelwithoutgravity[0] = mpu6050->mpu6050_data.accel[0] - gravity[0];
+    mpu6050->mpu6050_data.accelwithoutgravity[1] = mpu6050->mpu6050_data.accel[1] - gravity[1];
+    mpu6050->mpu6050_data.accelwithoutgravity[2] = mpu6050->mpu6050_data.accel[2] - gravity[2]; 
 }
 
-void mpu_get_distance(MPU6050_RAW* mpu6050_raw, MPU6050* mpu6050)
+void mpu_get_distance(MPU6050* mpu6050)
 {
-    mpu_read(mpu6050_raw, mpu6050);
-    float velocity = fabs(mpu6050->accelwithoutgravity[0] * 9.81) * 0.001;
-    mpu6050->distance += velocity * 0.001;
+    //mpu_read(mpu6050_raw, mpu6050);
+    //float velocity = fabs(mpu6050->accelwithoutgravity[0] * 9.81) * 0.001;
+    //mpu6050->distance += velocity * 0.001;
 
     //mpu6050->distance += 0.5 * fabs(mpu6050->accelwithoutgravity[0] * 9.81) * 0.0001;
 
@@ -453,8 +438,8 @@ void mpu_get_distance(MPU6050_RAW* mpu6050_raw, MPU6050* mpu6050)
 
 bool mpu_callback(struct repeating_timer *timer)
 {
-    MPU6050_DATA* mpu6050_data = (MPU6050_DATA*)timer->user_data;   // void* casting 
-    mpu_read(&mpu6050_data->mpu6050_raw, &mpu6050_data->mpu6050);
+    MPU6050* mpu6050 = (MPU6050*)timer->user_data;   // void* casting 
+    mpu_read(mpu6050);
 }
 
 float get_variance(float* data, uint8_t data_size)
