@@ -70,7 +70,7 @@ void mpu_init(MPU6050* mpu6050)
     mpu_get_offset(mpu6050);
 
     //MPU6050 INTERRUPT INIT
-    //add_repeating_timer_ms(-10, mpu_callback, (void*)mpu6050, &timer);
+    add_repeating_timer_ms(-10, mpu_callback, (void*)mpu6050, &timer);
 }
 
 void mpu_read_raw(MPU6050* mpu6050)

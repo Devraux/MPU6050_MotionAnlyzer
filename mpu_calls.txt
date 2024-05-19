@@ -1,0 +1,8 @@
+// SELFTEST //
+
+MPU6050_SELFTEST accel_st, gyro_st;
+mpu_accel_st(&mpu6050, &accel_st);
+mpu_gyro_st(&mpu6050, &gyro_st);
+printf("Acc: X: %f,Y: %f,Z: %f\n", accel_st.X_ERROR, accel_st.Y_ERROR, accel_st.Z_ERROR);
+printf("Gyro: X: %f,Y: %f,Z: %f\n", gyro_st.X_ERROR, gyro_st.Y_ERROR, gyro_st.Z_ERROR);
+// ----------------------------------------------------------------------------------- //
