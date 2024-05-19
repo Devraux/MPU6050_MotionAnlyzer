@@ -13,10 +13,9 @@ int main()
         
     while(1)
     {
-
         //mpu_read(&mpu6050);
-        //printf("%f\n", mpu6050.mpu6050_data.accel[0]);
-        sleep_ms(1000);
+        printf("%f\n", mpu6050.mpu6050_data.accel[0]);
+        sleep_ms(100);
     }
     return 0;
 }
