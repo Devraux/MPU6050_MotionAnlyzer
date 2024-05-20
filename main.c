@@ -11,12 +11,11 @@ int main()
         
     while(1)
     {
-        //mpu_read(&mpu6050);
-        //printf("%f,%f,%f\n", mpu6050.mpu6050_data.accelwithoutgravity[0], mpu6050.mpu6050_data.accelwithoutgravity[1], mpu6050.mpu6050_data.accelwithoutgravity[2]);
+        //if(mpu6050.mpu6050_data.accelbuffer.Counter == 25)
         //buffer_print(&mpu6050.mpu6050_data.accelbuffer);
-        //mpu_read(&mpu6050);
-        buffer_print(&mpu6050.mpu6050_data.accelbuffer);
-        //sleep_ms(100);
+        //printf("%f\n", mpu6050.mpu6050_data.distance);
+        printf("%f\n", 9.81*mpu6050.mpu6050_data.accelwithoutgravity[0]);
+        sleep_ms(505);
     }
     return 0;
 }

@@ -3,7 +3,7 @@
 void Ring_buffer_init(RINGBUFFER* ringbuffer, uint16_t buffer_size)
 {
     ringbuffer->Buffer_Size = buffer_size;
-    ringbuffer->Data = (float*)malloc(sizeof(buffer_size));
+    ringbuffer->Data = (float*)malloc(buffer_size);
     ringbuffer->Head = 0;
     ringbuffer->Tail = 0;
 }
@@ -14,7 +14,7 @@ void Ring_buffer_push(RINGBUFFER* ringbuffer, float data)
     ringbuffer->Head = (ringbuffer->Head + 1) % ringbuffer->Buffer_Size;
     ringbuffer->Counter++;
 
-    if(ringbuffer->Counter > ringbuffer->Buffer_Size)
+    if(ringbuffer->Counter > ringbuffer->Buffer_Size - 1)
         ringbuffer->Counter = 0; // data overflow
 }
 
@@ -22,7 +22,7 @@ void Ring_buffer_pop(RINGBUFFER* ringbuffer, float* data)
 {
     *data = ringbuffer->Data[ringbuffer->Tail];
     ringbuffer->Tail = (ringbuffer->Tail + 1) % ringbuffer->Buffer_Size;
-    ringbuffer->Tail--;
+    ringbuffer->Counter--;
 
     if(ringbuffer->Counter <= 0)
         ringbuffer->Counter = 0;

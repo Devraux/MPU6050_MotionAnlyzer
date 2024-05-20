@@ -64,12 +64,15 @@ typedef struct MPU6050_DATA
 {
     float accel[3];                 // user's data without sensor offset
     float gyro[3];                  // user's data without sensor offset
+    float accel_mod;                // accelerometer vecotr module sqrt(X^2 + Y^2 + Z^2)
+    float gyro_mod;                 // gyroscope vecotr module sqrt(X^2 + Y^2 + Z^2)
 
     float accelwithoutgravity[3];   //user's data without offset and gravity constant
 
     RINGBUFFER accelbuffer;
     RINGBUFFER gyrobuffer;
 
+    
     float distance;                 // computed distance
     float v_0;                      // last velocity value
 }MPU6050_DATA;
