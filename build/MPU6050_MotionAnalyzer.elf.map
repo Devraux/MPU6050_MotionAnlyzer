@@ -1518,9 +1518,9 @@ Discarded input sections
                 0x00000000       0x3e CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
  .rodata.__func__.3
                 0x00000000       0x13 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
- .text          0x00000000        0x0 C:\Users\krzys\AppData\Local\Temp\ccQTuGBy.o
- .data          0x00000000        0x0 C:\Users\krzys\AppData\Local\Temp\ccQTuGBy.o
- .bss           0x00000000        0x0 C:\Users\krzys\AppData\Local\Temp\ccQTuGBy.o
+ .text          0x00000000        0x0 C:\Users\krzys\AppData\Local\Temp\ccetl8Bj.o
+ .data          0x00000000        0x0 C:\Users\krzys\AppData\Local\Temp\ccetl8Bj.o
+ .bss           0x00000000        0x0 C:\Users\krzys\AppData\Local\Temp\ccetl8Bj.o
  .data          0x00000000        0x0 c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libgcc.a(_dvmd_tls.o)
  .bss           0x00000000        0x0 c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libgcc.a(_dvmd_tls.o)
  .text          0x00000000        0x0 c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libg.a(libc_a-calloc.o)
@@ -1768,7 +1768,7 @@ LOAD c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb
 .boot2          0x10000000      0x100
                 0x10000000                        __boot2_start__ = .
  *(.boot2)
- .boot2         0x10000000      0x100 C:\Users\krzys\AppData\Local\Temp\ccQTuGBy.o
+ .boot2         0x10000000      0x100 C:\Users\krzys\AppData\Local\Temp\ccetl8Bj.o
                 0x10000100                        __boot2_end__ = .
                 0x00000001                        ASSERT (((__boot2_end__ - __boot2_start__) == 0x100), ERROR: Pico second stage bootloader must be 256 bytes in size)
 
@@ -1836,31 +1836,31 @@ LOAD c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb
                 0x100002bc       0x28 c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
  .text.frame_dummy
                 0x100002e4       0x24 c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
- .text.main     0x10000308       0x50 CMakeFiles/MPU6050_MotionAnalyzer.dir/main.c.obj
+ .text.main     0x10000308       0x48 CMakeFiles/MPU6050_MotionAnalyzer.dir/main.c.obj
                 0x10000308                main
  .text.add_repeating_timer_ms
-                0x10000358       0x3c CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj
+                0x10000350       0x3c CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj
  .text.i2c_write_reg
-                0x10000394       0x24 CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj
-                0x10000394                i2c_write_reg
+                0x1000038c       0x24 CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj
+                0x1000038c                i2c_write_reg
  .text.mpu_reset
-                0x100003b8       0x5c CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj
-                0x100003b8                mpu_reset
+                0x100003b0       0x5c CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj
+                0x100003b0                mpu_reset
  .text.mpu_setresolution
-                0x10000414       0x74 CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj
-                0x10000414                mpu_setresolution
+                0x1000040c       0x74 CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj
+                0x1000040c                mpu_setresolution
  .text.mpu_convert
-                0x10000488      0x27c CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj
-                0x10000488                mpu_convert
+                0x10000480      0x27c CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj
+                0x10000480                mpu_convert
  .text.mpu_read_raw
-                0x10000704       0xf8 CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj
-                0x10000704                mpu_read_raw
+                0x100006fc       0xf8 CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj
+                0x100006fc                mpu_read_raw
  .text.mpu_set_sample_rate
-                0x100007fc       0xa4 CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj
-                0x100007fc                mpu_set_sample_rate
+                0x100007f4       0xa4 CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj
+                0x100007f4                mpu_set_sample_rate
  .text.mpu_get_offset
-                0x100008a0       0xb0 CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj
-                0x100008a0                mpu_get_offset
+                0x10000898       0xb8 CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj
+                0x10000898                mpu_get_offset
  .text.mpu_init
                 0x10000950       0x80 CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj
                 0x10000950                mpu_init
@@ -2864,235 +2864,235 @@ LOAD c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb
 .rodata         0x100096c0     0x1b8c
  *(EXCLUDE_FILE(*libm.a: *libc.a:*lib_a-mem*.o *libgcc.a:) .rodata*)
  .rodata.main.str1.4
-                0x100096c0        0x4 CMakeFiles/MPU6050_MotionAnalyzer.dir/main.c.obj
+                0x100096c0        0xa CMakeFiles/MPU6050_MotionAnalyzer.dir/main.c.obj
+ *fill*         0x100096ca        0x2 
  .rodata.mpu_set_sample_rate
-                0x100096c4       0x84 CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj
+                0x100096cc       0x84 CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj
  .rodata.check_gpio_param.str1.4
-                0x10009748       0x60 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+                0x10009750       0x60 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
  .rodata.gpio_set_function.str1.4
-                0x100097a8       0x67 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
- *fill*         0x1000980f        0x1 
+                0x100097b0       0x67 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+ *fill*         0x10009817        0x1 
  .rodata.__func__.2
-                0x10009810       0x12 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
- *fill*         0x10009822        0x2 
+                0x10009818       0x12 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+ *fill*         0x1000982a        0x2 
  .rodata.__func__.3
-                0x10009824       0x11 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
- *fill*         0x10009835        0x3 
+                0x1000982c       0x11 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+ *fill*         0x1000983d        0x3 
  .rodata.spin_lock_claim_unused.str1.4
-                0x10009838       0x1b CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
- *fill*         0x10009853        0x1 
+                0x10009840       0x1b CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
+ *fill*         0x1000985b        0x1 
  .rodata.check_irq_param.str1.4
-                0x10009854       0x5e CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
- *fill*         0x100098b2        0x2 
+                0x1000985c       0x5e CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+ *fill*         0x100098ba        0x2 
  .rodata.resolve_branch.str1.4
-                0x100098b4       0x55 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
- *fill*         0x10009909        0x3 
+                0x100098bc       0x55 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+ *fill*         0x10009911        0x3 
  .rodata.make_branch.str1.4
-                0x1000990c       0x30 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x10009914       0x30 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
  .rodata.insert_branch_and_link.str1.4
-                0x1000993c       0x10 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x10009944       0x10 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
  .rodata.irq_set_exclusive_handler.str1.4
-                0x1000994c       0x36 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
- *fill*         0x10009982        0x2 
+                0x10009954       0x36 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+ *fill*         0x1000998a        0x2 
  .rodata.irq_add_shared_handler.str1.4
-                0x10009984       0xc2 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
- *fill*         0x10009a46        0x2 
+                0x1000998c       0xc2 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+ *fill*         0x10009a4e        0x2 
  .rodata.irq_remove_handler.str1.4
-                0x10009a48       0x3a CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
- *fill*         0x10009a82        0x2 
+                0x10009a50       0x3a CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+ *fill*         0x10009a8a        0x2 
  .rodata.irq_add_tail_to_free_list.str1.4
-                0x10009a84       0x3a CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
- *fill*         0x10009abe        0x2 
+                0x10009a8c       0x3a CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+ *fill*         0x10009ac6        0x2 
  .rodata.user_irq_claim_unused.str1.4
-                0x10009ac0       0x1b CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
- *fill*         0x10009adb        0x1 
+                0x10009ac8       0x1b CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+ *fill*         0x10009ae3        0x1 
  .rodata.__func__.1
-                0x10009adc       0x1a CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
- *fill*         0x10009af6        0x2 
+                0x10009ae4       0x1a CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+ *fill*         0x10009afe        0x2 
  .rodata.__func__.2
-                0x10009af8       0x17 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
- *fill*         0x10009b0f        0x1 
+                0x10009b00       0x17 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+ *fill*         0x10009b17        0x1 
  .rodata.__func__.3
-                0x10009b10       0x13 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
- *fill*         0x10009b23        0x1 
+                0x10009b18       0x13 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+ *fill*         0x10009b2b        0x1 
  .rodata.__func__.4
-                0x10009b24        0xc CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x10009b2c        0xc CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
  .rodata.__func__.5
-                0x10009b30        0xf CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
- *fill*         0x10009b3f        0x1 
+                0x10009b38        0xf CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+ *fill*         0x10009b47        0x1 
  .rodata.__func__.6
-                0x10009b40       0x17 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
- *fill*         0x10009b57        0x1 
+                0x10009b48       0x17 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+ *fill*         0x10009b5f        0x1 
  .rodata.__func__.8
-                0x10009b58       0x1a CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
- *fill*         0x10009b72        0x2 
+                0x10009b60       0x1a CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+ *fill*         0x10009b7a        0x2 
  .rodata.__func__.9
-                0x10009b74       0x10 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x10009b7c       0x10 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
  .rodata.lock_init.str1.4
-                0x10009b84       0x4c CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj
+                0x10009b8c       0x4c CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj
  .rodata.__func__.1
-                0x10009bd0        0xa CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj
- *fill*         0x10009bda        0x2 
+                0x10009bd8        0xa CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj
+ *fill*         0x10009be2        0x2 
  .rodata.update_us_since_boot.str1.4
-                0x10009bdc       0x61 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
- *fill*         0x10009c3d        0x3 
+                0x10009be4       0x61 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
+ *fill*         0x10009c45        0x3 
  .rodata.str1.4
-                0x10009c40       0x89 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
- *fill*         0x10009cc9        0x3 
+                0x10009c48       0x89 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
+ *fill*         0x10009cd1        0x3 
  .rodata.__func__.1
-                0x10009ccc        0xb CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
- *fill*         0x10009cd7        0x1 
+                0x10009cd4        0xb CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
+ *fill*         0x10009cdf        0x1 
  .rodata.__func__.3
-                0x10009cd8       0x18 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
+                0x10009ce0       0x18 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
  .rodata.__func__.4
-                0x10009cf0       0x15 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
- *fill*         0x10009d05        0x3 
+                0x10009cf8       0x15 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
+ *fill*         0x10009d0d        0x3 
  .rodata.critical_section_init_with_lock_num.str1.4
-                0x10009d08       0x64 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
+                0x10009d10       0x64 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
  .rodata.__func__.1
-                0x10009d6c       0x13 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
- *fill*         0x10009d7f        0x1 
+                0x10009d74       0x13 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
+ *fill*         0x10009d87        0x1 
  .rodata.get_entry.str1.4
-                0x10009d80       0x5b CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x10009d88       0x5b CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
  .rodata.update_us_since_boot.str1.4
-                0x10009ddb       0x61 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
- *fill*         0x10009ddb        0x1 
+                0x10009de3       0x61 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
+ *fill*         0x10009de3        0x1 
  .rodata.ph_get_node.str1.4
-                0x10009ddc       0x66 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
- *fill*         0x10009e42        0x2 
+                0x10009de4       0x66 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
+ *fill*         0x10009e4a        0x2 
  .rodata.ph_add_child_node.str1.4
-                0x10009e44       0x2e CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x10009e4c       0x2e CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
  .rodata.ph_insert_node.str1.4
-                0x10009e72       0x2e CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x10009e7a       0x2e CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
                                   0x3 (size before relaxing)
- *fill*         0x10009e72        0x2 
+ *fill*         0x10009e7a        0x2 
  .rodata.ph_free_node.str1.4
-                0x10009e74       0x38 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x10009e7c       0x38 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
  .rodata.repeating_timer_callback.str1.4
-                0x10009eac       0x13 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x10009eb4       0x13 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
  .rodata.alarm_pool_post_alloc_init.str1.4
-                0x10009ebf       0x64 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
- *fill*         0x10009ebf        0x1 
+                0x10009ec7       0x64 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
+ *fill*         0x10009ec7        0x1 
  .rodata.add_alarm_under_lock.str1.4
-                0x10009ec0       0x28 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x10009ec8       0x28 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
  .rodata.alarm_pool_alarm_callback.str1.4
-                0x10009ee8       0x60 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x10009ef0       0x60 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
  .rodata.alarm_pool_get_default.str1.4
-                0x10009f48       0x21 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
- *fill*         0x10009f69        0x3 
+                0x10009f50       0x21 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
+ *fill*         0x10009f71        0x3 
  .rodata.alarm_pool_cancel_alarm.str1.4
-                0x10009f6c       0x27 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
- *fill*         0x10009f93        0x1 
+                0x10009f74       0x27 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
+ *fill*         0x10009f9b        0x1 
  .rodata.sleep_until.str1.4
-                0x10009f94       0x4d CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
- *fill*         0x10009fe1        0x3 
+                0x10009f9c       0x4d CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
+ *fill*         0x10009fe9        0x3 
  .rodata.__func__.0
-                0x10009fe4       0x19 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
- *fill*         0x10009ffd        0x3 
+                0x10009fec       0x19 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
+ *fill*         0x1000a005        0x3 
  .rodata.__func__.1
-                0x1000a000       0x18 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x1000a008       0x18 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
  .rodata.__func__.3
-                0x1000a018       0x17 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
- *fill*         0x1000a02f        0x1 
+                0x1000a020       0x17 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
+ *fill*         0x1000a037        0x1 
  .rodata.__func__.4
-                0x1000a030       0x13 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
- *fill*         0x1000a043        0x1 
+                0x1000a038       0x13 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
+ *fill*         0x1000a04b        0x1 
  .rodata.__func__.5
-                0x1000a044       0x12 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
- *fill*         0x1000a056        0x2 
+                0x1000a04c       0x12 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
+ *fill*         0x1000a05e        0x2 
  .rodata.__func__.6
-                0x1000a058        0xd CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
- *fill*         0x1000a065        0x3 
+                0x1000a060        0xd CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
+ *fill*         0x1000a06d        0x3 
  .rodata.__func__.7
-                0x1000a068       0x12 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
- *fill*         0x1000a07a        0x2 
+                0x1000a070       0x12 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
+ *fill*         0x1000a082        0x2 
  .rodata.__func__.8
-                0x1000a07c        0xf CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
- *fill*         0x1000a08b        0x1 
+                0x1000a084        0xf CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
+ *fill*         0x1000a093        0x1 
  .rodata.__func__.9
-                0x1000a08c        0xc CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x1000a094        0xc CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
  .rodata.__func__.10
-                0x1000a098       0x15 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
- *fill*         0x1000a0ad        0x3 
+                0x1000a0a0       0x15 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
+ *fill*         0x1000a0b5        0x3 
  .rodata.__func__.11
-                0x1000a0b0       0x15 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
- *fill*         0x1000a0c5        0x3 
+                0x1000a0b8       0x15 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
+ *fill*         0x1000a0cd        0x3 
  .rodata.__func__.12
-                0x1000a0c8       0x1a CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
- *fill*         0x1000a0e2        0x2 
+                0x1000a0d0       0x1a CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
+ *fill*         0x1000a0ea        0x2 
  .rodata.__func__.13
-                0x1000a0e4        0xa CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
- *fill*         0x1000a0ee        0x2 
+                0x1000a0ec        0xa CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
+ *fill*         0x1000a0f6        0x2 
  .rodata.check_hardware_alarm_num_param.str1.4
-                0x1000a0f0       0x66 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
- *fill*         0x1000a156        0x2 
+                0x1000a0f8       0x66 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+ *fill*         0x1000a15e        0x2 
  .rodata.hardware_alarm_claim.str1.4
-                0x1000a158       0x22 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
- *fill*         0x1000a17a        0x2 
+                0x1000a160       0x22 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+ *fill*         0x1000a182        0x2 
  .rodata.hardware_alarm_set_target.str1.4
-                0x1000a17c       0x65 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
- *fill*         0x1000a1e1        0x3 
+                0x1000a184       0x65 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+ *fill*         0x1000a1e9        0x3 
  .rodata.__func__.0
-                0x1000a1e4       0x1a CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
- *fill*         0x1000a1fe        0x2 
+                0x1000a1ec       0x1a CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+ *fill*         0x1000a206        0x2 
  .rodata.__func__.3
-                0x1000a200       0x1f CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                0x1000a208       0x1f CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
  .rodata.ph_get_node.str1.4
-                0x1000a21f       0x66 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+                0x1000a227       0x66 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.obj
  .rodata.ph_add_child_node.str1.4
-                0x1000a21f       0x2e CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.obj
- *fill*         0x1000a21f        0x1 
+                0x1000a227       0x2e CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+ *fill*         0x1000a227        0x1 
  .rodata.ph_post_alloc_init.str1.4
-                0x1000a220       0x7c CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+                0x1000a228       0x7c CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.obj
  .rodata.ph_remove_any_head.str1.4
-                0x1000a29c       0x54 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+                0x1000a2a4       0x54 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.obj
                                  0x68 (size before relaxing)
  .rodata.ph_remove_and_free_node.str1.4
-                0x1000a2f0       0x1e CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+                0x1000a2f8       0x1e CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.obj
                                  0x26 (size before relaxing)
- *fill*         0x1000a30e        0x2 
+ *fill*         0x1000a316        0x2 
  .rodata.__func__.0
-                0x1000a310       0x18 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+                0x1000a318       0x18 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.obj
  .rodata.__func__.1
-                0x1000a328       0x13 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.obj
- *fill*         0x1000a33b        0x1 
+                0x1000a330       0x13 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+ *fill*         0x1000a343        0x1 
  .rodata.__func__.2
-                0x1000a33c       0x12 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.obj
- *fill*         0x1000a34e        0x2 
+                0x1000a344       0x12 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+ *fill*         0x1000a356        0x2 
  .rodata.__func__.3
-                0x1000a350        0xc CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+                0x1000a358        0xc CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.obj
  .rodata.__func__.4
-                0x1000a35c       0x13 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.obj
- *fill*         0x1000a36f        0x1 
+                0x1000a364       0x13 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+ *fill*         0x1000a377        0x1 
  .rodata.clock_configure.str1.4
-                0x1000a370       0x57 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
- *fill*         0x1000a3c7        0x1 
+                0x1000a378       0x57 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
+ *fill*         0x1000a3cf        0x1 
  .rodata.__func__.3
-                0x1000a3c8       0x10 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
+                0x1000a3d0       0x10 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
  .rodata.pll_init.str1.4
-                0x1000a3d8      0x124 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
+                0x1000a3e0      0x124 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
  .rodata.__func__.0
-                0x1000a4fc        0x9 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
- *fill*         0x1000a505        0x3 
+                0x1000a504        0x9 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
+ *fill*         0x1000a50d        0x3 
  .rodata.__assert_func.str1.4
-                0x1000a508       0x3f CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+                0x1000a510       0x3f CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
                                  0x43 (size before relaxing)
- *fill*         0x1000a547        0x1 
+ *fill*         0x1000a54f        0x1 
  .rodata.runtime_init.str1.4
-                0x1000a548       0x61 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
- *fill*         0x1000a5a9        0x3 
+                0x1000a550       0x61 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+ *fill*         0x1000a5b1        0x3 
  .rodata.panic.str1.4
-                0x1000a5ac       0x12 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
- *fill*         0x1000a5be        0x2 
+                0x1000a5b4       0x10 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+                                 0x12 (size before relaxing)
  .rodata.__func__.2
-                0x1000a5c0        0xd CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
- *fill*         0x1000a5cd        0x3 
+                0x1000a5c4        0xd CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+ *fill*         0x1000a5d1        0x3 
  .rodata._ftoa.str1.4
-                0x1000a5d0       0x15 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
- *fill*         0x1000a5e5        0x3 
+                0x1000a5d4       0x15 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+ *fill*         0x1000a5e9        0x3 
  .rodata._vsnprintf
-                0x1000a5e8      0x19c CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
- *fill*         0x1000a784        0x4 
+                0x1000a5ec      0x19c CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
  .rodata.pow10.0
                 0x1000a788       0x50 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
  .rodata.__aeabi_double_init.str1.4
@@ -3693,7 +3693,7 @@ LOAD CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyus
 LOAD CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
 LOAD CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj
 LOAD CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
-LOAD C:\Users\krzys\AppData\Local\Temp\ccQTuGBy.o
+LOAD C:\Users\krzys\AppData\Local\Temp\ccetl8Bj.o
 LOAD c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libstdc++.a
 LOAD c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libm.a
 START GROUP
@@ -3820,7 +3820,7 @@ LOAD linker stubs
  .ARM.attributes
                 0x0000087e       0x2c CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
  .ARM.attributes
-                0x000008aa       0x22 C:\Users\krzys\AppData\Local\Temp\ccQTuGBy.o
+                0x000008aa       0x22 C:\Users\krzys\AppData\Local\Temp\ccetl8Bj.o
  .ARM.attributes
                 0x000008cc       0x1e c:/progra~2/armgnu~1/125863~1.3re/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libgcc.a(_dvmd_tls.o)
  .ARM.attributes
@@ -3894,109 +3894,109 @@ LOAD linker stubs
  .comment       0x00000045       0x46 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
  .comment       0x00000045       0x46 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
 
-.debug_info     0x00000000    0x2ec27
- .debug_info    0x00000000      0x3ff CMakeFiles/MPU6050_MotionAnalyzer.dir/main.c.obj
- .debug_info    0x000003ff     0x236b CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj
- .debug_info    0x0000276a      0x2ec CMakeFiles/MPU6050_MotionAnalyzer.dir/ringbuffer/ringbuffer.c.obj
- .debug_info    0x00002a56     0x19ca CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
- .debug_info    0x00004420      0x1fb CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
- .debug_info    0x0000461b      0x69e CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
- .debug_info    0x00004cb9      0x689 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
- .debug_info    0x00005342     0x1d57 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
- .debug_info    0x00007099      0x203 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj
- .debug_info    0x0000729c     0x1d25 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
- .debug_info    0x00008fc1      0x35c CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
- .debug_info    0x0000931d     0x341c CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
- .debug_info    0x0000c739     0x1510 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
- .debug_info    0x0000dc49      0xecb CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.obj
- .debug_info    0x0000eb14     0x1053 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
- .debug_info    0x0000fb67      0x505 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
- .debug_info    0x0001006c      0x4c5 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
- .debug_info    0x00010531      0x1c7 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
- .debug_info    0x000106f8      0xf17 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
- .debug_info    0x0001160f     0x19a2 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
- .debug_info    0x00012fb1       0x23 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
- .debug_info    0x00012fd4      0x325 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
- .debug_info    0x000132f9       0x23 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
- .debug_info    0x0001331c       0x23 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
- .debug_info    0x0001333f      0x33b CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
- .debug_info    0x0001367a     0x3be6 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
- .debug_info    0x00017260       0x23 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
- .debug_info    0x00017283       0x24 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
- .debug_info    0x000172a7       0x23 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
- .debug_info    0x000172ca      0x34f CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
- .debug_info    0x00017619     0x3c1c CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
- .debug_info    0x0001b235       0x23 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
- .debug_info    0x0001b258      0x308 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
- .debug_info    0x0001b560       0x23 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
- .debug_info    0x0001b583       0x23 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
- .debug_info    0x0001b5a6      0x2b8 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
- .debug_info    0x0001b85e     0x1729 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
- .debug_info    0x0001cf87      0x76e CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
- .debug_info    0x0001d6f5     0x175e CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
- .debug_info    0x0001ee53      0x5d6 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
- .debug_info    0x0001f429      0x275 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj
- .debug_info    0x0001f69e     0x1338 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj
- .debug_info    0x000209d6     0x2076 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
- .debug_info    0x00022a4c      0xfca CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
- .debug_info    0x00023a16     0x39da CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
- .debug_info    0x000273f0      0x85a CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
- .debug_info    0x00027c4a     0x1a96 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
- .debug_info    0x000296e0     0x14d2 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
- .debug_info    0x0002abb2     0x276e CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
- .debug_info    0x0002d320     0x1907 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
+.debug_info     0x00000000    0x2ec01
+ .debug_info    0x00000000      0x3d9 CMakeFiles/MPU6050_MotionAnalyzer.dir/main.c.obj
+ .debug_info    0x000003d9     0x236b CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj
+ .debug_info    0x00002744      0x2ec CMakeFiles/MPU6050_MotionAnalyzer.dir/ringbuffer/ringbuffer.c.obj
+ .debug_info    0x00002a30     0x19ca CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+ .debug_info    0x000043fa      0x1fb CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
+ .debug_info    0x000045f5      0x69e CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
+ .debug_info    0x00004c93      0x689 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
+ .debug_info    0x0000531c     0x1d57 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+ .debug_info    0x00007073      0x203 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj
+ .debug_info    0x00007276     0x1d25 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
+ .debug_info    0x00008f9b      0x35c CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
+ .debug_info    0x000092f7     0x341c CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
+ .debug_info    0x0000c713     0x1510 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+ .debug_info    0x0000dc23      0xecb CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+ .debug_info    0x0000eaee     0x1053 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
+ .debug_info    0x0000fb41      0x505 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
+ .debug_info    0x00010046      0x4c5 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
+ .debug_info    0x0001050b      0x1c7 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
+ .debug_info    0x000106d2      0xf17 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+ .debug_info    0x000115e9     0x19a2 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+ .debug_info    0x00012f8b       0x23 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
+ .debug_info    0x00012fae      0x325 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
+ .debug_info    0x000132d3       0x23 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
+ .debug_info    0x000132f6       0x23 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+ .debug_info    0x00013319      0x33b CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
+ .debug_info    0x00013654     0x3be6 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
+ .debug_info    0x0001723a       0x23 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
+ .debug_info    0x0001725d       0x24 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
+ .debug_info    0x00017281       0x23 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+ .debug_info    0x000172a4      0x34f CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
+ .debug_info    0x000175f3     0x3c1c CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
+ .debug_info    0x0001b20f       0x23 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
+ .debug_info    0x0001b232      0x308 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
+ .debug_info    0x0001b53a       0x23 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
+ .debug_info    0x0001b55d       0x23 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
+ .debug_info    0x0001b580      0x2b8 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+ .debug_info    0x0001b838     0x1729 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+ .debug_info    0x0001cf61      0x76e CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+ .debug_info    0x0001d6cf     0x175e CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+ .debug_info    0x0001ee2d      0x5d6 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+ .debug_info    0x0001f403      0x275 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj
+ .debug_info    0x0001f678     0x1338 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj
+ .debug_info    0x000209b0     0x2076 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+ .debug_info    0x00022a26      0xfca CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
+ .debug_info    0x000239f0     0x39da CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+ .debug_info    0x000273ca      0x85a CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
+ .debug_info    0x00027c24     0x1a96 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+ .debug_info    0x000296ba     0x14d2 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
+ .debug_info    0x0002ab8c     0x276e CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+ .debug_info    0x0002d2fa     0x1907 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
 
-.debug_abbrev   0x00000000     0x7d89
- .debug_abbrev  0x00000000      0x14f CMakeFiles/MPU6050_MotionAnalyzer.dir/main.c.obj
- .debug_abbrev  0x0000014f      0x40e CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj
- .debug_abbrev  0x0000055d      0x13c CMakeFiles/MPU6050_MotionAnalyzer.dir/ringbuffer/ringbuffer.c.obj
- .debug_abbrev  0x00000699      0x39d CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
- .debug_abbrev  0x00000a36       0xf8 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
- .debug_abbrev  0x00000b2e      0x2d0 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
- .debug_abbrev  0x00000dfe      0x26e CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
- .debug_abbrev  0x0000106c      0x4ed CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
- .debug_abbrev  0x00001559      0x149 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj
- .debug_abbrev  0x000016a2      0x3e8 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
- .debug_abbrev  0x00001a8a      0x1dc CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
- .debug_abbrev  0x00001c66      0x5ce CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
- .debug_abbrev  0x00002234      0x39d CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
- .debug_abbrev  0x000025d1      0x285 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.obj
- .debug_abbrev  0x00002856      0x429 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
- .debug_abbrev  0x00002c7f      0x1e7 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
- .debug_abbrev  0x00002e66      0x1a8 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
- .debug_abbrev  0x0000300e      0x10c CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
- .debug_abbrev  0x0000311a      0x530 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
- .debug_abbrev  0x0000364a      0x38a CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
- .debug_abbrev  0x000039d4       0x12 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
- .debug_abbrev  0x000039e6      0x167 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
- .debug_abbrev  0x00003b4d       0x12 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
- .debug_abbrev  0x00003b5f       0x12 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
- .debug_abbrev  0x00003b71      0x1c3 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
- .debug_abbrev  0x00003d34      0x2b3 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
- .debug_abbrev  0x00003fe7       0x12 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
- .debug_abbrev  0x00003ff9       0x14 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
- .debug_abbrev  0x0000400d       0x12 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
- .debug_abbrev  0x0000401f      0x1c6 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
- .debug_abbrev  0x000041e5      0x29a CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
- .debug_abbrev  0x0000447f       0x12 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
- .debug_abbrev  0x00004491      0x163 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
- .debug_abbrev  0x000045f4       0x12 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
- .debug_abbrev  0x00004606       0x12 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
- .debug_abbrev  0x00004618       0xb8 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
- .debug_abbrev  0x000046d0      0x467 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
- .debug_abbrev  0x00004b37      0x2ca CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
- .debug_abbrev  0x00004e01      0x543 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
- .debug_abbrev  0x00005344      0x15a CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
- .debug_abbrev  0x0000549e      0x181 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj
- .debug_abbrev  0x0000561f      0x2bd CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj
- .debug_abbrev  0x000058dc      0x563 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
- .debug_abbrev  0x00005e3f      0x449 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
- .debug_abbrev  0x00006288      0x61a CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
- .debug_abbrev  0x000068a2      0x2e8 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
- .debug_abbrev  0x00006b8a      0x4b9 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
- .debug_abbrev  0x00007043      0x472 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
- .debug_abbrev  0x000074b5      0x47a CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
- .debug_abbrev  0x0000792f      0x45a CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
+.debug_abbrev   0x00000000     0x7d7c
+ .debug_abbrev  0x00000000      0x142 CMakeFiles/MPU6050_MotionAnalyzer.dir/main.c.obj
+ .debug_abbrev  0x00000142      0x40e CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj
+ .debug_abbrev  0x00000550      0x13c CMakeFiles/MPU6050_MotionAnalyzer.dir/ringbuffer/ringbuffer.c.obj
+ .debug_abbrev  0x0000068c      0x39d CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+ .debug_abbrev  0x00000a29       0xf8 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
+ .debug_abbrev  0x00000b21      0x2d0 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
+ .debug_abbrev  0x00000df1      0x26e CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
+ .debug_abbrev  0x0000105f      0x4ed CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+ .debug_abbrev  0x0000154c      0x149 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj
+ .debug_abbrev  0x00001695      0x3e8 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
+ .debug_abbrev  0x00001a7d      0x1dc CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
+ .debug_abbrev  0x00001c59      0x5ce CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
+ .debug_abbrev  0x00002227      0x39d CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+ .debug_abbrev  0x000025c4      0x285 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+ .debug_abbrev  0x00002849      0x429 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
+ .debug_abbrev  0x00002c72      0x1e7 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
+ .debug_abbrev  0x00002e59      0x1a8 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
+ .debug_abbrev  0x00003001      0x10c CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
+ .debug_abbrev  0x0000310d      0x530 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+ .debug_abbrev  0x0000363d      0x38a CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+ .debug_abbrev  0x000039c7       0x12 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
+ .debug_abbrev  0x000039d9      0x167 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
+ .debug_abbrev  0x00003b40       0x12 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
+ .debug_abbrev  0x00003b52       0x12 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+ .debug_abbrev  0x00003b64      0x1c3 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
+ .debug_abbrev  0x00003d27      0x2b3 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
+ .debug_abbrev  0x00003fda       0x12 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
+ .debug_abbrev  0x00003fec       0x14 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
+ .debug_abbrev  0x00004000       0x12 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+ .debug_abbrev  0x00004012      0x1c6 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
+ .debug_abbrev  0x000041d8      0x29a CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
+ .debug_abbrev  0x00004472       0x12 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
+ .debug_abbrev  0x00004484      0x163 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
+ .debug_abbrev  0x000045e7       0x12 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
+ .debug_abbrev  0x000045f9       0x12 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
+ .debug_abbrev  0x0000460b       0xb8 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+ .debug_abbrev  0x000046c3      0x467 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+ .debug_abbrev  0x00004b2a      0x2ca CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+ .debug_abbrev  0x00004df4      0x543 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+ .debug_abbrev  0x00005337      0x15a CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+ .debug_abbrev  0x00005491      0x181 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj
+ .debug_abbrev  0x00005612      0x2bd CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj
+ .debug_abbrev  0x000058cf      0x563 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+ .debug_abbrev  0x00005e32      0x449 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
+ .debug_abbrev  0x0000627b      0x61a CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+ .debug_abbrev  0x00006895      0x2e8 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
+ .debug_abbrev  0x00006b7d      0x4b9 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+ .debug_abbrev  0x00007036      0x472 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
+ .debug_abbrev  0x000074a8      0x47a CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+ .debug_abbrev  0x00007922      0x45a CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
 
 .debug_aranges  0x00000000     0x1a38
  .debug_aranges
@@ -4199,62 +4199,62 @@ LOAD linker stubs
  .debug_rnglists
                 0x00001900       0x8d CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
 
-.debug_line     0x00000000    0x1b794
- .debug_line    0x00000000      0x2af CMakeFiles/MPU6050_MotionAnalyzer.dir/main.c.obj
- .debug_line    0x000002af     0x1165 CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj
- .debug_line    0x00001414      0x351 CMakeFiles/MPU6050_MotionAnalyzer.dir/ringbuffer/ringbuffer.c.obj
- .debug_line    0x00001765      0xc3a CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
- .debug_line    0x0000239f      0x26d CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
- .debug_line    0x0000260c      0x43f CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
- .debug_line    0x00002a4b      0x478 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
- .debug_line    0x00002ec3      0xf74 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
- .debug_line    0x00003e37      0x26a CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj
- .debug_line    0x000040a1      0xfa5 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
- .debug_line    0x00005046      0x2f8 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
- .debug_line    0x0000533e     0x1789 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
- .debug_line    0x00006ac7      0xb91 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
- .debug_line    0x00007658      0x7ab CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.obj
- .debug_line    0x00007e03      0x9ae CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
- .debug_line    0x000087b1      0x533 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
- .debug_line    0x00008ce4      0x432 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
- .debug_line    0x00009116      0x288 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
- .debug_line    0x0000939e      0xa73 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
- .debug_line    0x00009e11     0x1265 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
- .debug_line    0x0000b076      0x11a CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
- .debug_line    0x0000b190      0x24b CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
- .debug_line    0x0000b3db      0x2a9 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
- .debug_line    0x0000b684      0x3fa CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
- .debug_line    0x0000ba7e      0x372 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
- .debug_line    0x0000bdf0     0x1f18 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
- .debug_line    0x0000dd08      0x66c CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
- .debug_line    0x0000e374       0x61 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
- .debug_line    0x0000e3d5      0x3b2 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
- .debug_line    0x0000e787      0x375 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
- .debug_line    0x0000eafc     0x1dcf CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
- .debug_line    0x000108cb      0x198 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
- .debug_line    0x00010a63      0x219 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
- .debug_line    0x00010c7c       0x94 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
- .debug_line    0x00010d10       0xa5 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
- .debug_line    0x00010db5      0x1af CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
- .debug_line    0x00010f64      0xe38 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
- .debug_line    0x00011d9c      0x47a CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
- .debug_line    0x00012216      0xc87 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
- .debug_line    0x00012e9d      0x310 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
- .debug_line    0x000131ad      0x379 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj
- .debug_line    0x00013526      0x8ee CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj
- .debug_line    0x00013e14      0xe85 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
- .debug_line    0x00014c99      0xa40 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
- .debug_line    0x000156d9     0x1e4e CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
- .debug_line    0x00017527      0x503 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
- .debug_line    0x00017a2a      0xddd CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
- .debug_line    0x00018807      0xb71 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
- .debug_line    0x00019378     0x1613 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
- .debug_line    0x0001a98b      0xe09 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
+.debug_line     0x00000000    0x1b7b8
+ .debug_line    0x00000000      0x2be CMakeFiles/MPU6050_MotionAnalyzer.dir/main.c.obj
+ .debug_line    0x000002be     0x117a CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj
+ .debug_line    0x00001438      0x351 CMakeFiles/MPU6050_MotionAnalyzer.dir/ringbuffer/ringbuffer.c.obj
+ .debug_line    0x00001789      0xc3a CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+ .debug_line    0x000023c3      0x26d CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
+ .debug_line    0x00002630      0x43f CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
+ .debug_line    0x00002a6f      0x478 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
+ .debug_line    0x00002ee7      0xf74 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+ .debug_line    0x00003e5b      0x26a CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj
+ .debug_line    0x000040c5      0xfa5 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
+ .debug_line    0x0000506a      0x2f8 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
+ .debug_line    0x00005362     0x1789 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_time/time.c.obj
+ .debug_line    0x00006aeb      0xb91 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+ .debug_line    0x0000767c      0x7ab CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+ .debug_line    0x00007e27      0x9ae CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
+ .debug_line    0x000087d5      0x533 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
+ .debug_line    0x00008d08      0x432 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
+ .debug_line    0x0000913a      0x288 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
+ .debug_line    0x000093c2      0xa73 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+ .debug_line    0x00009e35     0x1265 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+ .debug_line    0x0000b09a      0x11a CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
+ .debug_line    0x0000b1b4      0x24b CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
+ .debug_line    0x0000b3ff      0x2a9 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
+ .debug_line    0x0000b6a8      0x3fa CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+ .debug_line    0x0000baa2      0x372 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
+ .debug_line    0x0000be14     0x1f18 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
+ .debug_line    0x0000dd2c      0x66c CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
+ .debug_line    0x0000e398       0x61 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
+ .debug_line    0x0000e3f9      0x3b2 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+ .debug_line    0x0000e7ab      0x375 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
+ .debug_line    0x0000eb20     0x1dcf CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
+ .debug_line    0x000108ef      0x198 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
+ .debug_line    0x00010a87      0x219 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
+ .debug_line    0x00010ca0       0x94 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
+ .debug_line    0x00010d34       0xa5 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
+ .debug_line    0x00010dd9      0x1af CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+ .debug_line    0x00010f88      0xe38 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+ .debug_line    0x00011dc0      0x47a CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+ .debug_line    0x0001223a      0xc87 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+ .debug_line    0x00012ec1      0x310 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+ .debug_line    0x000131d1      0x379 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj
+ .debug_line    0x0001354a      0x8ee CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj
+ .debug_line    0x00013e38      0xe85 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+ .debug_line    0x00014cbd      0xa40 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
+ .debug_line    0x000156fd     0x1e4e CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+ .debug_line    0x0001754b      0x503 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
+ .debug_line    0x00017a4e      0xddd CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+ .debug_line    0x0001882b      0xb71 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
+ .debug_line    0x0001939c     0x1613 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+ .debug_line    0x0001a9af      0xe09 CMakeFiles/MPU6050_MotionAnalyzer.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_i2c/i2c.c.obj
 
 .debug_str      0x00000000     0x7e81
- .debug_str     0x00000000      0x31f CMakeFiles/MPU6050_MotionAnalyzer.dir/main.c.obj
-                                0x3a3 (size before relaxing)
- .debug_str     0x0000031f      0x7e9 CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj
+ .debug_str     0x00000000      0x306 CMakeFiles/MPU6050_MotionAnalyzer.dir/main.c.obj
+                                0x38a (size before relaxing)
+ .debug_str     0x00000306      0x802 CMakeFiles/MPU6050_MotionAnalyzer.dir/mpu6050/mpu6050.c.obj
                                 0xbfc (size before relaxing)
  .debug_str     0x00000b08       0xa5 CMakeFiles/MPU6050_MotionAnalyzer.dir/ringbuffer/ringbuffer.c.obj
                                 0x2af (size before relaxing)

@@ -100,7 +100,8 @@ void mpu_read_raw(MPU6050* mpu6050)
     i2c_read_blocking(i2c1, mpu6050_reg.address, buffer, 2, false);  
 
     temperature = buffer[0] << 8 | buffer[1];
-    mpu6050->mpu6050_raw.temp = (temperature / 340.f) + 36.53;
+    //mpu6050->mpu6050_raw.temp = (temperature / 340.f) + 36.53;
+    mpu6050->mpu6050_raw.temp = temperature;
 
     mpu_convert(mpu6050); // data conversion into [m/s] and [deg/s] 
 }
@@ -311,7 +312,6 @@ void mpu_convert(MPU6050* mpu6050)
             mpu6050->mpu6050_raw.gyro_convert[2] = mpu6050->mpu6050_raw.gyro[2] / 16.4;
         break;
     }
-
 }
 
 void mpu_set_sample_rate(uint8_t divider)
@@ -402,12 +402,12 @@ void mpu_get_offset(MPU6050* mpu6050)
     {
         mpu_read_raw(mpu6050);
         mpu6050->mpu6050_raw.accel_x_offset += mpu6050->mpu6050_raw.accel_convert[0]; 
-        mpu6050->mpu6050_raw.accel_x_offset += mpu6050->mpu6050_raw.accel_convert[1];
-        mpu6050->mpu6050_raw.accel_x_offset += mpu6050->mpu6050_raw.accel_convert[2] - 1.0;
+        mpu6050->mpu6050_raw.accel_y_offset += mpu6050->mpu6050_raw.accel_convert[1];
+        mpu6050->mpu6050_raw.accel_z_offset += mpu6050->mpu6050_raw.accel_convert[2] - 1.0;
 
         mpu6050->mpu6050_raw.gyro_x_offset += mpu6050->mpu6050_raw.gyro_convert[0];
-        mpu6050->mpu6050_raw.gyro_x_offset += mpu6050->mpu6050_raw.gyro_convert[1];
-        mpu6050->mpu6050_raw.gyro_x_offset += mpu6050->mpu6050_raw.gyro_convert[2];
+        mpu6050->mpu6050_raw.gyro_y_offset += mpu6050->mpu6050_raw.gyro_convert[1];
+        mpu6050->mpu6050_raw.gyro_z_offset += mpu6050->mpu6050_raw.gyro_convert[2];
     }
 
     mpu6050->mpu6050_raw.accel_x_offset /= 250.0f;  mpu6050->mpu6050_raw.accel_y_offset /= 250.0f;  mpu6050->mpu6050_raw.accel_z_offset /= 250.0f;
