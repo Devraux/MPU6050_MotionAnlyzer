@@ -35,22 +35,47 @@ typedef struct MPU6050_REG
     const uint8_t SMPLRT_DIV;   //sample rate divider
 }MPU6050_REG;
 
-typedef struct MPU6050_RAW
+typedef struct MPU6050_STATE
 {
-    int16_t acceleration[3]; // X - Y - Z Acceleration
-    int16_t gyro[3];         // X - Y - Z Gyroscope Data
-    int16_t temp;            // Temperature
+    uint8_t accel_res;                                           // 0=> 16384, 1=>8192, 2=>4096, 3=>2048  
+    uint8_t gyro_res;                                            // 0=> 131,   1=>65.5, 2=>32.8, 3=>16.4 
 
-    float accel_convert[3];  // converted acceleration measures
-    float gyro_convert[3];   // converted gyroscope measures 
+    int16_t accel_deviation;                                     // accelerometer standard deviation
+    int16_t gyro_deviation;                                      // gyroscope standard deviation
 
-    uint8_t accel_res;       // 0=> 16384, 1=>8192, 2=>4096, 3=>2048  
-    uint8_t gyro_res;        // 0=> 131,   1=>65.5, 2=>32.8, 3=>16.4 
-
-    float accel_x_offset, accel_y_offset, accel_z_offset;        // accelerometer offset
-    float gyro_x_offset, gyro_y_offset, gyro_z_offset;           // gyroscope offset
+    int16_t accel_x_offset, accel_y_offset, accel_z_offset;       // accelerometer offset
+    int16_t gyro_x_offset, gyro_y_offset, gyro_z_offset;          // gyroscope offset
         
-}MPU6050_RAW;
+}MPU6050_STATE;
+
+typedef struct MPU6050_DATA
+{
+    int16_t accel_raw[3];               // RAW X - Y - Z Acceleration
+    int16_t gyro_raw[3];                // RAW X - Y - Z Gyroscope Data
+    int16_t temp_raw;                   // RAW Temperature
+
+    int16_t accel_no_offset[3];
+    int16_t gyro_no_offset[3];
+
+    int16_t accel_mod;                // accelerometer vecotr module sqrt(X^2 + Y^2 + Z^2)
+    int16_t gyro_mod;                 // gyroscope vecotr module sqrt(X^2 + Y^2 + Z^2)
+
+    RINGBUFFER accelbuffer;
+    RINGBUFFER gyrobuffer;
+
+    float accel_convert[3];         // converted acceleration measures
+    float gyro_convert[3];          // converted gyroscope measures 
+
+    float accelwithoutgravity[3];   //user's data without offset and gravity constant
+
+    float distance;                 // computed distance
+}MPU6050_DATA;
+
+typedef struct MPU6050
+{
+    struct MPU6050_STATE mpu6050_state;
+    struct MPU6050_DATA mpu6050_data;
+}MPU6050;
 
 typedef struct MPU6050_SELFTEST
 {
@@ -59,30 +84,6 @@ typedef struct MPU6050_SELFTEST
     uint8_t X_TEST, Y_TEST, Z_TEST, A_TEST; // TEST REGISTER
     float X_ERROR, Y_ERROR, Z_ERROR;        //Errors given in %
 }MPU6050_SELFTEST;
-
-typedef struct MPU6050_DATA
-{
-    float accel[3];                 // user's data without sensor offset
-    float gyro[3];                  // user's data without sensor offset
-    float accel_mod;                // accelerometer vecotr module sqrt(X^2 + Y^2 + Z^2)
-    float gyro_mod;                 // gyroscope vecotr module sqrt(X^2 + Y^2 + Z^2)
-
-    float accelwithoutgravity[3];   //user's data without offset and gravity constant
-
-    RINGBUFFER accelbuffer;
-    RINGBUFFER gyrobuffer;
-
-    
-    float distance;                 // computed distance
-    float v_0;                      // last velocity value
-}MPU6050_DATA;
-
-typedef struct MPU6050
-{
-    struct MPU6050_RAW mpu6050_raw;
-    struct MPU6050_DATA mpu6050_data;
-}MPU6050;
-
 
 //write_i2c()//
 /// @param i2c_address => device address
@@ -139,13 +140,13 @@ void mpu_set_sample_rate(uint8_t divider);
 /// @param MPU6050 => MPU6050 data structure 
 /// @return print statistics data like variance and standard deviation(sqrt(variance))
 /// @details => while mpu_statistic is enabled don't move sensor 
-void mpu_statistic(MPU6050* mpu6050);
+void mpu_get_statistic(MPU6050* mpu6050);
 
 //get_variance//
 /// @brief get mpu6050 variance information
 /// @param data => input data => sensor data
 /// @param data_size => data size
-float get_variance(float* data, uint8_t data_size);
+int16_t get_variance(int16_t* data, uint8_t data_size);
 
 //remove offset//
 /// @param MPU6050 => MPU6050 data structure 

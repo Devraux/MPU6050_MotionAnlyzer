@@ -43,3 +43,8 @@ printf("Gyro. X = %f, Y = %f, Z = %f\n", mpu6050.gyro[0], mpu6050.gyro[1], mpu60
 mpu_read(&mpu6050);
         printf("X:%f, Y:%f, Z:%f\n", mpu6050.mpu6050_data.accelwithoutgravity[0], mpu6050.mpu6050_data.accelwithoutgravity[1], mpu6050.mpu6050_data.accelwithoutgravity[2]);
 // ----------------------------------------------------------------------------------- //
+
+// STATISTICS //
+    printf("%f,%f,%f\n", sqrt(var_acc_x), sqrt(var_acc_y), sqrt(var_acc_z));
+    printf("%f,%f,%f\n", sqrt(var_gyro_x), sqrt(var_gyro_y), sqrt(var_gyro_z));
+// ----------------------------------------------------------------------------------- //

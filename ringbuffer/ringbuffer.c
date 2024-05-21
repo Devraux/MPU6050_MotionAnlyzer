@@ -8,7 +8,7 @@ void Ring_buffer_init(RINGBUFFER* ringbuffer, uint16_t buffer_size)
     ringbuffer->Tail = 0;
 }
 
-void Ring_buffer_push(RINGBUFFER* ringbuffer, float data)
+void Ring_buffer_push(RINGBUFFER* ringbuffer, int16_t data)
 {
     ringbuffer->Data[ringbuffer->Head] = data;
     ringbuffer->Head = (ringbuffer->Head + 1) % ringbuffer->Buffer_Size;
@@ -18,7 +18,7 @@ void Ring_buffer_push(RINGBUFFER* ringbuffer, float data)
         ringbuffer->Counter = 0; // data overflow
 }
 
-void Ring_buffer_pop(RINGBUFFER* ringbuffer, float* data)
+void Ring_buffer_pop(RINGBUFFER* ringbuffer, int16_t* data)
 {
     *data = ringbuffer->Data[ringbuffer->Tail];
     ringbuffer->Tail = (ringbuffer->Tail + 1) % ringbuffer->Buffer_Size;
