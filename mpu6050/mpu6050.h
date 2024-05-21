@@ -37,14 +37,14 @@ typedef struct MPU6050_REG
 
 typedef struct MPU6050_STATE
 {
-    uint8_t accel_res;                                           // 0=> 16384, 1=>8192, 2=>4096, 3=>2048  
-    uint8_t gyro_res;                                            // 0=> 131,   1=>65.5, 2=>32.8, 3=>16.4 
+    uint8_t accel_res; uint16_t accel_res_val;                      // 0=> 16384, 1=>8192, 2=>4096, 3=>2048  
+    uint8_t gyro_res;                                               // 0=> 131,   1=>65.5, 2=>32.8, 3=>16.4 
 
-    int16_t accel_deviation;                                     // accelerometer standard deviation
-    int16_t gyro_deviation;                                      // gyroscope standard deviation
+    int16_t accel_x_deviation, accel_y_deviation, accel_z_deviation;// accelerometer standard deviation
+    int16_t gyro_x_deviation, gyro_y_deviation, gyro_z_deviation;   // gyroscope standard deviation
 
-    int16_t accel_x_offset, accel_y_offset, accel_z_offset;       // accelerometer offset
-    int16_t gyro_x_offset, gyro_y_offset, gyro_z_offset;          // gyroscope offset
+    int16_t accel_x_offset, accel_y_offset, accel_z_offset;         // accelerometer offset
+    int16_t gyro_x_offset, gyro_y_offset, gyro_z_offset;            // gyroscope offset
         
 }MPU6050_STATE;
 

@@ -3,7 +3,7 @@
 void Ring_buffer_init(RINGBUFFER* ringbuffer, uint16_t buffer_size)
 {
     ringbuffer->Buffer_Size = buffer_size;
-    ringbuffer->Data = (float*)malloc(buffer_size);
+    ringbuffer->Data = (int16_t*)malloc(buffer_size);
     ringbuffer->Head = 0;
     ringbuffer->Tail = 0;
 }
@@ -43,6 +43,6 @@ void Ring_buffer_clear(RINGBUFFER* ringbuffer)
 void buffer_print(RINGBUFFER* ringbuffer)
 {
     for(int16_t i = ringbuffer->Tail; i < ringbuffer->Head; i++)
-       printf("%d: %f\n", i, ringbuffer->Data[i]);
+       printf("%d: %d\n", i, ringbuffer->Data[i]);
 
 }
