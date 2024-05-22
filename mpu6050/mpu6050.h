@@ -57,8 +57,7 @@ typedef struct MPU6050_DATA
     int16_t accel_no_offset[3];
     int16_t gyro_no_offset[3];
 
-    uint16_t accel_mod;                // accelerometer vecotr module sqrt(X^2 + Y^2 + Z^2)
-    int16_t accel_mod_no_gravity;      // acceleration module without gravity constant
+    uint16_t accel_mod_no_gravity;      // accelerometer vecotr module sqrt(X^2 + Y^2 + Z^2) without gravity constant
     uint16_t gyro_mod;                 // gyroscope vecotr module sqrt(X^2 + Y^2 + Z^2)
 
     RINGBUFFER accelbuffer;

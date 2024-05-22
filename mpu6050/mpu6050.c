@@ -393,14 +393,11 @@ void mpu_read(MPU6050* mpu6050)
     mpu6050->mpu6050_data.gyro_no_offset[1] = mpu6050->mpu6050_data.gyro_raw[1] - mpu6050->mpu6050_state.gyro_y_offset;
     mpu6050->mpu6050_data.gyro_no_offset[2] = mpu6050->mpu6050_data.gyro_raw[2] - mpu6050->mpu6050_state.gyro_z_offset;    
     
-    mpu6050->mpu6050_data.accel_mod = sqrt(pow(mpu6050->mpu6050_data.accel_no_offset[0], 2) + pow(mpu6050->mpu6050_data.accel_no_offset[1], 2) + pow(mpu6050->mpu6050_data.accel_no_offset[2], 2));
+    mpu6050->mpu6050_data.accel_mod_no_gravity = sqrt(pow(mpu6050->mpu6050_data.accel_no_offset[0], 2) + pow(mpu6050->mpu6050_data.accel_no_offset[1], 2)
+    + pow((mpu6050->mpu6050_data.accel_no_offset[2] - mpu6050->mpu6050_state.accel_res_val), 2));
  
-    mpu6050->mpu6050_data.accel_mod_no_gravity = mpu6050->mpu6050_data.accel_mod - mpu6050->mpu6050_state.accel_res_val;
-
     Ring_buffer_push(&mpu6050->mpu6050_data.accelbuffer, mpu6050->mpu6050_data.accel_no_offset[0]); //TO DO !!!
     Ring_buffer_push(&mpu6050->mpu6050_data.gyrobuffer, mpu6050->mpu6050_data.gyro_no_offset[0]); 
-
-    
 }
 
 void mpu_get_offset(MPU6050* mpu6050)
