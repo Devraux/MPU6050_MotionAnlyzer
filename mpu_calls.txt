@@ -47,4 +47,5 @@ mpu_read(&mpu6050);
 // STATISTICS //
     printf("%f,%f,%f\n", sqrt(var_acc_x), sqrt(var_acc_y), sqrt(var_acc_z));
     printf("%f,%f,%f\n", sqrt(var_gyro_x), sqrt(var_gyro_y), sqrt(var_gyro_z));
+    printf("X:%f, Y:%f, Z:%f\n", sqrt(mpu6050.mpu6050_state.accel_x_deviation), sqrt(mpu6050.mpu6050_state.accel_y_deviation), sqrt(mpu6050.mpu6050_state.accel_z_deviation));
 // ----------------------------------------------------------------------------------- //

@@ -44,5 +44,4 @@ void buffer_print(RINGBUFFER* ringbuffer)
 {
     for(int16_t i = ringbuffer->Tail; i < ringbuffer->Head; i++)
        printf("%d: %d\n", i, ringbuffer->Data[i]);
-
 }
