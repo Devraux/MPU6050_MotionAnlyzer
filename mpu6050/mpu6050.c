@@ -71,7 +71,7 @@ void mpu_init(MPU6050* mpu6050)
     //mpu_get_statistic(mpu6050);
 
     //MPU6050 INTERRUPT INIT
-    add_repeating_timer_ms(-100, mpu_callback, (void*)mpu6050, &timer);
+    add_repeating_timer_ms(-200, mpu_callback, (void*)mpu6050, &timer); // 5 times per second
 }
 
 void mpu_read_raw(MPU6050* mpu6050)
@@ -393,10 +393,11 @@ void mpu_read(MPU6050* mpu6050)
     mpu6050->mpu6050_data.gyro_no_offset[1] = mpu6050->mpu6050_data.gyro_raw[1] - mpu6050->mpu6050_state.gyro_y_offset;
     mpu6050->mpu6050_data.gyro_no_offset[2] = mpu6050->mpu6050_data.gyro_raw[2] - mpu6050->mpu6050_state.gyro_z_offset;    
     
-    mpu6050->mpu6050_data.accel_mod_no_gravity = sqrt(pow(mpu6050->mpu6050_data.accel_no_offset[0], 2) + pow(mpu6050->mpu6050_data.accel_no_offset[1], 2)
-    + pow((mpu6050->mpu6050_data.accel_no_offset[2] - mpu6050->mpu6050_state.accel_res_val), 2));
- 
-    Ring_buffer_push(&mpu6050->mpu6050_data.accelbuffer, mpu6050->mpu6050_data.accel_no_offset[0]); //TO DO !!!
+    mpu_convert(mpu6050);
+
+    mpu_remove_gravity(mpu6050);    
+
+    Ring_buffer_push(&mpu6050->mpu6050_data.accelbuffer, mpu6050->mpu6050_data.accel_mod_no_gravity);
     Ring_buffer_push(&mpu6050->mpu6050_data.gyrobuffer, mpu6050->mpu6050_data.gyro_no_offset[0]); 
 }
 
@@ -436,13 +437,16 @@ void mpu_remove_gravity(MPU6050* mpu6050)
     static float gravity[3] = {0, 0, 0};
     float alpha = 0.8;
 
-    gravity[0] = alpha * gravity[0] + (1 - alpha) * mpu6050->mpu6050_data.accel_no_offset[0];
-    gravity[1] = alpha * gravity[1] + (1 - alpha) * mpu6050->mpu6050_data.accel_no_offset[1];
-    gravity[2] = alpha * gravity[2] + (1 - alpha) * mpu6050->mpu6050_data.accel_no_offset[2];
+    gravity[0] = alpha * gravity[0] + (1 - alpha) * mpu6050->mpu6050_data.accel_convert[0];
+    gravity[1] = alpha * gravity[1] + (1 - alpha) * mpu6050->mpu6050_data.accel_convert[1];
+    gravity[2] = alpha * gravity[2] + (1 - alpha) * mpu6050->mpu6050_data.accel_convert[2];
 
-    mpu6050->mpu6050_data.accel_no_gravity[0] = mpu6050->mpu6050_data.accel_no_offset[0] - gravity[0];
-    mpu6050->mpu6050_data.accel_no_gravity[1] = mpu6050->mpu6050_data.accel_no_offset[1] - gravity[1];
-    mpu6050->mpu6050_data.accel_no_gravity[2] = mpu6050->mpu6050_data.accel_no_offset[2] - gravity[2]; 
+    mpu6050->mpu6050_data.accel_no_gravity[0] = mpu6050->mpu6050_data.accel_convert[0] - gravity[0];
+    mpu6050->mpu6050_data.accel_no_gravity[1] = mpu6050->mpu6050_data.accel_convert[1] - gravity[1];
+    mpu6050->mpu6050_data.accel_no_gravity[2] = mpu6050->mpu6050_data.accel_convert[2] - gravity[2];
+
+    mpu6050->mpu6050_data.accel_mod_no_gravity = sqrtf(powf(mpu6050->mpu6050_data.accel_no_gravity[0], 2) +
+    powf(mpu6050->mpu6050_data.accel_no_gravity[1], 2) + powf(mpu6050->mpu6050_data.accel_no_gravity[2], 2)); 
 }
 
 void mpu_get_distance(MPU6050* mpu6050)
@@ -451,13 +455,13 @@ void mpu_get_distance(MPU6050* mpu6050)
     float dist[mpu6050->mpu6050_data.accelbuffer.Buffer_Size - 1]; // distance
     float dist_sum = 0;
 
-    for(uint16_t i = 1; i < mpu6050->mpu6050_data.accelbuffer.Buffer_Size - 1; i++){
-        vel[i] = 0.5 * 0.1 * 9.81 *(mpu6050->mpu6050_data.accelbuffer.Data[i] + mpu6050->mpu6050_data.accelbuffer.Data[i - 1]);
-    }//printf("%f\n", vel[i]);}
-    for(uint16_t i = 2; i < mpu6050->mpu6050_data.accelbuffer.Buffer_Size - 2; i++)
-        dist[i] = 0.5 * 0.1 * (vel[i] + vel[i - 1]);
+    for(uint16_t i = 0; i < mpu6050->mpu6050_data.accelbuffer.Buffer_Size - 1; i++)
+        vel[i] = 0.5 * 0.2 * 9.81 * (mpu6050->mpu6050_data.accelbuffer.Data[i] + mpu6050->mpu6050_data.accelbuffer.Data[i + 1]);
+    
+    for(uint16_t i = 0; i < mpu6050->mpu6050_data.accelbuffer.Buffer_Size - 2; i++)
+        dist[i] = 0.5 * 0.2 * (vel[i] + vel[i - 1]);
 
-    for(uint16_t i = 2; i < mpu6050->mpu6050_data.accelbuffer.Buffer_Size - 2; i++)
+    for(uint16_t i = 0; i < mpu6050->mpu6050_data.accelbuffer.Buffer_Size - 2; i++)
         dist_sum += dist[i];
 
     mpu6050->mpu6050_data.distance += dist_sum;
@@ -469,9 +473,9 @@ bool mpu_callback(struct repeating_timer *timer)
     MPU6050* mpu6050 = (MPU6050*)timer->user_data;   // void* casting 
     mpu_read(mpu6050);
     
-    if(mpu6050->mpu6050_data.accelbuffer.Counter == mpu6050->mpu6050_data.accelbuffer.Buffer_Size - 1) // compute data every 0.5 sec
+    if(mpu6050->mpu6050_data.accelbuffer.Counter == mpu6050->mpu6050_data.accelbuffer.Buffer_Size) // compute data every 1 sec
         mpu_get_distance(mpu6050);
-    
+
     return true;
 }
 

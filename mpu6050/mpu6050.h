@@ -57,14 +57,14 @@ typedef struct MPU6050_DATA
     int16_t accel_no_offset[3];
     int16_t gyro_no_offset[3];
 
-    uint16_t accel_mod_no_gravity;      // accelerometer vecotr module sqrt(X^2 + Y^2 + Z^2) without gravity constant
-    uint16_t gyro_mod;                 // gyroscope vecotr module sqrt(X^2 + Y^2 + Z^2)
+    float accel_mod_no_gravity;      // accelerometer vecotr module sqrt(X^2 + Y^2 + Z^2) without gravity constant
+    uint16_t gyro_mod;                  // gyroscope vecotr module sqrt(X^2 + Y^2 + Z^2)
 
     RINGBUFFER accelbuffer;
     RINGBUFFER gyrobuffer;
 
-    float accel_convert[3];   //not used//      // converted acceleration measures
-    float gyro_convert[3];    // not used//      // converted gyroscope measures 
+    float accel_convert[3];        // converted acceleration measures
+    float gyro_convert[3];          // converted gyroscope measures 
 
     float accel_no_gravity[3];      //user's data without offset and gravity constant
 
@@ -169,4 +169,5 @@ void mpu_get_distance(MPU6050* mpu6050);
 /// @brief build in pi pico sdk callback 
 /// @brief read data from sensor every 10 ms <> sensor measure new data after 19 ms(look mpu_set_resolution) 
 bool mpu_callback(struct repeating_timer* timer);
+
 #endif

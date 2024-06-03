@@ -15,8 +15,10 @@ int main()
         //buffer_print(&mpu6050.mpu6050_data.accelbuffer);
         //printf("%f\n", mpu6050.mpu6050_data.distance);
         //printf("%d\n", mpu6050.mpu6050_data.accel_no_offset[0]);
-        //printf("%d,%d,%d\n", mpu6050.mpu6050_data.accel_no_offset[0], mpu6050.mpu6050_data.accel_no_offset[1], mpu6050.mpu6050_data.accel_no_offset[2]);
-        printf("%d\n", mpu6050.mpu6050_data.accel_mod_no_gravity);
+        printf("%f,%f,%f\n", mpu6050.mpu6050_data.accel_no_gravity[0], mpu6050.mpu6050_data.accel_no_gravity[1], mpu6050.mpu6050_data.accel_no_gravity[2]);
+        //printf("%f\n", mpu6050.mpu6050_data.distance);
+        //buffer_print(&mpu6050.mpu6050_data.accelbuffer);
+        //printf("X:%f, Y:%f, Z:%f\n",mpu6050.mpu6050_data.accel_convert[0], mpu6050.mpu6050_data.accel_convert[1], mpu6050.mpu6050_data.accel_convert[2]);
         sleep_ms(105);
     }
     return 0;
