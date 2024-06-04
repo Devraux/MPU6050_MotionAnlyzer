@@ -9,11 +9,7 @@
 typedef struct KALMAN //kalman coeficients
 {
     uint16_t n;     //time stamp
-    double K;       //Kalman gain 0 < k < 1
-    double z_n;     // data measured in n => current value
-    double r_n;      // measurement variance
     
- 
 }KALMAN;
 
 

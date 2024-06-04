@@ -2804,6 +2804,8 @@ CMakeFiles/MPU6050_MotionAnalyzer.dir/main.c.obj
  C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_irq/include/hardware/irq.h
  C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h
  C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_uart/include/hardware/uart.h
+ C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_bootrom/include/pico/bootrom/sf_table.h
+ C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_double/include/pico/double.h
  C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h
  C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio/include/pico/stdio.h
  C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio_usb/include/pico/stdio_usb.h

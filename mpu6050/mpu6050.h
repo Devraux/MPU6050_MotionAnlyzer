@@ -57,18 +57,19 @@ typedef struct MPU6050_DATA
     int16_t accel_no_offset[3];
     int16_t gyro_no_offset[3];
 
-    float accel_mod_no_gravity;      // accelerometer vecotr module sqrt(X^2 + Y^2 + Z^2) without gravity constant
+    float accel_mod_no_gravity;         // accelerometer vecotr module sqrt(X^2 + Y^2 + Z^2) without gravity constant
     uint16_t gyro_mod;                  // gyroscope vecotr module sqrt(X^2 + Y^2 + Z^2)
 
     RINGBUFFER accelbuffer;
     RINGBUFFER gyrobuffer;
 
-    float accel_convert[3];        // converted acceleration measures
-    float gyro_convert[3];          // converted gyroscope measures 
+    float accel_convert[3];             // converted acceleration measures
+    float gyro_convert[3];              // converted gyroscope measures 
 
-    float accel_no_gravity[3];      //user's data without offset and gravity constant
+    float accel_no_gravity[3];          //user's data without offset and gravity constant
 
-    float distance;                 // computed distance
+    float distance;                     // computed distance
+    float theta_roll, theta_pitch, theta_yaw;      // theta nagle
 }MPU6050_DATA;
 
 typedef struct MPU6050
@@ -165,9 +166,14 @@ void mpu_remove_gravity(MPU6050* mpu6050);
 /// @param MPU6050 => mpu6050 output data
 void mpu_get_distance(MPU6050* mpu6050);
 
-//MPU_CALLBACK//
+//mpu_CALLBACK//
 /// @brief build in pi pico sdk callback 
 /// @brief read data from sensor every 10 ms <> sensor measure new data after 19 ms(look mpu_set_resolution) 
 bool mpu_callback(struct repeating_timer* timer);
+
+// mpu_get_theta // 
+/// @brief compute pitch and roll from accelerometer and gyroskope 
+/// @param MPU6050 => mpu6050 output data
+void mpu_get_theta(MPU6050* mu6050);
 
 #endif

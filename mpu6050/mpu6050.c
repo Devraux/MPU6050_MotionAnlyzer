@@ -393,11 +393,11 @@ void mpu_read(MPU6050* mpu6050)
     mpu6050->mpu6050_data.gyro_no_offset[1] = mpu6050->mpu6050_data.gyro_raw[1] - mpu6050->mpu6050_state.gyro_y_offset;
     mpu6050->mpu6050_data.gyro_no_offset[2] = mpu6050->mpu6050_data.gyro_raw[2] - mpu6050->mpu6050_state.gyro_z_offset;    
     
-    mpu_convert(mpu6050);
+    mpu_convert(mpu6050); 
+    mpu_remove_gravity(mpu6050);
+    mpu_get_theta(mpu6050);
 
-    mpu_remove_gravity(mpu6050);    
-
-    Ring_buffer_push(&mpu6050->mpu6050_data.accelbuffer, mpu6050->mpu6050_data.accel_mod_no_gravity);
+    Ring_buffer_push(&mpu6050->mpu6050_data.accelbuffer, mpu6050->mpu6050_data.accel_convert[0]);
     Ring_buffer_push(&mpu6050->mpu6050_data.gyrobuffer, mpu6050->mpu6050_data.gyro_no_offset[0]); 
 }
 
@@ -451,6 +451,8 @@ void mpu_remove_gravity(MPU6050* mpu6050)
 
 void mpu_get_distance(MPU6050* mpu6050)
 {
+    float distance = 0;
+    
     float vel[mpu6050->mpu6050_data.accelbuffer.Buffer_Size]; // velocity
     float dist[mpu6050->mpu6050_data.accelbuffer.Buffer_Size - 1]; // distance
     float dist_sum = 0;
@@ -466,6 +468,16 @@ void mpu_get_distance(MPU6050* mpu6050)
 
     mpu6050->mpu6050_data.distance += dist_sum;
     Ring_buffer_clear(&mpu6050->mpu6050_data.accelbuffer);
+    
+   mpu6050->mpu6050_data.distance += distance;
+   Ring_buffer_clear(&mpu6050->mpu6050_data.accelbuffer);
+}
+
+void mpu_get_theta(MPU6050* mpu6050)
+{
+    mpu6050->mpu6050_data.theta_roll  = (mpu6050->mpu6050_data.theta_roll  + mpu6050->mpu6050_data.gyro_convert[1] * 0.2) + (0.02 * mpu6050->mpu6050_data.accel_no_gravity[1] * (9.81));
+    mpu6050->mpu6050_data.theta_pitch = (mpu6050->mpu6050_data.theta_pitch + mpu6050->mpu6050_data.gyro_convert[0] * 0.2) + (0.02 * mpu6050->mpu6050_data.accel_no_gravity[0] * (9.81));
+    mpu6050->mpu6050_data.theta_yaw   = (mpu6050->mpu6050_data.theta_yaw   + mpu6050->mpu6050_data.gyro_convert[2] * 0.2) + (0.02 * mpu6050->mpu6050_data.accel_no_gravity[2] * (9.81));
 }
 
 bool mpu_callback(struct repeating_timer *timer)

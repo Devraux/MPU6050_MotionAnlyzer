@@ -16,7 +16,7 @@ int8_t kalman_accel(int8_t input_data, KALMAN* kalman)
         default: //next interation
 
         kalman->n++;
-        if(kalman->n > (sizeof(int16_t) - 1))
+        if(kalman->n > (UINT16_MAX - 1))
             kalman->n = 0;
     } 
 }
