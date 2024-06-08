@@ -3,14 +3,19 @@
 void Ring_buffer_init(RINGBUFFER* ringbuffer, uint16_t buffer_size)
 {
     ringbuffer->Buffer_Size = buffer_size;
-    ringbuffer->Data = (float*)malloc(buffer_size * sizeof(float));
+    ringbuffer->DataX = (float*)malloc(buffer_size * sizeof(float));
+    ringbuffer->DataY = (float*)malloc(buffer_size * sizeof(float));
+    ringbuffer->DataZ = (float*)malloc(buffer_size * sizeof(float));
     ringbuffer->Head = 0;
     ringbuffer->Tail = 0;
 }
 
-void Ring_buffer_push(RINGBUFFER* ringbuffer, float data)
+void Ring_buffer_push(RINGBUFFER* ringbuffer, float dataX, float dataY, float dataZ)
 {
-    ringbuffer->Data[ringbuffer->Head] = data;
+    ringbuffer->DataX[ringbuffer->Head] = dataX;
+    ringbuffer->DataY[ringbuffer->Head] = dataY;
+    ringbuffer->DataZ[ringbuffer->Head] = dataZ;
+
     ringbuffer->Head = (ringbuffer->Head + 1) % ringbuffer->Buffer_Size;
     ringbuffer->Counter++;
 
@@ -18,9 +23,12 @@ void Ring_buffer_push(RINGBUFFER* ringbuffer, float data)
         ringbuffer->Counter = 0; // data overflow
 }
 
-void Ring_buffer_pop(RINGBUFFER* ringbuffer, float* data)
+void Ring_buffer_pop(RINGBUFFER* ringbuffer, float* dataX, float* dataY, float* dataZ)
 {
-    *data = ringbuffer->Data[ringbuffer->Tail];
+    *dataX = ringbuffer->DataX[ringbuffer->Tail];
+    *dataY = ringbuffer->DataY[ringbuffer->Tail];
+    *dataZ = ringbuffer->DataZ[ringbuffer->Tail];
+
     ringbuffer->Tail = (ringbuffer->Tail + 1) % ringbuffer->Buffer_Size;
     ringbuffer->Counter--;
 
@@ -43,7 +51,11 @@ void Ring_buffer_clear(RINGBUFFER* ringbuffer)
 void buffer_print(RINGBUFFER* ringbuffer)
 {
     for(uint16_t i = ringbuffer->Tail; i < ringbuffer->Head; i++)
-       printf("%d: %f\n", i, ringbuffer->Data[i]);
-
-    printf("All data printed");
+    {
+       printf("%d: %f\n", i, ringbuffer->DataX[i]);
+       printf("%d: %f\n", i, ringbuffer->DataY[i]);
+       printf("%d: %f\n", i, ringbuffer->DataZ[i]);
+       printf("\n");
+    }
+    
 }
