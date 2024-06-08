@@ -2,10 +2,11 @@
 
 void Ring_buffer_init(RINGBUFFER* ringbuffer, uint16_t buffer_size)
 {
-    ringbuffer->Buffer_Size = buffer_size;
     ringbuffer->DataX = (float*)malloc(buffer_size * sizeof(float));
     ringbuffer->DataY = (float*)malloc(buffer_size * sizeof(float));
     ringbuffer->DataZ = (float*)malloc(buffer_size * sizeof(float));
+    
+    ringbuffer->Buffer_Size = buffer_size;
     ringbuffer->Head = 0;
     ringbuffer->Tail = 0;
 }

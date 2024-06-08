@@ -397,7 +397,7 @@ void mpu_read(MPU6050* mpu6050)
     mpu_remove_gravity(mpu6050);
     mpu_get_theta(mpu6050);
 
-    Ring_buffer_push(&mpu6050->mpu6050_data.accelbuffer, mpu6050->mpu6050_data.accel_convert[0], mpu6050->mpu6050_data.accel_convert[1], mpu6050->mpu6050_data.accel_convert[2]);
+    Ring_buffer_push(&mpu6050->mpu6050_data.accelbuffer, mpu6050->mpu6050_data.accel_no_gravity[0], mpu6050->mpu6050_data.accel_no_gravity[1], mpu6050->mpu6050_data.accel_no_gravity[2]);
     Ring_buffer_push(&mpu6050->mpu6050_data.gyrobuffer, mpu6050->mpu6050_data.gyro_convert[0], mpu6050->mpu6050_data.gyro_convert[1], mpu6050->mpu6050_data.gyro_convert[2]); 
 }
 
@@ -452,17 +452,39 @@ void mpu_remove_gravity(MPU6050* mpu6050)
 void mpu_get_distance(MPU6050* mpu6050)
 {
     float distance = 0;
+    float accelX[mpu6050->mpu6050_data.accelbuffer.Buffer_Size], accelY[mpu6050->mpu6050_data.accelbuffer.Buffer_Size], accelZ[mpu6050->mpu6050_data.accelbuffer.Buffer_Size];
+    float mod_buf[mpu6050->mpu6050_data.accelbuffer.Buffer_Size];
+
+    for(uint16_t i = 0; i < mpu6050->mpu6050_data.accelbuffer.Buffer_Size; i++)
+    {
+        if(mpu6050->mpu6050_data.accelbuffer.DataX[i] >= 0.001)
+            accelX[i] = mpu6050->mpu6050_data.accelbuffer.DataX[i];
+        else
+            accelX[i] = 0;
+
+        if(mpu6050->mpu6050_data.accelbuffer.DataX[i] >= 0.001)
+            accelY[i] = mpu6050->mpu6050_data.accelbuffer.DataY[i];
+        else
+            accelY[i] = 0;
+
+        if(mpu6050->mpu6050_data.accelbuffer.DataX[i] >= 0.001)
+            accelZ[i] = mpu6050->mpu6050_data.accelbuffer.DataZ[i];    
+        else
+            accelZ[i] = 0;    
+    }
+
+    for(uint16_t i = 0; i < mpu6050->mpu6050_data.accelbuffer.Buffer_Size; i++)
+        mod_buf[i] = sqrtf(powf(accelX[i], 2) + powf(accelY[i], 2) + powf(accelZ[i], 2));
     
     float vel[mpu6050->mpu6050_data.accelbuffer.Buffer_Size]; // velocity
     float dist[mpu6050->mpu6050_data.accelbuffer.Buffer_Size - 1]; // distance
     float dist_sum = 0;
 
-/*
     for(uint16_t i = 0; i < mpu6050->mpu6050_data.accelbuffer.Buffer_Size - 1; i++)
-        vel[i] = 0.5 * 0.2 * 9.81 * (mpu6050->mpu6050_data.accelbuffer.Data[i] + mpu6050->mpu6050_data.accelbuffer.Data[i + 1]);
+        vel[i] = 0.5 * 0.2 * 9.81 * (mod_buf[i] + mod_buf[i + 1]);
     
     for(uint16_t i = 0; i < mpu6050->mpu6050_data.accelbuffer.Buffer_Size - 2; i++)
-        dist[i] = 0.5 * 0.2 * (vel[i] + vel[i - 1]);
+        dist[i] = 0.5 * 0.2 * (vel[i] + vel[i + 1]);
 
     for(uint16_t i = 0; i < mpu6050->mpu6050_data.accelbuffer.Buffer_Size - 2; i++)
         dist_sum += dist[i];
@@ -470,7 +492,8 @@ void mpu_get_distance(MPU6050* mpu6050)
 
     mpu6050->mpu6050_data.distance += dist_sum;
     Ring_buffer_clear(&mpu6050->mpu6050_data.accelbuffer);
- */   
+
+
    mpu6050->mpu6050_data.distance += distance;
    Ring_buffer_clear(&mpu6050->mpu6050_data.accelbuffer);
 }
