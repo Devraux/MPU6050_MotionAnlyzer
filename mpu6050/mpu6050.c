@@ -23,7 +23,7 @@ MPU6050_REG mpu6050_reg = {
 void i2c_write_reg(uint8_t i2c_address, uint8_t reg, uint8_t data)
 {
     uint8_t tab[] = {reg, data};
-    i2c_write_blocking(i2c1, i2c_address, tab, sizeof(tab), false);
+    i2c_write_blocking(i2c1, i2c_address, tab, sizeof(tab)/sizeof(tab[0]), false);
 }
 
 void who_i_am(uint8_t* mpu_address)
@@ -41,14 +41,11 @@ void who_i_am(uint8_t* mpu_address)
 
 void mpu_reset()
 {
-    uint8_t buf[] = {0x6B, 0x00};
-    i2c_write_blocking(i2c1, mpu6050_reg.address, buf, 2, false);
+    i2c_write_reg(mpu6050_reg.address, mpu6050_reg.reset_add, 0x80);
     sleep_ms(50);
-    uint8_t buf2[] = {0x6B, 0x80}; //0x80 => 1000 0000
-    i2c_write_blocking(i2c1, mpu6050_reg.address, &buf2[0], 1, true);
-    i2c_write_blocking(i2c1, mpu6050_reg.address, &buf2[1], 1, false);
+    i2c_write_reg(mpu6050_reg.address, mpu6050_reg.reset_add, 0x00);
     sleep_ms(50);
- }
+}
 
 void mpu_init(MPU6050* mpu6050)
 {
