@@ -56,7 +56,7 @@ void buffer_print(RINGBUFFER* ringbuffer)
        printf("%d: %f\n", i, ringbuffer->DataX[i]);
        printf("%d: %f\n", i, ringbuffer->DataY[i]);
        printf("%d: %f\n", i, ringbuffer->DataZ[i]);
-       printf("\n");
+       printf("---------------=----------------\n");
     }
     
 }
