@@ -101,7 +101,7 @@ void mpu_init(MPU6050* mpu6050);
 void who_i_am(uint8_t* mpu_address); 
 
 //device reset//
-void mpu_reset(); 
+void mpu_reset(void); 
 
 //mpu_setresolution
 /// @param gyro_res => gyrometer resolution <=> ±250 ±500g ±1000g ±2000g  <=user enter=> 0, 1, 2, 3

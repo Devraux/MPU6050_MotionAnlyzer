@@ -39,7 +39,7 @@ void who_i_am(uint8_t* mpu_address)
         printf("Address is 0x68, adress is : %d", who_i_am);
 }
 
-void mpu_reset()
+void mpu_reset(void)
 {
     i2c_write_reg(mpu6050_reg.address, mpu6050_reg.reset_add, 0x80);
     sleep_ms(50);
@@ -198,9 +198,9 @@ bool mpu_accel_st(MPU6050* mpu6050, MPU6050_SELFTEST* mpu6050_accel_st)
     mpu6050_accel_st->Y_TEST = (mpu6050_accel_st->Y_TEST >> 3); mpu6050_accel_st->Y_TEST |= ((mpu6050_accel_st->A_TEST >> 2) & mask);
     mpu6050_accel_st->Z_TEST = (mpu6050_accel_st->Z_TEST >> 3); mpu6050_accel_st->Z_TEST |= (mpu6050_accel_st->A_TEST & mask);
     
-    mpu6050_accel_st->FT_X = 4096 * pow(0.92, (mpu6050_accel_st->X_TEST - 1.0) / 30.0);
-    mpu6050_accel_st->FT_Y = 4096 * pow(0.92, (mpu6050_accel_st->Y_TEST - 1.0) / 30.0);
-    mpu6050_accel_st->FT_Z = 4096 * pow(0.92, (mpu6050_accel_st->Z_TEST - 1.0) / 30.0);
+    mpu6050_accel_st->FT_X = 4096 * pow(0.92f, (mpu6050_accel_st->X_TEST - 1.0f) / 30.0f);
+    mpu6050_accel_st->FT_Y = 4096 * pow(0.92f, (mpu6050_accel_st->Y_TEST - 1.0f) / 30.0f);
+    mpu6050_accel_st->FT_Z = 4096 * pow(0.92f, (mpu6050_accel_st->Z_TEST - 1.0f) / 30.0f);
 
     mpu_read_raw(mpu6050); // read data while self test is enabled
     mpu6050_accel_st->STR_X = mpu6050->mpu6050_data.accel_raw[0] - accel_x;
@@ -241,9 +241,9 @@ bool mpu_gyro_st(MPU6050* mpu6050, MPU6050_SELFTEST* mpu6050_gyro_st)
     mpu6050_gyro_st->Y_TEST = (mpu6050_gyro_st->Y_TEST & mask);
     mpu6050_gyro_st->Z_TEST = (mpu6050_gyro_st->Z_TEST & mask);
     
-    mpu6050_gyro_st->FT_X = 25 * 131 * pow(1.046, (mpu6050_gyro_st->X_TEST - 1.0));
-    mpu6050_gyro_st->FT_Y = -25 * 131 * pow(1.046, (mpu6050_gyro_st->Y_TEST - 1.0));
-    mpu6050_gyro_st->FT_Z = 25 * 131 * pow(1.046, (mpu6050_gyro_st->Z_TEST - 1.0));
+    mpu6050_gyro_st->FT_X = 25 * 131 * pow(1.046f, (mpu6050_gyro_st->X_TEST - 1.0f));
+    mpu6050_gyro_st->FT_Y = -25 * 131 * pow(1.046f, (mpu6050_gyro_st->Y_TEST - 1.0f));
+    mpu6050_gyro_st->FT_Z = 25 * 131 * pow(1.046f, (mpu6050_gyro_st->Z_TEST - 1.0f));
 
     mpu_read_raw(mpu6050); // read data while self test is enabled
     mpu6050_gyro_st->STR_X = mpu6050->mpu6050_data.gyro_raw[0] - gyro_x;
@@ -263,27 +263,27 @@ void mpu_convert(MPU6050* mpu6050)
     switch(mpu6050->mpu6050_state.accel_res)
     {
         case 0:
-            mpu6050->mpu6050_data.accel_convert[0] = mpu6050->mpu6050_data.accel_no_offset[0] / 16384.0;
-            mpu6050->mpu6050_data.accel_convert[1] = mpu6050->mpu6050_data.accel_no_offset[1] / 16384.0;
-            mpu6050->mpu6050_data.accel_convert[2] = mpu6050->mpu6050_data.accel_no_offset[2] / 16384.0;
+            mpu6050->mpu6050_data.accel_convert[0] = mpu6050->mpu6050_data.accel_no_offset[0] / 16384.0f;
+            mpu6050->mpu6050_data.accel_convert[1] = mpu6050->mpu6050_data.accel_no_offset[1] / 16384.0f;
+            mpu6050->mpu6050_data.accel_convert[2] = mpu6050->mpu6050_data.accel_no_offset[2] / 16384.0f;
         break;
 
         case 1:
-            mpu6050->mpu6050_data.accel_convert[0] = mpu6050->mpu6050_data.accel_no_offset[0] / 8192.0;
-            mpu6050->mpu6050_data.accel_convert[1] = mpu6050->mpu6050_data.accel_no_offset[1] / 8192.0;
-            mpu6050->mpu6050_data.accel_convert[2] = mpu6050->mpu6050_data.accel_no_offset[2] / 8192.0;
+            mpu6050->mpu6050_data.accel_convert[0] = mpu6050->mpu6050_data.accel_no_offset[0] / 8192.0f;
+            mpu6050->mpu6050_data.accel_convert[1] = mpu6050->mpu6050_data.accel_no_offset[1] / 8192.0f;
+            mpu6050->mpu6050_data.accel_convert[2] = mpu6050->mpu6050_data.accel_no_offset[2] / 8192.0f;
         break;
 
         case 2:
-            mpu6050->mpu6050_data.accel_convert[0] = mpu6050->mpu6050_data.accel_no_offset[0] / 4096.0;
-            mpu6050->mpu6050_data.accel_convert[1] = mpu6050->mpu6050_data.accel_no_offset[1] / 4096.0;
-            mpu6050->mpu6050_data.accel_convert[2] = mpu6050->mpu6050_data.accel_no_offset[2] / 4096.0;
+            mpu6050->mpu6050_data.accel_convert[0] = mpu6050->mpu6050_data.accel_no_offset[0] / 4096.0f;
+            mpu6050->mpu6050_data.accel_convert[1] = mpu6050->mpu6050_data.accel_no_offset[1] / 4096.0f;
+            mpu6050->mpu6050_data.accel_convert[2] = mpu6050->mpu6050_data.accel_no_offset[2] / 4096.0f;
         break;
 
         case 3:
-            mpu6050->mpu6050_data.accel_convert[0] = mpu6050->mpu6050_data.accel_no_offset[0] / 2048.0;
-            mpu6050->mpu6050_data.accel_convert[1] = mpu6050->mpu6050_data.accel_no_offset[1] / 2048.0;
-            mpu6050->mpu6050_data.accel_convert[2] = mpu6050->mpu6050_data.accel_no_offset[2] / 2048.0;
+            mpu6050->mpu6050_data.accel_convert[0] = mpu6050->mpu6050_data.accel_no_offset[0] / 2048.0f;
+            mpu6050->mpu6050_data.accel_convert[1] = mpu6050->mpu6050_data.accel_no_offset[1] / 2048.0f;
+            mpu6050->mpu6050_data.accel_convert[2] = mpu6050->mpu6050_data.accel_no_offset[2] / 2048.0f;
         break;
     
     }
@@ -291,27 +291,27 @@ void mpu_convert(MPU6050* mpu6050)
     switch(mpu6050->mpu6050_state.gyro_res)
     {
         case 0:
-            mpu6050->mpu6050_data.gyro_convert[0] = mpu6050->mpu6050_data.gyro_no_offset[0] / 131.0;
-            mpu6050->mpu6050_data.gyro_convert[1] = mpu6050->mpu6050_data.gyro_no_offset[1] / 131.0;
-            mpu6050->mpu6050_data.gyro_convert[2] = mpu6050->mpu6050_data.gyro_no_offset[2] / 131.0;
+            mpu6050->mpu6050_data.gyro_convert[0] = mpu6050->mpu6050_data.gyro_no_offset[0] / 131.0f;
+            mpu6050->mpu6050_data.gyro_convert[1] = mpu6050->mpu6050_data.gyro_no_offset[1] / 131.0f;
+            mpu6050->mpu6050_data.gyro_convert[2] = mpu6050->mpu6050_data.gyro_no_offset[2] / 131.0f;
         break;
 
         case 1:
-            mpu6050->mpu6050_data.gyro_convert[0] = mpu6050->mpu6050_data.gyro_no_offset[0] / 65.5;
-            mpu6050->mpu6050_data.gyro_convert[1] = mpu6050->mpu6050_data.gyro_no_offset[1] / 65.5;
-            mpu6050->mpu6050_data.gyro_convert[2] = mpu6050->mpu6050_data.gyro_no_offset[2] / 65.5;
+            mpu6050->mpu6050_data.gyro_convert[0] = mpu6050->mpu6050_data.gyro_no_offset[0] / 65.5f;
+            mpu6050->mpu6050_data.gyro_convert[1] = mpu6050->mpu6050_data.gyro_no_offset[1] / 65.5f;
+            mpu6050->mpu6050_data.gyro_convert[2] = mpu6050->mpu6050_data.gyro_no_offset[2] / 65.5f;
         break;
 
         case 2:
-            mpu6050->mpu6050_data.gyro_convert[0] = mpu6050->mpu6050_data.gyro_no_offset[0] / 32.8;
-            mpu6050->mpu6050_data.gyro_convert[1] = mpu6050->mpu6050_data.gyro_no_offset[1] / 32.8;
-            mpu6050->mpu6050_data.gyro_convert[2] = mpu6050->mpu6050_data.gyro_no_offset[2] / 32.8;
+            mpu6050->mpu6050_data.gyro_convert[0] = mpu6050->mpu6050_data.gyro_no_offset[0] / 32.8f;
+            mpu6050->mpu6050_data.gyro_convert[1] = mpu6050->mpu6050_data.gyro_no_offset[1] / 32.8f;
+            mpu6050->mpu6050_data.gyro_convert[2] = mpu6050->mpu6050_data.gyro_no_offset[2] / 32.8f;
         break;
 
         case 3:
-            mpu6050->mpu6050_data.gyro_convert[0] = mpu6050->mpu6050_data.gyro_no_offset[0] / 16.4;
-            mpu6050->mpu6050_data.gyro_convert[1] = mpu6050->mpu6050_data.gyro_no_offset[1] / 16.4;
-            mpu6050->mpu6050_data.gyro_convert[2] = mpu6050->mpu6050_data.gyro_no_offset[2] / 16.4;
+            mpu6050->mpu6050_data.gyro_convert[0] = mpu6050->mpu6050_data.gyro_no_offset[0] / 16.4f;
+            mpu6050->mpu6050_data.gyro_convert[1] = mpu6050->mpu6050_data.gyro_no_offset[1] / 16.4f;
+            mpu6050->mpu6050_data.gyro_convert[2] = mpu6050->mpu6050_data.gyro_no_offset[2] / 16.4f;
         break;
     }
 }
@@ -454,17 +454,17 @@ void mpu_get_distance(MPU6050* mpu6050)
 
     for(uint16_t i = 0; i < mpu6050->mpu6050_data.accelbuffer.Buffer_Size; i++)
     {
-        if(mpu6050->mpu6050_data.accelbuffer.DataX[i] >= 0.001)
+        if(mpu6050->mpu6050_data.accelbuffer.DataX[i] >= 0.001f)
             accelX[i] = mpu6050->mpu6050_data.accelbuffer.DataX[i];
         else
             accelX[i] = 0;
 
-        if(mpu6050->mpu6050_data.accelbuffer.DataX[i] >= 0.001)
+        if(mpu6050->mpu6050_data.accelbuffer.DataX[i] >= 0.001f)
             accelY[i] = mpu6050->mpu6050_data.accelbuffer.DataY[i];
         else
             accelY[i] = 0;
 
-        if(mpu6050->mpu6050_data.accelbuffer.DataX[i] >= 0.001)
+        if(mpu6050->mpu6050_data.accelbuffer.DataX[i] >= 0.001f)
             accelZ[i] = mpu6050->mpu6050_data.accelbuffer.DataZ[i];    
         else
             accelZ[i] = 0;    
@@ -497,9 +497,9 @@ void mpu_get_distance(MPU6050* mpu6050)
 
 void mpu_get_theta(MPU6050* mpu6050)
 {
-    mpu6050->mpu6050_data.theta_roll  = (mpu6050->mpu6050_data.theta_roll  + mpu6050->mpu6050_data.gyro_convert[1] * 0.2) + (0.02 * mpu6050->mpu6050_data.accel_no_gravity[1] * (9.81));
-    mpu6050->mpu6050_data.theta_pitch = (mpu6050->mpu6050_data.theta_pitch + mpu6050->mpu6050_data.gyro_convert[0] * 0.2) + (0.02 * mpu6050->mpu6050_data.accel_no_gravity[0] * (9.81));
-    mpu6050->mpu6050_data.theta_yaw   = (mpu6050->mpu6050_data.theta_yaw   + mpu6050->mpu6050_data.gyro_convert[2] * 0.2) + (0.02 * mpu6050->mpu6050_data.accel_no_gravity[2] * (9.81));
+    mpu6050->mpu6050_data.theta_roll  = (mpu6050->mpu6050_data.theta_roll  + mpu6050->mpu6050_data.gyro_convert[1] * 0.2f) + (0.02f * mpu6050->mpu6050_data.accel_no_gravity[1] * (9.81f));
+    mpu6050->mpu6050_data.theta_pitch = (mpu6050->mpu6050_data.theta_pitch + mpu6050->mpu6050_data.gyro_convert[0] * 0.2f) + (0.02f * mpu6050->mpu6050_data.accel_no_gravity[0] * (9.81f));
+    mpu6050->mpu6050_data.theta_yaw   = (mpu6050->mpu6050_data.theta_yaw   + mpu6050->mpu6050_data.gyro_convert[2] * 0.2f) + (0.02f * mpu6050->mpu6050_data.accel_no_gravity[2] * (9.81f));
 }
 
 bool mpu_callback(struct repeating_timer *timer)
