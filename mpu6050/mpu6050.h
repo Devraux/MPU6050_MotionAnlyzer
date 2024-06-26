@@ -2,7 +2,7 @@
 #define _mpu6050_
 
 #include <stdbool.h>
-#include <stdio.h>
+#include "pico/stdio.h"
 #include <pico/stdlib.h>
 #include "hardware/i2c.h"
 #include "hardware/gpio.h"
@@ -33,6 +33,7 @@ typedef struct MPU6050_REG
     const uint8_t A_TEST;       //second accelerometer test register XA_TEST[1:0]
     const uint8_t config;       //gyroscope DLPF_CFG set register
     const uint8_t SMPLRT_DIV;   //sample rate divider
+    const uint8_t FIFO_EN;  // fifo enable
 }MPU6050_REG;
 
 typedef struct MPU6050_STATE
@@ -175,5 +176,14 @@ bool mpu_callback(struct repeating_timer* timer);
 /// @brief compute pitch and roll from accelerometer and gyroskope 
 /// @param MPU6050 => mpu6050 output data
 void mpu_get_theta(MPU6050* mu6050);
+
+// mpu_fifo_enable //
+/// @brief enable fifo in MPU6050
+/// @return true if fifo was enabled successfully, false otherwise
+/// @param temp_en -> 0 - disable, 1 -> enable temp fifo
+/// @param acc_en -> 0 - disable, 1 -> enable accelerometer fifo
+/// @param gyro_en -> 0 - disable, 1 -> enable gyroscope fifo
+bool mpu_fifo_set(bool temp_en, bool acc_en, bool gyro_en);
+
 
 #endif

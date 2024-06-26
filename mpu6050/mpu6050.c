@@ -17,7 +17,8 @@ MPU6050_REG mpu6050_reg = {
     .ZA_TEST = 0x0F,        //ZA_TEST and ZG_test register
     .A_TEST = 0x10,         //second accelerometer test register XA_TEST[1:0]
     .config = 0x1A,         //gyroscope DLPF_CFG set register
-    .SMPLRT_DIV = 0x19      //sample rate divider
+    .SMPLRT_DIV = 0x19,     //sample rate divider
+    .FIFO_EN = 0x23     // fifo enable
 };
 
 void i2c_write_reg(uint8_t i2c_address, uint8_t reg, uint8_t data)
@@ -511,6 +512,56 @@ bool mpu_callback(struct repeating_timer *timer)
         mpu_get_distance(mpu6050);
 
     return true;
+}
+
+bool mpu_fifo_en(bool temp_en, bool acc_en, bool gyro_en)
+{
+
+    uint8_t current_set = 0;
+    uint8_t mask = 0b00000000;
+
+    i2c_write_blocking(i2c1, mpu6050_reg.address, &mpu6050_reg.FIFO_EN, 1, true); 
+    i2c_read_blocking(i2c1, mpu6050_reg.address, &current_set, 1, false); 
+
+    switch(temp_en)
+    {
+        case 0:
+            mask = current_set & 0b01111111;
+            i2c_write_reg(mpu6050_reg.address, mpu6050_reg.FIFO_EN, mask);
+        break;
+
+        case 1:
+            mask = current_set | 0b1000000;
+            i2c_write_reg(mpu6050_reg.address, mpu6050_reg.FIFO_EN, mask);
+        break;
+    } 
+
+    switch(acc_en)
+    {
+        case 0:
+            mask = current_set & 0b11110111;
+            i2c_write_reg(mpu6050_reg.address, mpu6050_reg.FIFO_EN, mask);
+        break;
+
+        case 1:
+            mask = current_set | 0b00001000;
+            i2c_write_reg(mpu6050_reg.address, mpu6050_reg.FIFO_EN, mask);
+        break;
+    } 
+
+    switch(gyro_en)
+    {
+        case 0:
+            mask = current_set & 0b10001111;
+            i2c_write_reg(mpu6050_reg.address, mpu6050_reg.FIFO_EN, mask);
+        break;
+
+        case 1:
+            mask = current_set | 0b01110000;
+            i2c_write_reg(mpu6050_reg.address, mpu6050_reg.FIFO_EN, mask);
+        break;
+    } 
+
 }
 
 int16_t get_variance(int16_t* data, uint8_t data_size)
