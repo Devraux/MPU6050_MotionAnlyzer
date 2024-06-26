@@ -514,7 +514,7 @@ bool mpu_callback(struct repeating_timer *timer)
     return true;
 }
 
-bool mpu_fifo_en(bool temp_en, bool acc_en, bool gyro_en)
+void mpu_fifo_en(bool temp_en, bool acc_en, bool gyro_en)
 {
 
     uint8_t current_set = 0;
@@ -562,6 +562,13 @@ bool mpu_fifo_en(bool temp_en, bool acc_en, bool gyro_en)
         break;
     } 
 
+}
+
+void mpu_fifo_get_data(int8_t* data)
+{
+    i2c_write_blocking(i2c1, mpu6050_reg.address, &mpu6050_reg.FIFO_EN, 1, true); 
+    i2c_read_blocking(i2c1, mpu6050_reg.address, data, 1, false); 
+    //TODO
 }
 
 int16_t get_variance(int16_t* data, uint8_t data_size)

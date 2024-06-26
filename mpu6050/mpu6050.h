@@ -183,7 +183,11 @@ void mpu_get_theta(MPU6050* mu6050);
 /// @param temp_en -> 0 - disable, 1 -> enable temp fifo
 /// @param acc_en -> 0 - disable, 1 -> enable accelerometer fifo
 /// @param gyro_en -> 0 - disable, 1 -> enable gyroscope fifo
-bool mpu_fifo_set(bool temp_en, bool acc_en, bool gyro_en);
+void mpu_fifo_set(bool temp_en, bool acc_en, bool gyro_en);
 
+// mpu_fifo_get_data //
+/// @brief -> return one byte of data from fifo buffer  
+/// @param -> data from fifo buffer
+void mpu_fifo_get_data(int8_t* data);
 
 #endif
