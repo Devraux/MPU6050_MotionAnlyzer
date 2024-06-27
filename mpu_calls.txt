@@ -1,3 +1,5 @@
+// Some of the function calls used in this project are deprecated //
+
 // SELFTEST //
 MPU6050_SELFTEST accel_st, gyro_st;
 mpu_accel_st(&mpu6050, &accel_st);
