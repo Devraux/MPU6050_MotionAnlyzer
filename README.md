@@ -12,7 +12,7 @@ This application is a simple IMU (Inertial Measurement Unit) based on MPU6050 an
 # Todo:
 - [ ] Kalman Filter imlementation
 - [ ] Implement FIFO and Pi Pico DMA connection
-- [*] Improve accuracy
+- [x] Improve accuracy
 
 [!CAUTION]
 This project is still under development and is not fully finished. Therefore, there may be some errors in the code that are being systematically fixed. Thank you for your patience.
