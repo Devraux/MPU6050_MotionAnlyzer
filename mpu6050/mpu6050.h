@@ -11,6 +11,7 @@
 #include "../kalman_filter/kalman_filter.h"
 #include "../ringbuffer/ringbuffer.h"
 #include <math.h>
+#include <string.h>
 
 //I2C INTERFACE//
 #define SDA_Pin 26
@@ -18,23 +19,27 @@
 
 typedef struct MPU6050_REG
 {
-    const uint8_t address;      //device address
-    const uint8_t who_i_am_add;
-    const uint8_t reset_add;    //reset address
-    const uint8_t accel_add;    //accelerator data address register
-    const uint8_t gyro_add;     //gryoscope data address register
-    const uint8_t temp_add;     //temperature data address register
-    const uint8_t gyro_res;     // gyroscope resolution config and calibration
-    const uint8_t acc_config;   // accelerometer resolution config and calibration
-    const uint8_t gyro_config;  // gyroscope resolution config and calibration
-    const uint8_t XA_TEST;      //XA_TEST and XG_test register 
-    const uint8_t YA_TEST;      //YA_TEST and YG_test register
-    const uint8_t ZA_TEST;      //ZA_TEST and ZG_test register
-    const uint8_t A_TEST;       //second accelerometer test register XA_TEST[1:0]
-    const uint8_t config;       //gyroscope DLPF_CFG set register
-    const uint8_t SMPLRT_DIV;   //sample rate divider
-    const uint8_t FIFO_EN;  // fifo enable
-}MPU6050_REG;
+    const uint8_t address;            //device address
+    const uint8_t who_i_am_add;    
+    const uint8_t reset_add;          //reset address
+    const uint8_t accel_add;          //accelerator data address register
+    const uint8_t gyro_add;           //gryoscope data address register
+    const uint8_t temp_add;           //temperature data address register
+    const uint8_t gyro_res;           // gyroscope resolution config and calibration
+    const uint8_t acc_config;         // accelerometer resolution config and calibration
+    const uint8_t gyro_config;        // gyroscope resolution config and calibration
+    const uint8_t XA_TEST;            //XA_TEST and XG_test register 
+    const uint8_t YA_TEST;            //YA_TEST and YG_test register
+    const uint8_t ZA_TEST;            //ZA_TEST and ZG_test register
+    const uint8_t A_TEST;             //second accelerometer test register XA_TEST[1:0]
+    const uint8_t config;             //gyroscope DLPF_CFG set register
+    const uint8_t SMPLRT_DIV;         //sample rate divider
+    const uint8_t FIFO_EN;            // fifo enable
+    const uint8_t FIFO_COUNTER_H ;    // fifo counter high[15 : 8]
+    const uint8_t FIFO_COUNTER_L;     // fifo counter high[7 : 0]
+    const uint8_t INT_ENABLE;         // interrupt register
+    const uint8_t USER_CTRL;          // user control
+}MPU6050_REG;    
 
 typedef struct MPU6050_STATE
 {
@@ -178,7 +183,7 @@ bool mpu_callback(struct repeating_timer* timer);
 void mpu_get_theta(MPU6050* mu6050);
 
 // mpu_fifo_enable //
-/// @brief enable fifo in MPU6050
+/// @brief enable fifo in MPU6050 and enable fifo overflow interrupt(int pin)
 /// @return true if fifo was enabled successfully, false otherwise
 /// @param temp_en -> 0 - disable, 1 -> enable temp fifo
 /// @param acc_en -> 0 - disable, 1 -> enable accelerometer fifo

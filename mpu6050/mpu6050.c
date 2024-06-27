@@ -18,7 +18,11 @@ MPU6050_REG mpu6050_reg = {
     .A_TEST = 0x10,         //second accelerometer test register XA_TEST[1:0]
     .config = 0x1A,         //gyroscope DLPF_CFG set register
     .SMPLRT_DIV = 0x19,     //sample rate divider
-    .FIFO_EN = 0x23     // fifo enable
+    .FIFO_EN = 0x23,        // fifo enable
+    .FIFO_COUNTER_H = 0x72, // fifo counter high[15 : 8]
+    .FIFO_COUNTER_L = 0x73, // fifo counter high[7 : 0]
+    .INT_ENABLE = 0x38,     //  interrupt register
+    .USER_CTRL = 0x6A       // user control
 };
 
 void i2c_write_reg(uint8_t i2c_address, uint8_t reg, uint8_t data)
@@ -517,6 +521,7 @@ bool mpu_callback(struct repeating_timer *timer)
 void mpu_fifo_en(bool temp_en, bool acc_en, bool gyro_en)
 {
 
+    i2c_write_reg(mpu6050_reg.address, mpu6050_reg.USER_CTRL, 0b01000000);
     uint8_t current_set = 0;
     uint8_t mask = 0b00000000;
 
@@ -562,13 +567,29 @@ void mpu_fifo_en(bool temp_en, bool acc_en, bool gyro_en)
         break;
     } 
 
+    // ENABLE FIFO INTERRUPT //
+
+    uint8_t int_current_set = 0;
+    uint8_t int_mask = 0b00010000;  
+
+    i2c_write_blocking(i2c1, mpu6050_reg.address, &mpu6050_reg.INT_ENABLE, 1, true); 
+    i2c_read_blocking(i2c1, mpu6050_reg.address, &int_current_set, 1, false); 
+
+    i2c_write_reg(mpu6050_reg.address, mpu6050_reg.INT_ENABLE, int_mask | int_current_set);
 }
 
 void mpu_fifo_get_data(int8_t* data)
 {
-    i2c_write_blocking(i2c1, mpu6050_reg.address, &mpu6050_reg.FIFO_EN, 1, true); 
-    i2c_read_blocking(i2c1, mpu6050_reg.address, data, 1, false); 
-    //TODO
+    uint16_t buffer_size = 1024;
+    int8_t buffer[1024];
+
+    for(uint16_t i = 0; i < buffer_size; i++)
+    {
+        i2c_write_blocking(i2c1, mpu6050_reg.address, &mpu6050_reg.FIFO_EN, 1, true); 
+        i2c_read_blocking(i2c1, mpu6050_reg.address, buffer, 1, false); 
+    }    
+
+    memcpy(data, buffer, buffer_size);
 }
 
 int16_t get_variance(int16_t* data, uint8_t data_size)
