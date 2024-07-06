@@ -75,7 +75,7 @@ typedef struct MPU6050_DATA
     float accel_no_gravity[3];          //user's data without offset and gravity constant
 
     float distance;                     // computed distance
-    float theta_roll, theta_pitch, theta_yaw;      // theta nagle
+    float theta_roll, theta_pitch, theta_yaw;      // theta angle
 }MPU6050_DATA;
 
 typedef struct MPU6050
